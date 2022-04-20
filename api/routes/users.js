@@ -46,12 +46,24 @@ module.exports = router;
 router.get("/find/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    return res.status(201).json(user);
+    const { password, updatedAt, ...others } = user._doc;
+    return res.status(201).json(others);
   } catch (error) {
     return res
       .status(401)
       .json("unable to get user. something went wrong" + error);
   }
 });
+// get all user
+router.get("/all", async (req, res) => {
+  try {
+    const user = await User.find();
+    return res.status(201).json(user);
+  } catch (error) {
+    return res.status(401).json("unable to get all user" + error);
+  }
+});
+
+
 
 module.exports = router;

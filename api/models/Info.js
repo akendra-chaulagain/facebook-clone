@@ -4,21 +4,27 @@ const InfoSchema = new mongoose.Schema(
   {
     desc: {
       type: String,
+      default: "",
     },
     study: {
       type: String,
+      default: "",
     },
     hobbies: {
       type: String,
+      default: "",
     },
     address: {
       type: String,
+      default: "",
     },
     insta: {
       type: String,
+      default: "",
     },
     whatsapp: {
       type: String,
+      default: "",
     },
     relationship: {
       type: Number,
@@ -26,6 +32,7 @@ const InfoSchema = new mongoose.Schema(
     },
     job: {
       type: String,
+      default: "",
     },
   },
   { timestamps: true }
