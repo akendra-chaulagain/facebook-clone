@@ -17,10 +17,31 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
-      required: true,
+      min: 6,
+    },
+    profilePic: {
+      type: String,
+      default: "",
+    },
+    coverPic: {
+      type: String,
+      default: "",
+    },
+    followers: {
+      type: Array,
+      default: [],
+    },
+    followins: {
+      type: Array,
+      default: [],
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
@@ -28,8 +49,3 @@ const userSchema = new mongoose.Schema(
 
 const User = mongoose.model("USER", userSchema);
 module.exports = User;
-
-
-
-
-

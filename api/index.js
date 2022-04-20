@@ -1,19 +1,25 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const morgan = require("morgan");
+const helmet = require("helmet");
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/users")
 
 // config dot env
 dotenv.config({ path: "./config.env" });
-app.use(express.json());
 
 // port no
 const PORT = process.env.PORT;
 
-
-
 // middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+// customized middleware
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Port no: ${PORT}`);

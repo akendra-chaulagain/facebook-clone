@@ -9,7 +9,15 @@ require("../DataBase/DB");
 
 // register user
 router.post("/register", async (req, res) => {
-  const { firstname, lastname, contact, password, email } = req.body;
+  const {
+    firstname,
+    lastname,
+    contact,
+    password,
+    email,
+    profilePic,
+    coverPic,
+  } = req.body;
   if (!firstname || !lastname || !contact || !password || !email) {
     return res.status(401).json("Enter all the data");
   }
@@ -26,6 +34,8 @@ router.post("/register", async (req, res) => {
         contact,
         password,
         email,
+        profilePic,
+        coverPic,
       });
       // generate salt to hash password
       const salt = await bcrypt.genSalt(12);
@@ -41,13 +51,13 @@ router.post("/register", async (req, res) => {
 
 // login user
 router.post("/login", async (req, res) => {
-  const { password, email } = req.body;
-  if (!password || !email) {
-    return res.status(401).json("Enter all the data");
-  }
+  const { password, email, contact } = req.body;
+
   try {
-    //   find user email from database
-    const user = await User.findOne({ email });
+    //   find user email and contact no  from database and according to email and contact number  user will login
+    const user = await User.findOne({
+      $or: [{ email }, { contact }],
+    });
     if (user) {
       // check user password with hashed password stored in the database
       const isMatch = await bcrypt.compare(password, user.password);
