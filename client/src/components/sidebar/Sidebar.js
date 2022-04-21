@@ -16,12 +16,8 @@ const Sidebar = () => {
     <>
       <div className="sidebar">
         <div className="profileImgSidebar">
-          <img
-            className="img-fluid"
-            src="https://image.shutterstock.com/image-vector/businessman-icon-600w-564112600.jpg"
-            alt=""
-          />
-          <span>Akendra Chaulagain</span>
+          <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+          <p>Akendra Chaulagain</p>
         </div>
 
         <div className="sidebatIcon">
@@ -87,8 +83,8 @@ const Sidebar = () => {
           </div>
         </div>
         <p className="desc">
-          Privacy · Terms · Advertising · Ad Choices · Cookies &#169;· Meta ©
-          2022
+          Privacy · Terms · Advertising · Ad Choices <br />· Cookies &#169;·
+          Meta © 2022
         </p>
       </div>
     </>

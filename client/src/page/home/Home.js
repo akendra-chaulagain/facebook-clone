@@ -1,18 +1,31 @@
 import React from "react";
+import Post from "../../components/post/Post";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
-import "./Home.css"
+import "./Home.css";
 
 const Home = () => {
   return (
     <>
       <Topbar />
-
-      <div className="home">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-3">
+            <Sidebar />
+          </div>
+          <div className="col-6">
+            <Post />
+          </div>
+          <div className="col-3"></div>
+        </div>
+      </div>
+      {/* <div className="home">
         <Sidebar />
 
-        <div className="homeContainer"></div>
-      </div>
+        <div className="homeContainer">
+          <Post />
+        </div>
+      </div> */}
     </>
   );
 };

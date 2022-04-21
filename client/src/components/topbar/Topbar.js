@@ -1,6 +1,5 @@
 import React from "react";
 import "./Topbar.css";
-// import FacebookRoundedIcon from "@material-ui/icons/Facebook";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
@@ -22,7 +21,7 @@ const Topbar = () => {
                 <FacebookRoundedIcon style={{ fontSize: "50" }} />
               </div>
               <div className="searchbox">
-                <input type="text" placeholder="Search Facebook"/>
+                <input type="text" placeholder="Search Facebook" />
               </div>
             </div>
             {/* middle side topbar */}
@@ -48,11 +47,7 @@ const Topbar = () => {
             {/*  left side topbar*/}
             <div className="col-4 rightSideTopbar">
               <div className="profileImg">
-                <img
-                  className="img-fluid"
-                  src="https://image.shutterstock.com/image-vector/businessman-icon-600w-564112600.jpg"
-                  alt=""
-                />
+                <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
               </div>
               <div className="profileName">
                 <p>Akendra</p>
