@@ -1,12 +1,11 @@
 import React from "react";
+import Home from "./page/home/Home";
 
 const App = () => {
   return (
     <>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus,
-        harum.
-      </h1>
+    {/* home page */}
+     <Home/>
     </>
   );
 };
