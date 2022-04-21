@@ -1,0 +1,124 @@
+.sidebar {
+    flex: 1.5;
+    background-color: #F0F2F5;
+    margin-top: 5px;
+    height: 100vh;
+}
+
+/* profile img */
+.profileImgSidebar img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.profileImgSidebar span {
+    font-style: 14px;
+    padding-top: 10%;
+    margin-left: 10px;
+    cursor: pointer;
+    color: black;
+    margin-top: 10px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* icons */
+.sideBarIconItem {
+    cursor: pointer;
+}
+
+.sidebatIcon :hover {
+    background-color: rgb(217, 217, 217);
+    border-radius: 5px;
+}
+
+.group {
+    color: rgb(27, 135, 245);
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.text {
+    color: #444545;
+    margin-left: 15px;
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+
+
+/* friend */
+.friend {
+    color: rgb(26, 126, 244);
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.store {
+    color: #2593E1;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.watch {
+    color: #2593E1;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.page {
+    color: #EA572A;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.memories {
+    color: #0165E1;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.saved {
+    color: #B534B9;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.events {
+    color: rgb(244, 81, 109);
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.favourites {
+    color: #F8CC48;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+
+}
+
+.recent {
+    color: #2593E1;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.desc {
+    font-size: 13px;
+    margin-top: 20px;
+    margin-left: 10px;
+}

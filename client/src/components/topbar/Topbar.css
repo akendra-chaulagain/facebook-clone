@@ -56,8 +56,13 @@
 }
 
 .middleIconElement:hover {
-    background-color: rgb(235, 232, 232);
+    background-color: rgb(244, 239, 239);
 }
+
+.middleIconElement :active {
+    color: #0165E1;
+}
+
 
 .middleSideTopbar .middleIconElement {
     color: rgb(82, 80, 80);
@@ -69,7 +74,6 @@
 }
 
 .middleIconElement :hover+.hide {
-
     display: block;
     color: white;
     font-size: 13px;
