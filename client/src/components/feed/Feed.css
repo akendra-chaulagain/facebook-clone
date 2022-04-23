@@ -1,0 +1,81 @@
+.feed {
+    margin-top: 10vh;
+    height: 19vh;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+    border-radius: 7px;
+}
+
+
+.profileImgFeed {
+    background-color: white;
+}
+
+.profileImgFeed img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.profileImgFeed input {
+    width: 92%;
+    outline: none;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    color: gray;
+    padding: 2px 10px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+/* icons */
+.feedIcons {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+.feedVideoIcon {
+    background-color: white;
+    color: #F3425F;
+    cursor: pointer;
+}
+
+.feedVideoIcon span {
+    background-color: white;
+    color: gray;
+    margin-left: 10px;
+}
+
+.feedImageIcon {
+    background-color: white;
+    color: #45BD62;
+    cursor: pointer;
+}
+
+.feedImageIcon span {
+    background-color: white;
+    color: gray;
+    margin-left: 10px;
+
+}
+
+.feedActivitiesIcon {
+    background-color: white;
+    color: #F7B928;
+    cursor: pointer;
+}
+
+.feedActivitiesIcon span {
+    background-color: white;
+    color: gray;
+    margin-left: 10px;
+}

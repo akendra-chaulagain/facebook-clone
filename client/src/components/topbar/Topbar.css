@@ -4,7 +4,7 @@
     -webkit-box-shadow: -1px 6px 13px -4px rgba(0, 0, 0, 0.56);
     box-shadow: -1px 6px 13px -9px rgba(0, 0, 0, 0.56);
     position: fixed;
-    background-color: whitesmoke;
+    background-color: white;
     z-index: 999;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .searchbox input {
-    background-color: #F0F2F5;
+    background-color: #e9e9ea;
     height: 40px;
     width: 150%;
     outline: none;
@@ -118,7 +118,7 @@
 .rightSideIcon .rightIconItem {
     display: inline-block;
     border-radius: 50px;
-    background-color: rgb(231, 228, 228);
+    background-color: white;
     height: 40px;
     width: 40px;
     display: flex;
@@ -131,7 +131,7 @@
 }
 
 .rightSideIcon .rightIconItem:hover {
-    background-color: rgb(212, 205, 205);
+    background-color: gainsboro;
 }
 
 .profileName p {
