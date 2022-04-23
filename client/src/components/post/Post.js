@@ -4,6 +4,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   return (
@@ -11,12 +12,15 @@ const Post = () => {
       <div className="post">
         {/* user profile desc */}
         <div className="userPost">
-          <div className="UserProfileIg">
-            <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-            <span>Akendra Chaulagain</span>
-            <br />
-            <p>8h</p>
-          </div>
+          <Link className="link" to="/profile">
+            <div className="UserProfileIg">
+              <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+              <span>Akendra Chaulagain</span>
+              <br />
+              <p>8h</p>
+            </div>
+          </Link>
+
           {/* icon */}
           <div className="posatIcon">
             <MoreHorizIcon />

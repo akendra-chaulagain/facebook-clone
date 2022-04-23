@@ -5,11 +5,13 @@
 
 /* left side intro */
 .leftSideIntro {
-  height: auto;
+  height: 55vh;
   box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
   margin-top: 20px;
   border-radius: 12px;
   color: gray;
+  position: sticky;
+  top: 10vh;
 }
 .leftSideIntro h3 {
   margin: 10px;
@@ -35,7 +37,7 @@
   padding: 3px 10px;
   font-size: 14px;
   color: rgb(74, 74, 74);
-  background-color: #E4E6EB;
+  background-color: #e4e6eb;
   font-weight: 600;
-
+  margin-top: 25px;
 }

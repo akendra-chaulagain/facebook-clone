@@ -10,15 +10,18 @@ import EventIcon from "@mui/icons-material/Event";
 import StarIcon from "@mui/icons-material/Star";
 import Page from "@mui/icons-material/Flag";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <>
       <div className="sidebar">
-        <div className="profileImgSidebar">
-          <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-          <p>Akendra Chaulagain</p>
-        </div>
+        <Link className="link" to="/profile">
+          <div className="profileImgSidebar">
+            <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+            <p>Akendra Chaulagain</p>
+          </div>
+        </Link>
 
         <div className="sidebatIcon">
           <div className="sideBarIconItem friend">

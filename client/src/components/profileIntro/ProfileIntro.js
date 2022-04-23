@@ -6,13 +6,14 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import Post from "../../components/post/Post";
 
 const ProfileIntro = () => {
   return (
     <>
       <div className="container-fluid profileIntro">
         <div className="row profileIntroWrapper">
-          <div className="col-md-6 leftSideIntro">
+          <div className="col-md-4 leftSideIntro">
             <h3>Intro</h3>
             <div className="introIcons">
               {/* user information with icons */}
@@ -48,11 +49,43 @@ const ProfileIntro = () => {
               <button>Edit Details</button>
             </div>
           </div>
-          <div className="col-md-6 rightSideIntro">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Doloribus, saepe!
-            </p>
+          <div className="col-md-8 rightSideIntro">
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
           </div>
         </div>
       </div>

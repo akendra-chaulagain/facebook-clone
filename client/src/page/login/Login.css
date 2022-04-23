@@ -1,0 +1,78 @@
+.login {
+  height: 100vh;
+  width: 100%;
+  background-color: #f0f2f5;
+}
+
+.loginWrapper {
+  height: auto;
+}
+.leftSideLogin {
+  width: 30%;
+  height: 78vh;
+  display: flex;
+  margin-left: 15%;
+}
+.loginLeftSideText {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.loginLeftSideText h1 {
+  color: #1877f2;
+  font-weight: 900;
+  font-size: 55px;
+}
+
+/* login form */
+.rightSideLoginForm {
+    height: 48vh;
+  width: 25%;
+  margin-top: 22vh;
+  background-color: white;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  border-radius: 10px;
+  margin-left: 8%;
+}
+.rightSideLoginForm input {
+  height: 50px;
+  width: 100%;
+  margin-top: 19px;
+  outline: none;
+  border: none;
+  border: 1px solid #9e949c;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+.loginBtn button {
+  margin-top: 20px;
+  width: 100%;
+  height: 48px;
+  outline: none;
+  border: none;
+  background-color: #1877f2;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.loginBtn p {
+  margin-top: 5px;
+  color: #1877f2;
+  font-size: 15px;
+  cursor: pointer;
+}
+.loginBtn p:hover {
+  text-decoration: underline;
+}
+
+.createNewAccountBtn button {
+  background-color: #42b72a;
+  color: white;
+  width: 60%;
+  margin-left: 20%;
+  outline: none;
+  border: none;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
