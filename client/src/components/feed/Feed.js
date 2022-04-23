@@ -16,6 +16,7 @@ const Feed = () => {
             <hr />
           </div>
         </div>
+        {/* icons */}
         <div className="feedIcons">
           <div className="feedVideoIcon feddIconItem">
             <VideoCallIcon style={{ fontSize: 27 }} />
