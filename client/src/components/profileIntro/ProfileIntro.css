@@ -1,0 +1,41 @@
+.profileIntro {
+  margin-left: 10%;
+  width: 80%;
+}
+
+/* left side intro */
+.leftSideIntro {
+  height: auto;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  margin-top: 20px;
+  border-radius: 12px;
+  color: gray;
+}
+.leftSideIntro h3 {
+  margin: 10px;
+}
+
+.introIconItem {
+  margin-top: 20px;
+}
+.introIconItem span {
+  margin-left: 15px;
+}
+
+/* edit button */
+.userInfoEditBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.userInfoEditBtn button {
+  border: none;
+  outline: none;
+  padding: 3px 10px;
+  font-size: 14px;
+  color: rgb(74, 74, 74);
+  background-color: #E4E6EB;
+  font-weight: 600;
+
+}
