@@ -1,0 +1,14 @@
+.followersContainer {
+  height: 100vh;
+  margin-top: 4vh;
+  overflow-y: scroll;
+  position: sticky;
+  top: 0;
+}
+
+.followersContainer h3 {
+  font-size: 16px;
+  color: #65676b;
+  margin-top: 4vh;
+  font-weight: 600;
+}

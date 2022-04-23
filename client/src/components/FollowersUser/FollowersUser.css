@@ -1,0 +1,21 @@
+.followersUser {
+  height: 6vh;
+  width: 100%;
+  opacity: 0.8;
+}
+.followerUserInfo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.followerUserInfo span {
+  color: #65676b;
+  font-size: 15px;
+  margin-left: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Feed from "../../components/feed/Feed";
+import Followers from "../../components/Followers/Followers";
 import Post from "../../components/post/Post";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
@@ -35,7 +36,9 @@ const Home = () => {
             <Post />
             <Post />
           </div>
-          <div className="col-3"></div>
+          <div className="col-3 followersContainer">
+            <Followers />
+          </div>
         </div>
       </div>
     </>
