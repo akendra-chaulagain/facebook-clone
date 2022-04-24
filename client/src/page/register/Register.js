@@ -8,27 +8,32 @@ const Register = () => {
     <>
       <div className=" registerPage">
         <div className="registerFrom">
+          <div className="registerHeadingText">
+            <h2>Sign Up</h2>
+            <p>It's quick and easy.</p>
+            <hr />
+          </div>
+
           <form className=" registerFormContainer">
             {/* name */}
-            <div className="inputBox mt-2">
+            <div className=" inputBoxFirst mt-2">
               <input
-                label="UserName"
                 name="username"
                 type="text"
                 placeholder="First name"
+                autoComplete="off"
               />
               {/* lastname */}
               <input
-                label="UserName"
                 name="username"
                 type="text"
                 placeholder="Last name"
+                autoComplete="off"
               />
             </div>
             {/* email */}
             <div className="inputBox">
               <input
-                label="Email"
                 name="email"
                 type="email"
                 placeholder="Mobile number or email"
@@ -36,38 +41,43 @@ const Register = () => {
             </div>
             {/* birthday */}
             <div className="inputBox">
-              <input
-                label="Password"
-                name="password"
-                type="password"
-                placeholder="password"
-              />
+              <input name="password" type="password" placeholder="password" />
             </div>
-            {/* cpassword */}
+            {/* date */}
+            <div className="inputBoxBirthday">
+              <label>Birthday</label>
+              <input type="date" />
+            </div>
+            {/* gender */}
+            <div className="inputBoxGender">
+              <span>Gender</span>
+              <br />
+              {/* male */}
+              <input type="radio" value="male" id="male" name="drone" />
+              <label htmlFor="male">Male</label>
+              {/* female */}
+              <input type="radio" value="female" id="female" name="drone" />
+              <label htmlFor="female">Female</label>
+              {/* other */}
+              <input type="radio" value="other" id="others" name="drone" />
+              <label htmlFor="others">Others</label>
+            </div>
+            <hr />
+            <div className="terms">
+              By clicking Sign Up, you agree to our Terms, Data Policy and
+              Cookies Policy. You may receive SMS Notifications from us and can
+              opt out any time.
+            </div>
             <div className="inputBox">
-              <input
-                label="Confirm Password"
-                name="cpassword"
-                type="password"
-                placeholder="confirm password"
-              />
+              <button>Sign Up</button>
             </div>
-            <div className="inputBox">
-              {/* <button onClick={handleRegister}>Continue</button> */}
-              <button>Continue</button>
-            </div>
+            <p className="alreadyAccount">
+              Already have an account ?{/* render to login page when click */}
+              <Link className="link linkBtn" to="/login">
+                <span className="siginInBtn">SIGN IN</span>
+              </Link>
+            </p>
           </form>
-          <p>
-            Already have an account ?{/* render to login page when click */}
-            <Link className="link" to="/login">
-              <span className="siginInBtn">SIGN IN</span>
-            </Link>
-          </p>
-          <div className="terms">
-            By clicking Sign Up, you agree to our Terms, Data Policy and Cookies
-            Policy. You may receive SMS Notifications from us and can opt out
-            any time.
-          </div>
         </div>
       </div>
     </>

@@ -9,8 +9,101 @@
 }
 
 .registerFrom {
-  height: 50vh;
-  background-color: #FCFCFD;
-  width: 40%;
+  height: auto;
+  background-color: #fcfcfd;
+  width: 28%;
   box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+}
+.registerHeadingText h2 {
+  color: rgb(48, 47, 47);
+  margin: 10px 0px 0px 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+.registerHeadingText p {
+  margin-left: 3%;
+  color: gray;
+}
+
+.inputBoxFirst input {
+  width: 45%;
+  height: 40px;
+  padding: 2px 7px;
+  margin-left: 3%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+}
+.inputBox input {
+  margin-left: 3%;
+  width: 92.5%;
+  margin-top: 10px;
+  height: 40px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+}
+
+.inputBoxBirthday label {
+  margin-left: 3%;
+  margin-top: 10px;
+  font-size: 13px;
+  color: gray;
+}
+.inputBoxGender span {
+  margin-left: 3%;
+  margin-top: 10px;
+  color: gray;
+  font-size: 12px;
+}
+
+.inputBoxBirthday input {
+  margin-left: 3%;
+  width: 92.5%;
+  height: 40px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+  color: gray;
+}
+
+.inputBoxGender input {
+  margin-left: 15%;
+}
+.terms {
+  font-size: 12px;
+  margin: 5px 10px 2px 10px;
+}
+.inputBox button {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 5px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+  color: gray;
+  padding: 6px 15px;
+  border-radius: 5px;
+  background-color: #00a400;
+  color: white;
+  font-weight: 600;
+}
+.alreadyAccount {
+  margin-left: 5%;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.linkBtn {
+  margin-left: 10px;
+}
+.linkBtn:hover {
+  color: green;
+  text-decoration: underline;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -30,7 +31,9 @@ const Login = () => {
               <hr />
               {/* create new account button */}
               <div className="createNewAccountBtn">
+                <Link className="link" to="/register">
                   <button>Create new account</button>
+                </Link>
               </div>
             </form>
           </div>
