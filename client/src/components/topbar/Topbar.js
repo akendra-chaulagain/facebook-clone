@@ -9,6 +9,8 @@ import Messanger from "@material-ui/icons/Message";
 import Notification from "@material-ui/icons/Notifications";
 import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const Topbar = () => {
   return (
@@ -61,7 +63,6 @@ const Topbar = () => {
                   />
                   <span>Akendra</span>
                 </div>
-             
               </Link>
 
               <div className="rightSideIcon">
@@ -76,6 +77,26 @@ const Topbar = () => {
                 <div className="rightIconItem">
                   <Notification style={{ fontSize: 21 }} />
                   <p className="hide">Notification</p>
+                </div>
+                {/* drow down menu */}
+                <div className="rightIconItem dropDownItem">
+                  <div className="dropdown">
+                    <button
+                      className=" dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    ></button>
+                    <ul className="dropdown-menu ">
+                      <div className="dropDownIcon">
+                        <LogoutIcon /> <span>Log Out</span>
+                      </div>
+                      <div className="dropDownIcon">
+                        <SettingsIcon /> <span>Setting</span>
+                      </div>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
