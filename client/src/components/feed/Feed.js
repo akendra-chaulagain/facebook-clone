@@ -1,8 +1,8 @@
 import React from "react";
 import "./Feed.css";
-import VideoCallIcon from "@mui/icons-material/VideoCall";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import { Link } from "react-router-dom";
 
 const Feed = () => {
   return (
@@ -12,20 +12,21 @@ const Feed = () => {
           {/* profilepic in feed */}
           <div className="profileImgFeed ">
             <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-            <input type="text" placeholder="Whats's on your mind, Akendra?" />
+            <Link className="link" to="/addPhoto">
+              <input type="text" placeholder="Whats's on your mind, Akendra?" />
+            </Link>
             <hr />
           </div>
         </div>
         {/* icons */}
         <div className="feedIcons">
-          <div className="feedVideoIcon feddIconItem">
-            <VideoCallIcon style={{ fontSize: 27 }} />
-            <span>Live Video</span>
-          </div>
-          <div className="feedImageIcon feddIconItem">
-            <PhotoLibraryIcon />
-            <span>Photo/Video</span>
-          </div>
+          <Link className="link" to="/addPhoto">
+            <div className="feedImageIcon feddIconItem">
+              <PhotoLibraryIcon />
+              <span>Photo/Video</span>
+            </div>
+          </Link>
+
           <div className="feedActivitiesIcon feddIconItem">
             <EmojiEmotionsIcon />
             <span>Feeling/activity</span>

@@ -4,6 +4,7 @@ import Profile from "./page/profile/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./page/login/Login";
 import Register from "./page/register/Register";
+import AddPhoto from "./components/addPhoto/AddPhoto";
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           {/* profile page */}
           <Route exact path="/profile" element={<Profile />} />
+          {/* /add photo containeer */}
+          <Route exact path="/addPhoto" element={<AddPhoto />} />
         </Routes>
       </Router>
     </>

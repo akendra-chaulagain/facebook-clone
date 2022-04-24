@@ -1,0 +1,103 @@
+.addPhoto {
+  height: 100vh;
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addphotoWrapper {
+  height: auto;
+  background-color: #fcfcfd;
+  width: 28%;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  border-radius: 5px;
+}
+.addPhotoTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.addPhotoTitle p {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 15px 0px 10px 10px;
+}
+.addPhotoIcon {
+  margin: 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.addPhotoIcon:hover {
+  color: black;
+}
+
+.UserAddProfileIg {
+  width: 100%;
+}
+
+.UserAddProfileIg img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-top: -10px;
+  border-radius: 50px;
+}
+.UserAddProfileIg span {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.addPhotofeed input {
+  background-color: #f0f2f5;
+  width: 100%;
+  outline: none;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  color: gray;
+  padding: 2px 10px;
+  font-size: 16px;
+  margin-top: 12px;
+}
+.addphotoBox {
+  height: 33vh;
+  width: 95%;
+  background-color: #f7f8fa;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid rgb(202, 199, 199);
+  border-radius: 8px;
+  position: relative;
+}
+.addPhotoIconphoto {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.addPhotoIconText p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* post buttom */
+.postButton button {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 35px;
+  margin-bottom: 20px;
+  background-color: #1b74e4;
+  color: white;
+  border-radius: 5px;
+  font-weight: 700;
+}

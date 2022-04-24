@@ -35,16 +35,6 @@
   justify-content: space-evenly;
 }
 
-.feedVideoIcon {
-  color: #f3425f;
-  cursor: pointer;
-}
-
-.feedVideoIcon span {
-  color: gray;
-  margin-left: 10px;
-}
-
 .feedImageIcon {
   color: #45bd62;
   cursor: pointer;
