@@ -4,3 +4,16 @@
 .followersContainer {
   background-color: #f0f2f5;
 }
+
+/* responsive */
+@media only screen and (max-width: 800px) {
+  .sidebarHomePage {
+    display: none;
+  }
+  .followersContainer {
+    display: none;
+  }
+  .postContainer {
+    width: 100%;
+  }
+}

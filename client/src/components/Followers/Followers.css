@@ -3,7 +3,7 @@
   margin-top: 4vh;
   overflow-y: scroll;
   position: sticky;
-  top: 0;
+  top: 5vh;
 }
 
 .followersContainer h3 {

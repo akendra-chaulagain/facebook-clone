@@ -92,7 +92,7 @@ const Topbar = () => {
                       <div className="dropDownIcon">
                         <LogoutIcon /> <span>Log Out</span>
                       </div>
-                      <div className="dropDownIcon">
+                      <div className="dropDownIcon mt-2">
                         <SettingsIcon /> <span>Setting</span>
                       </div>
                     </ul>

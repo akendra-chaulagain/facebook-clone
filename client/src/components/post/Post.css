@@ -1,5 +1,4 @@
 .post {
-  flex: 6;
   height: auto;
   width: 80%;
   background-color: #ffffff;
@@ -102,4 +101,22 @@
 .likeNumber span {
   color: red;
   font-size: 10px;
+}
+
+/* responsive of post*/
+@media only screen and (max-width: 800px) {
+  .post {
+    height: auto;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+    margin-left: 0%;
+  }
+  .UserProfileIg p {
+    margin-left: 30%;
+  }
+  .caption {
+    margin: 0px 15px 5px 15px;
+    font-size: 14px;
+  }
 }

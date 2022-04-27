@@ -12,20 +12,11 @@ const Home = () => {
       <Topbar />
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3">
+          <div className="col-3 sidebarHomePage">
             <Sidebar />
           </div>
           <div className="col-6 postContainer">
             <Feed />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
             <Post />
             <Post />
             <Post />
