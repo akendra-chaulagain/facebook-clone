@@ -186,3 +186,27 @@
   margin-top: 5px;
   margin-left: 3px;
 }
+
+/* responsive */
+@media only screen and (max-width: 800px) {
+  .tobarContainer {
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    border: 2px solid rgb(156, 155, 155);
+  }
+  .rightSideTopbar {
+    display: none;
+  }
+  .leftSideTopbar {
+    display: none;
+  }
+
+  .middleSideTopbar {
+    width: 100%;
+  }
+  .middleSideTopbar .middleIconElement {
+    color: #65757e;
+    cursor: pointer;
+  }
+}

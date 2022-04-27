@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Feed = () => {
   return (
     <>
-      <div className="container-fluid feed">
+      <div className=" feed">
         <div className=" feedWrapper">
           {/* profilepic in feed */}
           <div className="profileImgFeed ">
@@ -22,13 +22,13 @@ const Feed = () => {
         <div className="feedIcons">
           <Link className="link" to="/addPhoto">
             <div className="feedImageIcon feddIconItem">
-              <PhotoLibraryIcon />
+              <PhotoLibraryIcon style={{ fontSize: 20 }} />
               <span>Photo/Video</span>
             </div>
           </Link>
 
           <div className="feedActivitiesIcon feddIconItem">
-            <EmojiEmotionsIcon />
+            <EmojiEmotionsIcon style={{ fontSize: 17 }} />
             <span>Feeling/activity</span>
           </div>
         </div>

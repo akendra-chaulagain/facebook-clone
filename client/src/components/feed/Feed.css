@@ -54,3 +54,34 @@
   color: gray;
   margin-left: 10px;
 }
+
+@media only screen and (max-width: 800px) {
+  .feed {
+    height: auto;
+    margin-top: 1vh;
+    width: 100%;
+    box-shadow: none;
+  }
+  .profileImgFeed img {
+    height: 35px;
+    width: 35px;
+    margin-right: 4px;
+  }
+
+  .profileImgFeed input {
+    width: 85%;
+    height: 40px;
+    font-size: 12px;
+  }
+  .feedIcons {
+    padding-bottom: 10px;
+  }
+  .feedImageIcon span {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+  .feedActivitiesIcon span {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
