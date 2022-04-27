@@ -11,7 +11,9 @@ const Feed = () => {
         <div className=" feedWrapper">
           {/* profilepic in feed */}
           <div className="profileImgFeed ">
-            <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+            <Link to="/profile">
+              <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+            </Link>
             <Link className="link" to="/addPhoto">
               <input type="text" placeholder="Whats's on your mind, Akendra?" />
             </Link>

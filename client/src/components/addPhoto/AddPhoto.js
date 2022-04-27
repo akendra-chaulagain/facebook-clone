@@ -26,15 +26,24 @@ const AddPhoto = () => {
           </div>
           {/* whats on your mind */}
           <div className="addPhotofeed ">
-            <input type="text" placeholder="Whats's on your mind, Akendra?" />
+            <textarea
+              type="text"
+              placeholder="Whats's on your mind, Akendra?"
+            />
           </div>
           {/* add photo video box */}
           <div className="addphotoBox">
             <div className="addPhotoIconphoto">
-              <PhotoLibraryIcon style={{ fontSize: 28 }} />
+              <label htmlFor="file">
+                <PhotoLibraryIcon style={{ fontSize: 28 }} />
+                <input type="file" id="file" style={{ display: "none" }} />
+              </label>
             </div>
             <div className="addPhotoIconText">
-              <p>Add Photo/Videos</p>
+              <label htmlFor="file">
+                <p>Add Photos/Videos</p>
+                <input type="file" id="file" style={{ display: "none" }} />
+              </label>
             </div>
           </div>
           {/* post button */}
