@@ -14,7 +14,6 @@ const ProfileIntro = () => {
       <div className="container-fluid profileIntro">
         <div className="row profileIntroWrapper">
           <div className="col-md-4 leftSideIntro">
-            <h3>Intro</h3>
             <div className="introIcons">
               {/* user information with icons */}
               <div className="introIconItem">
@@ -50,35 +49,6 @@ const ProfileIntro = () => {
             </div>
           </div>
           <div className="col-md-8 rightSideIntro">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
             <Post />
             <Post />
             <Post />

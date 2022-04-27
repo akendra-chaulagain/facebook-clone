@@ -1,0 +1,147 @@
+.bookmark {
+  background-color: white;
+  margin-top: 0vh;
+  height: auto;
+  width: 100%;
+  margin-left: -10px;
+  width: 100%;
+  position: sticky;
+}
+
+/* profile img */
+.profileImgbookmark {
+  display: flex;
+  margin-top: 10px;
+}
+
+.profileImgbookmark img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  object-fit: cover;
+}
+
+.profileImgbookmark h1 {
+  font-style: 11px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: 500;
+  margin-top: 7px;
+  font-size: 20px;
+}
+.profileImgbookmark p {
+  margin-top: 33px;
+  margin-left: -43%;
+}
+
+/* icons */
+.bookmarkIconItem {
+  cursor: pointer;
+}
+
+.sidebatIcon :hover {
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
+}
+
+.group {
+  color: rgb(27, 135, 245);
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.text {
+  color: #444545;
+  margin-left: 15px;
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+/* friend */
+.friend {
+  color: rgb(26, 126, 244);
+  display: flex;
+  margin-left: 25px;
+  margin-top: 12px;
+}
+
+.store {
+  color: #2593e1;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.watch {
+  color: #2593e1;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.page {
+  color: #ea572a;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.memories {
+  color: #0165e1;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.saved {
+  color: #b534b9;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.events {
+  color: rgb(244, 81, 109);
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.favourites {
+  color: #f8cc48;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.recent {
+  color: #2593e1;
+  display: flex;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+
+.setting {
+  color: #b9cad2;
+  display: flex;
+  margin-top: 20px;
+}
+.setting .fa-gear {
+  margin-top: 8px;
+  margin-left: 28px;
+}
+.logout {
+  color: #b9cad2;
+  display: flex;
+  margin-top: 22px;
+  margin-bottom: 50px;
+}
+.logout .fa-arrow-right-from-bracket {
+  margin-top: 8px;
+  margin-left: 28px;
+}

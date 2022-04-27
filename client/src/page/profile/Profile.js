@@ -1,39 +1,49 @@
 import React from "react";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import Topbar from "../../components/topbar/Topbar";
 import "./Profile.css";
 import Feed from "../../components/feed/Feed";
 import ProfileIntro from "../../components/profileIntro/ProfileIntro";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
     <>
-      <Topbar />
-
       <div className="profileContainer">
+        <div className="progileTopbar">
+          <Link className="link renderHomePage" to="/">
+            <i className="fa-solid fa-arrow-left-long"></i>
+          </Link>
+          <p>Akendra Chaulagain</p>
+        </div>
         <div className="profilwWrapper">
           <div className="profileCoverImg">
             <img src="./images/p.jpeg" alt="coverImg" />
-            <div className="imgDesc">
+            {/* select cover photo */}
+            <div className="imgprofileCamera">
               <p>
-                <CameraAltIcon /> Edit cover photo
+                <label htmlFor="file">
+                  <i className="fa-solid fa-camera"></i>
+                  <input type="file" id="file" style={{ display: "none" }} />
+                </label>
               </p>
             </div>
           </div>
           {/* user profileImg*/}
           <div className="profileIntro">
             <div className="profileImage">
-              <img src="./images/p.jpeg" alt="profileImg" />
+              <label htmlFor="file">
+                <img src="./images/p.jpeg" alt="profileImg" />
+                <input type="file" id="file" style={{ display: "none" }} />
+              </label>
             </div>
-            <div className="changePhotoIcon">
-              <div className="changeIcon">
-                <CameraAltIcon />
-              </div>
-            </div>
+          </div>
+          {/* user profile name */}
+          <div className="userProfileNameSpan">
+            <p>Akendra Chaulagain</p>
           </div>
           {/* user intro */}
           <div className="feedImport">
             <Feed />
+            <hr />
           </div>
           {/* profileIntro  import from profilre into components*/}
           <ProfileIntro />

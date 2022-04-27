@@ -1,8 +1,28 @@
 .profileContainer {
-  width: 80%;
-  height: 200vh;
-  margin-left: 10%;
+  width: 100%;
+  height: auto;
+  /* margin-left: 10%; */
 }
+.progileTopbar {
+  width: 100%;
+  height: 6vh;
+  background-color: #3b5998;
+  color: white;
+  display: flex;
+}
+.progileTopbar p {
+  margin-top: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 40px;
+}
+.fa-arrow-left-long {
+  margin: 10px 10px 0px 50px;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+
 .profileCoverImg {
   position: relative;
   text-align: center;
@@ -13,22 +33,19 @@
   object-fit: cover;
   margin-top: 10px;
 }
-.imgDesc p {
+.imgprofileCamera p {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 0px;
-  right: 140px;
-  background-color: rgb(255, 255, 255);
+  right: 150px;
+  background-color: #e4e6eb;
   color: #550505;
   font-size: 15px;
-  cursor: pointer;
   padding: 2px 7px;
-  border-radius: 12px;
-}
-.imgDesc p:hover {
-  background-color: rgb(236, 233, 233);
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 /* profile image */
@@ -37,29 +54,95 @@
 }
 
 .profileImage img {
-  height: 17vh;
-  width: 12%;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-left: 10%;
   border: 4px solid rgb(179, 177, 177);
   object-fit: cover;
   position: absolute;
-  bottom: -100px;
+  bottom: -65px;
   left: 16px;
-  cursor: pointer;
-}
-
-.changePhotoIcon {
-  margin-left: 10%;
-  position: relative;
-}
-.changeIcon {
-  position: absolute;
-  bottom: -75px;
-  right: 84%;
   cursor: pointer;
 }
 
 .feedImport {
   padding-top: 7vh;
+}
+.userProfileNameSpan {
+  height: auto;
+}
+.userProfileNameSpan p {
+  /* margin-left: 29%; */
+  text-align: center;
+  font-weight: 600;
+  font-size: 36px;
+}
+@media only screen and (max-width: 900px) {
+  .profileContainer {
+    width: 100%;
+    height: auto;
+  }
+  /* profile topbar */
+  .progileTopbar {
+    width: 100%;
+    height: auto;
+    background-color: #3b5998;
+    color: white;
+    display: flex;
+  }
+  .progileTopbar p {
+    font-size: 15px;
+    margin: 10px;
+  }
+  .progileTopbar.fa-arrow-left-long {
+    font-size: 13px;
+    margin: 10px;
+    font-weight: 500;
+  }
+  .profileCoverImg img {
+    height: 25vh;
+    object-fit: cover;
+  }
+  .imgprofileCamera p {
+    bottom: 0px;
+    right: 80px;
+    font-size: 13px;
+    border-radius: 7%;
+    padding-top: 3px;
+  }
+
+  .feedImport {
+    padding-top: 1vh;
+  }
+  /* profile image */
+  .profileIntro {
+    position: relative;
+  }
+
+  .profileImage img {
+    height: 90px;
+    width: 90px;
+    margin-left: 33.33%;
+    position: absolute;
+    bottom: 10px;
+  }
+  .userProfileNameSpan p {
+    /* margin-left: 24%; */
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 0px;
+  }
+}
+
+/* responsive */
+@media only screen and (max-width: 500px) {
+  .imgprofileCamera p {
+    bottom: 0px;
+    right: 45px;
+    font-size: 13px;
+    border-radius: 7%;
+    padding-top: 3px;
+  }
 }

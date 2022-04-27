@@ -1,20 +1,20 @@
 .profileIntro {
   margin-left: 10%;
   width: 80%;
+  z-index: 99;
 }
 
 /* left side intro */
 .leftSideIntro {
   height: 55vh;
-  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  background-color: white;
   margin-top: 20px;
-  border-radius: 12px;
   color: gray;
   position: sticky;
   top: 10vh;
-}
-.leftSideIntro h3 {
-  margin: 10px;
+  border: 2px solid rgb(229, 228, 228);
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
 
 .introIconItem {
@@ -40,4 +40,20 @@
   background-color: #e4e6eb;
   font-weight: 600;
   margin-top: 25px;
+}
+
+/* responsive */
+@media only screen and (max-width: 800px) {
+  .profileIntro {
+    width: 100%;
+    margin-left: 0px;
+    padding-bottom: 40px;
+  }
+  .leftSideIntro {
+    position: relative;
+    margin-top: -75px;
+  }
+  .leftSideIntro {
+    margin-bottom: 70px;
+  }
 }

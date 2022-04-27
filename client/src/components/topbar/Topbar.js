@@ -4,7 +4,6 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
 import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
 import PeopleOutlineRoundedIcon from "@mui/icons-material/PeopleOutlineRounded";
-import Messanger from "@material-ui/icons/Message";
 import Notification from "@material-ui/icons/Notifications";
 import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
@@ -54,8 +53,11 @@ const Topbar = () => {
               <p className="hide">Groups</p>
             </div>
             <div className="middleIconElement menuItems">
-              <Menu style={{ fontSize: 29 }} />
-              <p className="hide">Groups</p>
+              {/* render to menu(bookmark) part */}
+              <Link className="link" to="/bookmark">
+                <Menu style={{ fontSize: 24 }} />
+                <p className="hide">Menu</p>
+              </Link>
             </div>
           </div>
 
@@ -75,7 +77,7 @@ const Topbar = () => {
                 <p className="hide">Menu</p>
               </div>
               <div className="rightIconItem">
-                <Messanger style={{ fontSize: 22 }} />
+                <i className="fa-brands fa-facebook-messenger"></i>
                 <p className="hide">Message</p>
               </div>
               <div className="rightIconItem">

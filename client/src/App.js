@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./page/login/Login";
 import Register from "./page/register/Register";
 import AddPhoto from "./components/addPhoto/AddPhoto";
+import Bookmark from "./components/Bookmark/Bookmark";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
           <Route exact path="/profile" element={<Profile />} />
           {/* /add photo containeer */}
           <Route exact path="/addPhoto" element={<AddPhoto />} />
+          {/* bookmark */}
+          <Route exact path="/bookmark" element={<Bookmark />} />
         </Routes>
       </Router>
     </>
