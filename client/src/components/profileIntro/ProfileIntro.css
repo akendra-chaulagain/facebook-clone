@@ -52,8 +52,9 @@
   .leftSideIntro {
     position: relative;
     margin-top: -75px;
+    height: auto;
   }
   .leftSideIntro {
-    margin-bottom: 70px;
+    margin-bottom: 90px;
   }
 }

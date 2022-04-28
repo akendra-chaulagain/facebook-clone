@@ -11,7 +11,6 @@
   margin-top: 7vh;
   padding: 15px;
   border-radius: 10px;
-  margin-bottom: 40px;
 }
 .editheadertext {
   display: flex;
@@ -29,48 +28,53 @@
   margin: 10px;
 }
 
-.editProfilePictureContainer {
+/* edit profile css */
+.editProfileWrapper {
   display: flex;
   justify-content: space-between;
 }
-.editProfilePictureContainer h3 {
+.editProfileWrapper h3 {
   font-size: 18px;
   font-weight: 600;
 }
+
+.editProfileWrapper p {
+  color: blue;
+}
 .editProfilePictureContainer img {
-  width: 150px;
-  height: 150px;
+  width: 30%;
+  height: 30vh;
   border-radius: 100px;
   object-fit: cover;
-}
-.editProfilePictureContainer p {
-  color: blue;
+  margin-left: 35%;
 }
 
 /* cover photo */
-.editcoverPictureContainer {
+.editcoverPicWrapper {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
 }
-.editcoverPictureContainer h3 {
+.editcoverPicWrapper h3 {
   font-size: 18px;
   font-weight: 600;
+}
+
+.editcoverPicWrapper p {
+  color: blue;
 }
 .editcoverPictureContainer img {
   width: 80%;
   height: 25vh;
   object-fit: cover;
-}
-.editcoverPictureContainer p {
-  color: blue;
+  margin-left: 10%;
 }
 
 /* bio */
 .editBioDesc {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .editBioDesc h3 {
   font-size: 18px;
@@ -82,6 +86,7 @@
   padding: 10px 10px 10px 50px;
   outline: none;
   border: none;
+  font-size: 20px;
 }
 
 /* edit intro */
@@ -112,18 +117,91 @@
 }
 
 /* save info button */
-.saveInfoButton button{
+.saveInfoButton button {
   width: 97%;
   margin: 10px;
   outline: none;
   border: none;
   height: 35px;
-  background-color:   #E7F3FF;
-  color: #1877F2;
+  background-color: #e7f3ff;
+  color: #1877f2;
   font-weight: 600;
   font-size: 18px;
+  margin-bottom: 20px;
 }
-.saveInfoButton button:hover{
+.saveInfoButton button:hover {
   background-color: #cadcef;
   border-radius: 10px;
+}
+
+/* responsive */
+@media only screen and (max-width: 800px) {
+  .editWrapper {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 0vh;
+  }
+  .editheadertext h1 {
+    font-size: 17px;
+  }
+  .editContainer .fa-xmark {
+    font-size: 21px;
+  }
+
+  /* edit profile css */
+  .editProfileWrapper h3 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .editProfilePictureContainer img {
+    width: 120px;
+    height: 120px;
+  }
+  .editProfileWrapper p {
+    font-size: 13px;
+  }
+  /* cover photo  */
+
+  .editcoverPictureContainer h3 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .editcoverPictureContainer img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    margin-left: 0%;
+  }
+  .editcoverPictureContainer p {
+    font-size: 13px;
+  }
+  /* bio */
+  .editBioDesc h3 {
+    font-size: 14px;
+  }
+  .editBioDesc textarea {
+    width: 70%;
+    margin-right: 15%;
+    font-size: 13px;
+  }
+
+  /* edit intro */
+
+  .editInfoContainer h3 {
+    font-size: 14px;
+  }
+
+  .inputBoxes label {
+    font-size: 11px;
+  }
+  .inputBoxes input {
+    height: 33px;
+  }
+
+  /* save info button */
+  .saveInfoButton button {
+    width: 97%;
+    height: 33px;
+    font-size: 15px;
+  }
 }

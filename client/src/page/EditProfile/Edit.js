@@ -17,24 +17,29 @@ const Edit = () => {
           <hr />
           {/* edit profile picture */}
           <div className="editProfilePictureContainer">
-            <h3>profile Picture</h3>
+            <div className="editProfileWrapper">
+              <h3>profile Picture</h3>
+              {/* edit profile img(select images from the device) */}
+              <label htmlFor="file">
+                <p>edit</p>
+                <input type="file" id="file" style={{ display: "none" }} />
+              </label>
+            </div>
             <img src="./images/p.jpeg" alt="" />
-            {/* edit profile img(select images from the device) */}
-            <label htmlFor="file">
-              <p>edit</p>
-              <input type="file" id="file" style={{ display: "none" }} />
-            </label>
           </div>
 
           {/* edit cover img */}
           <div className="editcoverPictureContainer">
-            <h3>Cover Photo</h3>
+            <div className="editcoverPicWrapper">
+              <h3>Cover Photo</h3>
+              {/* edit cover img(select images from the device) */}
+              <label htmlFor="file">
+                <p>edit</p>
+                <input type="file" id="file" style={{ display: "none" }} />
+              </label>
+            </div>
+            {/* cover pic */}
             <img src="./images/p.jpeg" alt="" />
-            {/* edit cover img(select images from the device) */}
-            <label htmlFor="file">
-              <p>edit</p>
-              <input type="file" id="file" style={{ display: "none" }} />
-            </label>
           </div>
 
           {/* edit bio */}

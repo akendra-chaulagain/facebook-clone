@@ -15,13 +15,13 @@ import Topbar from "../topbar/Topbar";
 const Bookmark = () => {
   return (
     <>
+      {/* top bar import from topbar component */}
       <Topbar />
       <div className="bookmark">
         <Link className="link" to="/profile">
           <div className="profileImgbookmark">
             <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
             <h1>Akendra Chaulagain</h1>
-            <p>view your profile</p>
           </div>
           <hr />
         </Link>
@@ -90,7 +90,7 @@ const Bookmark = () => {
             </div>
           </div>
           {/* logout */}
-          <div className="bookmarkIconItem logout">
+          <div className="bookmarkIconItem logoutBtn">
             <i className="fa-solid fa-arrow-right-from-bracket"></i>
             <div className="text ">
               <span>Log Out</span>
