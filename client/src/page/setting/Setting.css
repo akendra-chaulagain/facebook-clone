@@ -64,6 +64,7 @@
   }
   .settingTopBarArrow .fa-arrow-left-long {
     font-size: 14px;
+    padding-top: 4px;
   }
   .settingComponentTextContainer span {
     font-size: 15px;

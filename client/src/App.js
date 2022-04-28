@@ -10,6 +10,7 @@ import Search from "./page/search/Search";
 import Edit from "./page/EditProfile/Edit";
 import Setting from "./page/setting/Setting";
 import PersonalInfo from "./page/PersonalInfo/PersonalInfo";
+import ChangePassword from "./page/changePassword/ChangePassword";
 
 const App = () => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
           <Route path="/setting" element={<Setting />} />
           {/* personal ingo(account) */}
           <Route path="/setting/account" element={<PersonalInfo />} />
+          {/* change password */}
+          <Route path="/setting/password" element={<ChangePassword />} />
         </Routes>
       </Router>
     </>

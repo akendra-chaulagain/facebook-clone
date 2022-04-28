@@ -29,8 +29,10 @@ const Setting = () => {
           </div>
           {/* password and securiyu */}
           <div className="settingLinks">
-            <i className="fa-solid fa-shield-halved"></i>
-            <span>Password and security</span>
+            <Link className="link" to="/setting/password">
+              <i className="fa-solid fa-shield-halved"></i>
+              <span>Password and security</span>
+            </Link>
           </div>
           {/* payment */}
           <div className="settingLinks">

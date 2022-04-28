@@ -38,7 +38,7 @@
 
 @media only screen and (max-width: 800px) {
   /* setting top bar */
-  .personalInfo{
+  .personalInfo {
     overflow: hidden;
     width: 100%;
   }
