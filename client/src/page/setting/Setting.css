@@ -1,0 +1,91 @@
+.settingContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.settingTopBar {
+  height: 6vh;
+  background-color: #3b5998;
+  color: white;
+  display: flex;
+}
+.settingContainer p {
+  font-size: 17px;
+  text-align: center;
+  margin-left: 36%;
+  padding: 10px;
+}
+.settingTopBarArrow .fa-arrow-left-long {
+  color: white;
+  margin: 10px 10px 0px 50px;
+  font-weight: 600;
+}
+
+/* setting component */
+.settingComponentContainer {
+  margin-left: 30%;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  padding: 30px;
+  width: 40%;
+  border-radius: 10px;
+  margin-top: 10vh;
+}
+.settingComponentTextContainer h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.settingComponentTextContainer span {
+  font-size: 14px;
+}
+
+.settingLinks {
+  margin-top: 20px;
+}
+.settingLinks span {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.settingLinks .fa-user,
+.fa-shield-halved,
+.fa-money-check {
+  font-size: 23px;
+  color: gray;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  /* setting top bar */
+  .settingTopBar {
+    height: 5vh;
+  }
+  .settingContainer p {
+    font-size: 14px;
+    margin-left: 0%;
+  }
+  .settingTopBarArrow .fa-arrow-left-long {
+    font-size: 14px;
+  }
+  .settingComponentTextContainer span {
+    font-size: 15px;
+  }
+  /* setting component */
+  .settingComponentTextContainer h3 {
+    font-size: 18px;
+  }
+  .settingComponentContainer {
+    padding: 20px;
+    width: 100%;
+    margin-left: 0%;
+    box-shadow: none;
+    margin-top: 2vh;
+  }
+  .settingLinks .fa-user,
+  .fa-shield-halved,
+  .fa-money-check {
+    font-size: 18px;
+  }
+
+  .settingLinks span {
+    font-size: 13px;
+  }
+}

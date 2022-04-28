@@ -1,0 +1,70 @@
+.personalInfo {
+  height: 100vh;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.personalInfoTopBar {
+  height: 6vh;
+  background-color: #3b5998;
+  color: white;
+  display: flex;
+}
+.personalInfoTopBar p {
+  font-size: 17px;
+  text-align: center;
+  margin-left: 36%;
+  padding: 10px;
+}
+.personalInfoTopBarArrow .fa-arrow-left-long {
+  color: white;
+  margin: 10px 10px 0px 50px;
+  font-weight: 600;
+}
+.personalInfoContainer {
+  margin-left: 30%;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  padding: 30px;
+  width: 40%;
+  border-radius: 10px;
+  margin-top: 12vh;
+}
+.personalInfoContent h3 {
+  font-size: 19px;
+  font-weight: 600;
+}
+.personalInfoContent p {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 800px) {
+  /* setting top bar */
+  .personalInfo{
+    overflow: hidden;
+    width: 100%;
+  }
+  .personalInfoTopBar {
+    height: 5vh;
+  }
+  .personalInfo p {
+    font-size: 14px;
+    margin-left: 0%;
+  }
+  .personalInfoTopBarArrow .fa-arrow-left-long {
+    padding: 4px 0px 2px 2px;
+    font-size: 14px;
+  }
+  .personalInfoContainer {
+    box-shadow: none;
+    padding: 15px;
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 2vh;
+  }
+  .personalInfoContent h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .personalInfoContent p {
+    font-size: 12px;
+  }
+}

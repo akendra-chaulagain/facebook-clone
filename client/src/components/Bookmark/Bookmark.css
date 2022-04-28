@@ -126,20 +126,26 @@
 }
 
 .setting {
-  color: #b9cad2;
   display: flex;
-  margin-top: 20px;
+  margin-top: 15px;
+  font-size: 15px;
 }
 .setting .fa-gear {
   margin-top: 8px;
   margin-left: 28px;
+  color: #b9cad2;
+  font-size: 18px;
+
 }
 .logoutBtn {
   color: #b9cad2;
   display: flex;
-  margin-top: 22px;
+  margin-top: 12px;
+  font-size: 15px;
+
 }
 .logoutBtn .fa-arrow-right-from-bracket {
   margin-top: 8px;
   margin-left: 28px;
+  font-size: 18px;
 }

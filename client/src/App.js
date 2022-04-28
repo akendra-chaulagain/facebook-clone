@@ -8,6 +8,8 @@ import AddPhoto from "./components/addPhoto/AddPhoto";
 import Bookmark from "./components/Bookmark/Bookmark";
 import Search from "./page/search/Search";
 import Edit from "./page/EditProfile/Edit";
+import Setting from "./page/setting/Setting";
+import PersonalInfo from "./page/PersonalInfo/PersonalInfo";
 
 const App = () => {
   return (
@@ -31,6 +33,10 @@ const App = () => {
           <Route path="/search" element={<Search />} />
           {/* edit profile */}
           <Route path="/edit" element={<Edit />} />
+          {/* setting page */}
+          <Route path="/setting" element={<Setting />} />
+          {/* personal ingo(account) */}
+          <Route path="/setting/account" element={<PersonalInfo />} />
         </Routes>
       </Router>
     </>

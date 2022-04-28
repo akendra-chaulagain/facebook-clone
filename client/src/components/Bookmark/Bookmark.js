@@ -82,12 +82,13 @@ const Bookmark = () => {
             </div>
           </div>
           {/* setting */}
-
-          <div className="bookmarkIconItem setting">
-            <i className="fa-solid fa-gear"></i>
-            <div className="text ">
-              <span>Setting</span>
-            </div>
+          <div className="bookmarkIconItem ">
+            <Link className="link setting" to="/setting">
+              <i className="fa-solid fa-gear"></i>
+              <div className="text ">
+                <span>Setting</span>
+              </div>
+            </Link>
           </div>
           {/* logout */}
           <div className="bookmarkIconItem logoutBtn">

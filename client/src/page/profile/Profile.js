@@ -10,7 +10,7 @@ const Profile = () => {
       <div className="profileContainer">
         <div className="progileTopbar">
           <Link className="link renderHomePage" to="/">
-            <i className="fa-solid fa-arrow-left-long"></i>
+            <i className="fa-solid fa-arrow-left"></i>
           </Link>
           <p>Akendra Chaulagain</p>
         </div>

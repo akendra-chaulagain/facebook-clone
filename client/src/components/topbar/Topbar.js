@@ -76,17 +76,19 @@ const Topbar = () => {
             </Link>
 
             <div className="rightSideIcon">
-              <div className="rightIconItem">
-                <Menu style={{ fontSize: 24 }} />
-                <p className="hide">Menu</p>
-              </div>
+              {/* messanger */}
               <div className="rightIconItem">
                 <i className="fa-brands fa-facebook-messenger"></i>
-                <p className="hide">Message</p>
               </div>
+              {/* nofification */}
               <div className="rightIconItem">
                 <Notification style={{ fontSize: 21 }} />
-                <p className="hide">Notification</p>
+              </div>
+              {/* render to setting  */}
+              <div className="rightIconItem">
+                <Link className="link" to="/setting">
+                  <SettingsIcon style={{ fontSize: 24 }} />
+                </Link>
               </div>
               {/* drow down menu */}
               <div className="rightIconItem dropDownItem">
@@ -101,9 +103,6 @@ const Topbar = () => {
                   <ul className="dropdown-menu ">
                     <div className="dropDownIcon">
                       <LogoutIcon /> <span>Log Out</span>
-                    </div>
-                    <div className="dropDownIcon mt-2">
-                      <SettingsIcon /> <span>Setting</span>
                     </div>
                   </ul>
                 </div>
