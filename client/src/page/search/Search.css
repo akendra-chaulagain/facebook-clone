@@ -1,0 +1,34 @@
+.searchContainer {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  overflow: hidden;
+}
+.goToHomePageArrow .fa-arrow-left-long {
+  color: rgb(135, 134, 134);
+  margin: 20px 20px 18px 0px;
+  font-size: 19px;
+}
+.searchBoxWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchInputBox input {
+  width: 98%;
+  height: 35px;
+  border-radius: 15px;
+  margin: 10px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+  padding: 10px;
+}
+.lensIcon .fa-magnifying-glass {
+  margin: 19px 0px 18px -10px;
+  font-size: 19px;
+  color: gray;
+}
+.searchUserData {
+  color: gray;
+}

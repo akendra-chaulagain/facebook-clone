@@ -6,24 +6,28 @@ import Login from "./page/login/Login";
 import Register from "./page/register/Register";
 import AddPhoto from "./components/addPhoto/AddPhoto";
 import Bookmark from "./components/Bookmark/Bookmark";
+import Search from "./page/search/Search";
 
 const App = () => {
   return (
     <>
       <Router>
         <Routes>
+          {/* home page */}
+          <Route exact path="/" element={<Home />} />
           {/* ?register page */}
           <Route path="/register" element={<Register />} />
           {/* login page */}
           <Route path="login" element={<Login />} />
-          {/* home page */}
-          <Route exact path="/" element={<Home />} />
+
           {/* profile page */}
-          <Route exact path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           {/* /add photo containeer */}
-          <Route exact path="/addPhoto" element={<AddPhoto />} />
+          <Route path="/addPhoto" element={<AddPhoto />} />
           {/* bookmark */}
-          <Route exact path="/bookmark" element={<Bookmark />} />
+          <Route path="/bookmark" element={<Bookmark />} />
+          {/* search  */}
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Router>
     </>

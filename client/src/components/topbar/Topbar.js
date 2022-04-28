@@ -15,19 +15,23 @@ const Topbar = () => {
     <>
       <div className="container-fluid tobarContainer">
         <div className="row ">
-          {/* <div className="topbarWrapper"> */}
           {/* left side topbar */}
           <div className="col-md-4 leftSideTopbar">
             <div className="facebookIcon">
               <h1>facebook</h1>
               {/* this icons will show when the user in small devices like Mobile */}
               <div className="searchIcon">
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <Link className="link" to="/search">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </Link>
                 <i className="fa-brands fa-facebook-messenger"></i>
               </div>
             </div>
+            {/* search box when the user in big screen */}
             <div className="searchbox">
+              {/* <Link className="link" to="/search"> */}
               <input type="text" placeholder="Search Facebook" />
+              {/* </Link> */}
             </div>
           </div>
           {/* middle side topbar */}
