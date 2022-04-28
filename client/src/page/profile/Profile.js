@@ -38,7 +38,10 @@ const Profile = () => {
           </div>
           {/* user profile name */}
           <div className="userProfileNameSpan">
-            <p>Akendra Chaulagain</p>
+            <h1>Akendra Chaulagain</h1>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            </p>
           </div>
           {/* user intro */}
           <div className="feedImport">

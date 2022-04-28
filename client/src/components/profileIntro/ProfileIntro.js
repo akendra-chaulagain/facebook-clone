@@ -7,6 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import Post from "../../components/post/Post";
+import { Link } from "react-router-dom";
 
 const ProfileIntro = () => {
   return (
@@ -43,9 +44,11 @@ const ProfileIntro = () => {
                 <span>Followed by 124</span>
               </div>
             </div>
-            {/* edit button */}
+            {/* edit button (when click render to profile edit page*/}
             <div className="userInfoEditBtn">
-              <button>Edit Details</button>
+              <Link className="link" to="/edit">
+                <button>Edit Details</button>
+              </Link>
             </div>
           </div>
           <div className="col-md-8 rightSideIntro">

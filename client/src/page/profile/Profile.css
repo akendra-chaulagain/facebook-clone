@@ -71,12 +71,17 @@
 }
 .userProfileNameSpan {
   height: auto;
+  text-align: center;
+}
+.userProfileNameSpan h1 {
+  font-weight: 600;
+  font-size: 32px;
 }
 .userProfileNameSpan p {
-  /* margin-left: 29%; */
-  text-align: center;
-  font-weight: 600;
-  font-size: 36px;
+  margin-top: -7px;
+  width: 40%;
+  height: auto;
+  margin-left: 30%;
 }
 @media only screen and (max-width: 900px) {
   .profileContainer {
@@ -127,12 +132,17 @@
     position: absolute;
     bottom: 10px;
   }
-  .userProfileNameSpan p {
+  .userProfileNameSpan h1 {
     /* margin-left: 24%; */
     text-align: center;
     font-weight: 600;
     font-size: 20px;
     margin-top: 0px;
+  }
+  .userProfileNameSpan p {
+    width: 50%;
+    margin-left: 25%;
+    font-size: 13px;
   }
 }
 

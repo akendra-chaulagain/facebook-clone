@@ -7,6 +7,7 @@ import Register from "./page/register/Register";
 import AddPhoto from "./components/addPhoto/AddPhoto";
 import Bookmark from "./components/Bookmark/Bookmark";
 import Search from "./page/search/Search";
+import Edit from "./page/EditProfile/Edit";
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/bookmark" element={<Bookmark />} />
           {/* search  */}
           <Route path="/search" element={<Search />} />
+          {/* edit profile */}
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </Router>
     </>

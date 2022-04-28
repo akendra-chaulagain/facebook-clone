@@ -1,0 +1,129 @@
+.editContainer {
+  height: auto;
+  width: 100%;
+}
+
+.editWrapper {
+  width: 50%;
+  background-color: white;
+  margin-left: 25%;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  margin-top: 7vh;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.editheadertext {
+  display: flex;
+  justify-content: space-between;
+}
+.editheadertext h1 {
+  font-size: 20px;
+  color: black;
+  margin: 10px;
+  font-weight: 600;
+}
+.editContainer .fa-xmark {
+  color: black;
+  font-size: 25px;
+  margin: 10px;
+}
+
+.editProfilePictureContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.editProfilePictureContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.editProfilePictureContainer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+.editProfilePictureContainer p {
+  color: blue;
+}
+
+/* cover photo */
+.editcoverPictureContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.editcoverPictureContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.editcoverPictureContainer img {
+  width: 80%;
+  height: 25vh;
+  object-fit: cover;
+}
+.editcoverPictureContainer p {
+  color: blue;
+}
+
+/* bio */
+.editBioDesc {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.editBioDesc h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.editBioDesc textarea {
+  width: 50%;
+  margin-right: 25%;
+  padding: 10px 10px 10px 50px;
+  outline: none;
+  border: none;
+}
+
+/* edit intro */
+.editInfoContainer {
+  margin-top: 30px;
+}
+.editInfoContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.inputBoxes {
+  margin-top: 10px;
+  margin: 10px;
+}
+.inputBoxes label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(97, 94, 94);
+}
+.inputBoxes input {
+  width: 100%;
+  height: 37px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+/* save info button */
+.saveInfoButton button{
+  width: 97%;
+  margin: 10px;
+  outline: none;
+  border: none;
+  height: 35px;
+  background-color:   #E7F3FF;
+  color: #1877F2;
+  font-weight: 600;
+  font-size: 18px;
+}
+.saveInfoButton button:hover{
+  background-color: #cadcef;
+  border-radius: 10px;
+}
