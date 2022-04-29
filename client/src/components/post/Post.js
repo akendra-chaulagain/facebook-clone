@@ -5,8 +5,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Post = () => {
+  const post = useSelector((state)=>state.posts)
+  console.log(post);
   return (
     <>
       <div className="post">
