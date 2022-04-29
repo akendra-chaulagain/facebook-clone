@@ -5,8 +5,18 @@ import Post from "../../components/post/Post";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import "./Home.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllPost } from "../../redux/apicalls";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const post = useSelector((state) => state.post.posts);
+
+  // useffect to get all data
+  useEffect(() => {
+    getAllPost(dispatch);
+  }, [dispatch]);
   return (
     <>
       <Topbar />
@@ -17,15 +27,11 @@ const Home = () => {
           </div>
           <div className="col-6 postContainer">
             <Feed />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <div className="postContainer">
+              {post.map((data, key) => (
+                <Post data={data} key={key} />
+              ))}
+            </div>
           </div>
           <div className="col-3 followersContainer">
             <Followers />

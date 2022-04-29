@@ -5,11 +5,25 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 
-const Post = () => {
-  const post = useSelector((state)=>state.posts)
-  console.log(post);
+const Post = ({ data }) => {
+  // to get data ccording to id
+  const [getUserIdData, setgerUserIdData] = useState({});
+  useEffect(() => {
+    const userIdData = async () => {
+      try {
+        const res = await axios.get(`users/find/${data.userId}`);
+        setgerUserIdData(res.data);
+      } catch (error) {
+        console.log("unable to get user id data" + error);
+      }
+    };
+    userIdData();
+  }, [data.userId]);
+
   return (
     <>
       <div className="post">
@@ -18,9 +32,12 @@ const Post = () => {
           <Link className="link" to="/profile">
             <div className="UserProfileIg">
               <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-              <span>Akendra Chaulagain</span>
+              <span>
+                {getUserIdData.firstname + " " + getUserIdData.lastname}
+              </span>
               <br />
-              <p>8h</p>
+              {/* post created date */}
+              <h6>{new Date(getUserIdData.createdAt).toDateString()}</h6>
             </div>
           </Link>
 
@@ -32,12 +49,7 @@ const Post = () => {
 
         {/* caption */}
         <div className="caption">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            aspernatur molestias similique dolorum consequatur dolores ab
-            ratione, corporis modi sed aperiam dolore deleniti! Dolor quae
-            accusantium laudantium voluptatum laboriosam molestias!.
-          </p>
+          <p>{data.desc}</p>
         </div>
         {/* postImg */}
         <div className="postImgTimeLine">
