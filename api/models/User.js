@@ -43,6 +43,38 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+    desc: {
+      type: String,
+      default: "",
+    },
+    study: {
+      type: String,
+      default: "",
+    },
+    hobbies: {
+      type: String,
+      default: "",
+    },
+    address: {
+      type: String,
+      default: "",
+    },
+    insta: {
+      type: String,
+      default: "",
+    },
+    whatsapp: {
+      type: String,
+      default: "",
+    },
+    relationship: {
+      type: Number,
+      enum: [1, 2, 3],
+    },
+    job: {
+      type: String,
+      default: "",
+    },
     isAdmin: {
       type: Boolean,
       default: false,
