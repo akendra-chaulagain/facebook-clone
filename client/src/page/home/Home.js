@@ -17,6 +17,7 @@ const Home = () => {
   useEffect(() => {
     getAllPost(dispatch);
   }, [dispatch]);
+
   return (
     <>
       <Topbar />
@@ -27,9 +28,10 @@ const Home = () => {
           </div>
           <div className="col-6 postContainer">
             <Feed />
+            {/* post import fom post  components */}
             <div className="postContainer">
-              {post.map((data, key) => (
-                <Post data={data} key={key} />
+              {post?.map((data, i) => (
+                <Post data={data}  key={i} />
               ))}
             </div>
           </div>

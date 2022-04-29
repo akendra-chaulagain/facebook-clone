@@ -12,9 +12,9 @@ export const postSlice = createSlice({
       state.isFetching = true;
       state.error = false;
     },
-    getPostSuccess: (state, action) => {
+    getPostSuccess: (state, actions) => {
       state.isFetching = false;
-      state.posts = action.payload;
+      state.posts = actions.payload;
       state.error = false;
     },
     getPostFailure: (state) => {

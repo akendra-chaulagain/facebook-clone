@@ -9,6 +9,6 @@ export const getAllPost = async (dispatch) => {
     dispatch(getPostSuccess(res.data));
   } catch (error) {
     dispatch(getPostFailure());
-    console.log("unable to get all posts" + error);
+    console.log("unable to get all posts");
   }
 };

@@ -25,7 +25,7 @@ const App = () => {
           <Route path="login" element={<Login />} />
 
           {/* profile page */}
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
           {/* /add photo containeer */}
           <Route path="/addPhoto" element={<AddPhoto />} />
           {/* bookmark */}

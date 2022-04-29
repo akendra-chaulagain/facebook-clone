@@ -51,15 +51,7 @@ const ProfileIntro = () => {
               </Link>
             </div>
           </div>
-          <div className="col-md-8 rightSideIntro">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-          </div>
+          <div className="col-md-8 rightSideIntro"></div>
         </div>
       </div>
     </>

@@ -5,39 +5,44 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Post = ({ data }) => {
-  // to get data ccording to id
-  const [getUserIdData, setgerUserIdData] = useState({});
+  const id = data.userId;
+
+  const [userIdData, setuserIdData] = useState({});
   useEffect(() => {
-    const userIdData = async () => {
+    const getData = async () => {
       try {
-        const res = await axios.get(`users/find/${data.userId}`);
-        setgerUserIdData(res.data);
+        const res = await axios.get("users/find/" + id);
+        setuserIdData(res.data);
       } catch (error) {
         console.log("unable to get user id data" + error);
       }
     };
-    userIdData();
-  }, [data.userId]);
+    getData();
+  }, [id]);
+  console.log(userIdData);
 
   return (
     <>
       <div className="post">
         {/* user profile desc */}
         <div className="userPost">
-          <Link className="link" to="/profile">
+          <Link className="link" to={`/profile/${userIdData._id}`}>
             <div className="UserProfileIg">
-              <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-              <span>
-                {getUserIdData.firstname + " " + getUserIdData.lastname}
-              </span>
+              {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
+              <img
+                className="img-fluid"
+                src={userIdData.profilePic}
+                alt="pp_img"
+              />
+              {/* <span>Akendra Chaulagain</span> */}
+              <span>{userIdData.firstname + " " + userIdData.lastname}</span>
               <br />
-              {/* post created date */}
-              <h6>{new Date(getUserIdData.createdAt).toDateString()}</h6>
+              <h6>{new Date(data.createdAt).toDateString()}</h6>
             </div>
           </Link>
 

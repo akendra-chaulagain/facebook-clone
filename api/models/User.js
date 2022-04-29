@@ -14,9 +14,9 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    bio: {
+    descBio: {
       type: String,
-      required: true,
+      default: "",
     },
     email: {
       type: String,
@@ -43,21 +43,17 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    desc: {
-      type: String,
-      default: "",
-    },
     study: {
       type: String,
-      default: "",
+      default: "+2 management",
     },
     hobbies: {
-      type: String,
-      default: "",
+      type: Array,
+      default: "cricket",
     },
     address: {
       type: String,
-      default: "",
+      default: "akendra_chaulagain",
     },
     insta: {
       type: String,
@@ -65,15 +61,15 @@ const userSchema = new mongoose.Schema(
     },
     whatsapp: {
       type: String,
-      default: "",
+      default: "676576578",
     },
     relationship: {
-      type: Number,
-      enum: [1, 2, 3],
+      type: String,
+      default: "single",
     },
     job: {
       type: String,
-      default: "",
+      default: "studing",
     },
     isAdmin: {
       type: Boolean,
