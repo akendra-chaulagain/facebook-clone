@@ -27,11 +27,11 @@ const Home = () => {
             <Sidebar />
           </div>
           <div className="col-6 postContainer">
-            <Feed />
+            <Feed  />
             {/* post import fom post  components */}
             <div className="postContainer">
               {post?.map((data, i) => (
-                <Post data={data}  key={i} />
+                <Post data={data} key={i} />
               ))}
             </div>
           </div>

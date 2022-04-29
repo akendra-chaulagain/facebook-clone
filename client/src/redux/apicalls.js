@@ -1,5 +1,12 @@
 import axios from "axios";
-import { getPostFailure, getPostStart, getPostSuccess } from "./postReducer";
+import {
+  createPostFailure,
+  createPostStart,
+  createPostSuccess,
+  getPostFailure,
+  getPostStart,
+  getPostSuccess,
+} from "./postReducer";
 
 // get all post
 export const getAllPost = async (dispatch) => {
@@ -10,5 +17,17 @@ export const getAllPost = async (dispatch) => {
   } catch (error) {
     dispatch(getPostFailure());
     console.log("unable to get all posts");
+  }
+};
+
+// create post
+export const createPost = async (post, dispatch) => {
+  dispatch(createPostStart());
+  try {
+    const res = await axios.post("/posts/create", post);
+    dispatch(createPostSuccess(res.data));
+  } catch (error) {
+    dispatch(createPostFailure());
+    console.log("unable to get create  posts");
   }
 };

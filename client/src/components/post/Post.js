@@ -16,7 +16,7 @@ const Post = ({ data }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("users/find/" + id);
+        const res = await axios.get("/users/find/" + id);
         setuserIdData(res.data);
       } catch (error) {
         console.log("unable to get user id data" + error);
@@ -24,14 +24,13 @@ const Post = ({ data }) => {
     };
     getData();
   }, [id]);
-  console.log(userIdData);
 
   return (
     <>
       <div className="post">
         {/* user profile desc */}
         <div className="userPost">
-          <Link className="link" to={`/profile/${userIdData._id}`}>
+          <Link className="link" to={`/user/${userIdData._id}`}>
             <div className="UserProfileIg">
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
               <img

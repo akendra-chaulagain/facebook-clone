@@ -3,12 +3,66 @@ import "./AddPhoto.css";
 import CloseIcon from "@mui/icons-material/Close";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
+import { createPost } from "../../redux/apicalls";
+import { useDispatch } from "react-redux";
 
 const AddPhoto = () => {
+  const dispatch = useDispatch();
+  // usestate for post
+  const [progress, setProgress] = useState();
+  const [desc, setDesc] = useState("");
+  const [selectImage, setSelectImages] = useState(null);
+
+  // handleSubmitData(firebase)
+  const handleSubmitData = (e) => {
+    e.preventDefault();
+    const fileName = new Date().getTime() + selectImage.name;
+    const Storage = getStorage(app);
+    const storageRef = ref(Storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, selectImage);
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = "Processing...";
+        setProgress(progress);
+        switch (snapshot.state) {
+          case "paused":
+            setProgress(progress);
+            break;
+          case "running":
+            setProgress(progress);
+            break;
+          default:
+        }
+      },
+      (error) => {},
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const post = {
+            desc,
+            img: downloadURL,
+          };
+          createPost(post, dispatch);
+        });
+      }
+    );
+  };
+
   return (
     <>
       <div className="container-fluid addPhoto">
-        <div className="row addphotoWrapper">
+        <form className="row addphotoWrapper">
           <div className="addPhotoTitle">
             <p>Create Post</p>
             {/* whwn click render to home page */}
@@ -28,6 +82,8 @@ const AddPhoto = () => {
           <div className="addPhotofeed ">
             <textarea
               type="text"
+              name="desc"
+              onChange={(e) => setDesc(e.target.value)}
               placeholder="Whats's on your mind, Akendra?"
             />
           </div>
@@ -36,21 +92,27 @@ const AddPhoto = () => {
             <div className="addPhotoIconphoto">
               <label htmlFor="file">
                 <PhotoLibraryIcon style={{ fontSize: 28 }} />
-                <input type="file" id="file" style={{ display: "none" }} />
+                <input
+                  type="file"
+                  id="file"
+                  name="img"
+                  style={{ display: "none" }}
+                  onChange={(e) => setSelectImages(e.target.files[0])}
+                />
               </label>
             </div>
             <div className="addPhotoIconText">
-              <label htmlFor="file">
-                <p>Add Photos/Videos</p>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </label>
+              <p>Add Photos/Videos</p>
+              {/* <input type="file" id="file" style={{ display: "none" }} /> */}
             </div>
           </div>
           {/* post button */}
           <div className="postButton">
-            <button>Post</button>
+            <button onClick={handleSubmitData}>Post</button>
+            <br />
+            <p>{progress}</p>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
