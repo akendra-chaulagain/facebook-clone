@@ -9,8 +9,10 @@ import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { useSelector } from "react-redux";
 
 const Topbar = () => {
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <>
       <div className="container-fluid tobarContainer">
@@ -68,9 +70,9 @@ const Topbar = () => {
           {/*  left side topbar*/}
           <div className="col-md-4 rightSideTopbar">
             {/* link is used to render to home page */}
-            <Link className="link" to="/profile">
+            <Link className="link" to={`/user/${user._id}`}>
               <div className="profileImg">
-                <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+                <img className="img-fluid" src={user.profilePic} alt="pp_img" />
                 <span>Akendra</span>
               </div>
             </Link>

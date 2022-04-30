@@ -11,14 +11,16 @@ import StarIcon from "@mui/icons-material/Star";
 import Page from "@mui/icons-material/Flag";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <>
       <div className="sidebar">
-        <Link className="link" to="/profile">
+        <Link className="link" to={`/user/${user._id}`}>
           <div className="profileImgSidebar">
-            <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
+            <img className="img-fluid" src={user.profilePic} alt="pp_img" />
             <p>Akendra Chaulagain</p>
           </div>
         </Link>
