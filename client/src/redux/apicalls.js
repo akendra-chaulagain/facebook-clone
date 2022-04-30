@@ -7,6 +7,21 @@ import {
   getPostStart,
   getPostSuccess,
 } from "./postReducer";
+import { loginFailure, loginStart, loginSuccess } from "./userReducer";
+
+// login user
+export const loginUser = async (dispatch, user) => {
+  dispatch(loginStart());
+  try {
+    const res = await axios.post("/auth/login", user);
+    dispatch(loginSuccess());
+    console.log(res);
+    alert("login success");
+  } catch (error) {
+    dispatch(loginFailure());
+    console.log("unable to login" + error);
+  }
+};
 
 // get all post
 export const getAllPost = async (dispatch) => {
