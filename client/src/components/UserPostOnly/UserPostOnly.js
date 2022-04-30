@@ -31,7 +31,7 @@ const UserPostOnly = ({ data }) => {
             </button>
             <div className="dropdown-content">
               <Link className="link" to={`/editPost/${data._id}`}>
-              {/* when click render to edit post  */}
+                {/* when click render to edit post  */}
                 <p>edit post</p>
               </Link>
               <p>delete post</p>

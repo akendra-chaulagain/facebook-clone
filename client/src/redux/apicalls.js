@@ -6,6 +6,9 @@ import {
   getPostFailure,
   getPostStart,
   getPostSuccess,
+  updatePostFailure,
+  updatePostStart,
+  updatePostSuccess,
 } from "./postReducer";
 import { loginFailure, loginStart, loginSuccess } from "./userReducer";
 
@@ -43,5 +46,18 @@ export const createPost = async (post, dispatch) => {
   } catch (error) {
     dispatch(createPostFailure());
     console.log("unable to get create  posts");
+  }
+};
+
+// update post
+export const updatePosts = async (id, data, dispatch) => {
+  dispatch(updatePostStart());
+  try {
+    await axios.put(`/posts/${id}`, data);
+    dispatch(updatePostSuccess(id, data));
+    alert("update success...");
+  } catch (error) {
+    console.log("unable to update post" + error);
+    dispatch(updatePostFailure());
   }
 };

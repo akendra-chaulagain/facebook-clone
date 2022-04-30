@@ -8,8 +8,8 @@ export const postSlice = createSlice({
     error: false,
     isLoading: false,
   },
-  // get all post
   reducers: {
+    // get all post
     getPostStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -43,6 +43,25 @@ export const postSlice = createSlice({
       state.error = true;
       state.isLoading = false;
     },
+    // update post
+    updatePostStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+      state.isLoading = true;
+    },
+    updatePostSuccess: (state, action) => {
+      state.isFetching = false;
+      state.posts[
+        state.posts.findIndex((item) => item._id === action.payload.id)
+      ] = action.payload.post;
+      state.error = false;
+      state.isLoading = false;
+    },
+    updatePostFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -54,6 +73,9 @@ export const {
   createPostFailure,
   createPostSuccess,
   createPostStart,
+  updatePostFailure,
+  updatePostStart,
+  updatePostSuccess,
 } = postSlice.actions;
 
 export default postSlice.reducer;
