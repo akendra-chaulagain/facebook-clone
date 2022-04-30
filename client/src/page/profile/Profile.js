@@ -72,7 +72,7 @@ const Profile = () => {
             </div>
           </div>
           {/* user profileImg*/}
-          <div className="profileIntro">
+          <div className="profileIntroImg">
             <div className="profileImage">
               <label htmlFor="file">
                 <img src={userData.profilePic} alt="profileImg" />
