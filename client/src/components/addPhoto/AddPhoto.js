@@ -12,9 +12,13 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { createPost } from "../../redux/apicalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const AddPhoto = () => {
+  // user
+  const user = useSelector((state) => state.user.currentUser);
+  const userId = user._id;
+
   const dispatch = useDispatch();
   // usestate for post
   const [progress, setProgress] = useState();
@@ -51,6 +55,7 @@ const AddPhoto = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const post = {
             desc,
+            userId,
             img: downloadURL,
           };
           createPost(post, dispatch);
@@ -75,8 +80,8 @@ const AddPhoto = () => {
           <hr />
           {/* profileInfo */}
           <div className="UserAddProfileIg">
-            <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" />
-            <span>Akendra Chaulagain</span>
+            <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+            <span>{user.firstname + " " + user.lastname}</span>
           </div>
           {/* whats on your mind */}
           <div className="addPhotofeed ">
@@ -84,7 +89,7 @@ const AddPhoto = () => {
               type="text"
               name="desc"
               onChange={(e) => setDesc(e.target.value)}
-              placeholder="Whats's on your mind, Akendra?"
+              placeholder={`Whats's on your mind, ${user.firstname}?`}
             />
           </div>
           {/* add photo video box */}

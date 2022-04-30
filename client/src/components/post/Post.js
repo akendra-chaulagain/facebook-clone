@@ -11,19 +11,24 @@ import { useState } from "react";
 
 const Post = ({ data }) => {
   const id = data.userId;
-
   const [userIdData, setuserIdData] = useState({});
+  const [didMount, setDidMount] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await axios.get("/users/find/" + id);
         setuserIdData(res.data);
+        setDidMount(true);
       } catch (error) {
         console.log("unable to get user id data" + error);
       }
     };
     getData();
+    return () => setDidMount(false);
   }, [id]);
+  if (!didMount) {
+    return null;
+  }
 
   return (
     <>
@@ -57,7 +62,7 @@ const Post = ({ data }) => {
         </div>
         {/* postImg */}
         <div className="postImgTimeLine">
-          <img src="./images/p.jpeg" alt="post_img" />
+          <img src={data.img} alt="post_img" />
         </div>
         <hr />
         <div className="likeNumber">
