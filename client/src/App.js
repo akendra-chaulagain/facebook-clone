@@ -11,6 +11,7 @@ import Edit from "./page/EditProfile/Edit";
 import Setting from "./page/setting/Setting";
 import PersonalInfo from "./page/PersonalInfo/PersonalInfo";
 import ChangePassword from "./page/changePassword/ChangePassword";
+import EditPost from "./components/editPost/EditPost";
 
 const App = () => {
   return (
@@ -40,6 +41,8 @@ const App = () => {
           <Route path="/setting/account" element={<PersonalInfo />} />
           {/* change password */}
           <Route path="/setting/password" element={<ChangePassword />} />
+          {/* edit post */}
+          <Route path="/editPost/:id" element={<EditPost />} />
         </Routes>
       </Router>
     </>

@@ -12,10 +12,9 @@ const UserPostOnly = ({ data }) => {
   return (
     <>
       <div className="UserPostOnly">
-        {/* user profile desc */}
         <div className="userPost">
           <Link className="link" to={`/user/${user._id}`}>
-            <div className="UserProfileIg">
+            <div className="UserProfileOnyIg">
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
               <img className="img-fluid" src={user.profilePic} alt="pp_img" />
               {/* <span>Akendra Chaulagain</span> */}
@@ -25,9 +24,18 @@ const UserPostOnly = ({ data }) => {
             </div>
           </Link>
 
-          {/* icon */}
+          {/* edit button */}
           <div className="posatIcon">
-            <MoreHorizIcon />
+            <button className="dropbtn">
+              <MoreHorizIcon />
+            </button>
+            <div className="dropdown-content">
+              <Link className="link" to={`/editPost/${data._id}`}>
+              {/* when click render to edit post  */}
+                <p>edit post</p>
+              </Link>
+              <p>delete post</p>
+            </div>
           </div>
         </div>
 
@@ -36,7 +44,7 @@ const UserPostOnly = ({ data }) => {
           <p>{data.desc}</p>
         </div>
         {/* postImg */}
-        <div className="postImgTimeLine">
+        <div className="postImgTimeLineUser">
           <img src={data.img} alt="post_img" />
         </div>
         <hr />

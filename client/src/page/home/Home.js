@@ -36,7 +36,7 @@ const Home = () => {
               <div className="col-3 sidebarHomePage">
                 <Sidebar />
               </div>
-              <div className="col-6 postContainer">
+              <div className="col-6 postContainerWrapper">
                 <Feed />
                 {/* post import fom post  components */}
                 <div className="postContainer">

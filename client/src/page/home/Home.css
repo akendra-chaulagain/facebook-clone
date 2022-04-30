@@ -1,4 +1,4 @@
-.postContainer {
+.postContainerWrapper {
   background-color: #f0f2f5;
 }
 .followersContainer {
@@ -13,8 +13,9 @@
   .followersContainer {
     display: none;
   }
-  .postContainer {
+  .postContainerWrapper {
     width: 100%;
     background-color: white;
+    margin-top: -35px;
   }
 }

@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 const ProfileIntro = () => {
   const user = useSelector((state) => state.user.currentUser);
+
   return (
     <>
       <div className="container-fluid profileIntro">

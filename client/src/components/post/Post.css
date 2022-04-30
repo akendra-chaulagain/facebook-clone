@@ -40,9 +40,9 @@
 
 .UserProfileIg h6 {
   margin-left: 33%;
-  margin-top: -18px;
-  font-size: 12px;
+  font-size: 11px;
   color: gray;
+  margin-top: -15px;
 }
 
 .caption {
@@ -118,6 +118,12 @@
     margin-left: 33%;
     font-size: 10px;
   }
+  .postImgTimeLine img {
+    height: 45vh;
+    width: 80%;
+    object-fit: contain;
+  }
+
   .caption {
     margin: 0px 15px 5px 15px;
     font-size: 14px;

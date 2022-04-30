@@ -69,11 +69,12 @@
   .profileImgFeed img {
     height: 35px;
     width: 35px;
-    margin-right: 4px;
+    margin-right: 2px;
+    margin-left: 4px;
   }
 
   .profileImgFeed input {
-    width: 80%;
+    width: 75%;
     height: 35px;
     font-size: 12px;
     color: black;
