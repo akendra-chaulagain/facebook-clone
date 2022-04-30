@@ -139,7 +139,7 @@
     margin-left: 35%;
     align-items: center;
     position: absolute;
-    bottom: -50px;
+    bottom: -80px;
   }
   .userProfileNameSpan {
     margin-left: 0%;
@@ -147,7 +147,7 @@
   .userProfileNameSpan h1 {
     font-weight: 600;
     font-size: 15px;
-    margin-top: 0px;
+    margin-top: 25px;
     text-align: center;
   }
   .userProfileNameSpan p {
