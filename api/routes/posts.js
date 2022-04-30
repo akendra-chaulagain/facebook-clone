@@ -59,6 +59,19 @@ router.get("/find/:id", async (req, res) => {
       .json("unable to get post. something went wrong" + error);
   }
 });
+router.post("/find/individualpost", async (req, res) => {
+  const { userId } = req.body;
+  try {
+    const getIndividulaPost = await Post.find({ userId }).sort({
+      _id: -1,
+    });
+    return res.status(201).json(getIndividulaPost);
+  } catch (error) {
+    return res
+      .status(401)
+      .json("unable to get individual post. something went wrong" + error);
+  }
+});
 
 // get all post
 router.get("/all", async (req, res) => {

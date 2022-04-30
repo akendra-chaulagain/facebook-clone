@@ -66,6 +66,7 @@ const AddPhoto = () => {
 
   return (
     <>
+      {}
       <div className="container-fluid addPhoto">
         <form className="row addphotoWrapper">
           <div className="addPhotoTitle">

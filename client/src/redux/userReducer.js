@@ -20,13 +20,11 @@ export const userSlice = createSlice({
       state.currentUser = actions.payload;
       state.error = false;
       state.isLoading = false;
-
     },
     loginFailure: (state) => {
       state.isFetching = false;
       state.error = true;
       state.isLoading = false;
-
     },
   },
 });
