@@ -19,6 +19,7 @@ const ProfileIntro = () => {
         <div className="row profileIntroWrapper">
           <div className="col-md-4 leftSideIntro">
             <div className="introIcons">
+              <h3 className="text-center mt-2">Intro</h3>
               {/* user information with icons */}
               <div className="introIconItem">
                 <AutoStoriesIcon /> <span>{user.study}</span>

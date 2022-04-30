@@ -7,14 +7,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-// import UserPostOnly from "../../components/userPostOnly/UserPostOnly";
-import Post from "../../components/post/Post";
+import UserPostOnly from "../../components/UserPostOnly/UserPostOnly";
 
 const Profile = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   // user
-  const user = useSelector((state) => state.user.currentUser);
 
   // get user according to user id given in url
   const [userData, setuserData] = useState({});
@@ -39,7 +37,7 @@ const Profile = () => {
     const getUserPostData = async () => {
       try {
         const res = await axios.post("/posts/find/individualpost", {
-          userId: user._id,
+          userId: path,
         });
         setUserPostData(res.data);
       } catch (error) {
@@ -47,8 +45,7 @@ const Profile = () => {
       }
     };
     getUserPostData();
-  }, [user._id]);
-  console.log(userPostData);
+  }, [path]);
 
   return (
     <>
@@ -89,23 +86,20 @@ const Profile = () => {
             {/* user bio */}
             <p>{userData.descBio}</p>
           </div>
-          {/* user intro */}
-          <div className="feedImport">
-            {/* feed import from feed components */}
-            <Feed />
-            <hr />
+        </div>
+      </div>
+      {/* geed import from feed component */}
+      <Feed />
+      {/* for post and userInfo */}
+      <div className="conatiner-fluid profilePostnadIntro">
+        <div className="row">
+          <div className="col-md-5 leftprofilePostnadIntro">
+            <ProfileIntro />
           </div>
-          <div className="userOnlyPOstFlex">
-            <ProfileIntro userIdData={userPostData} />
-            {/* {userPostData?.map((data, i) => (
+          <div className="col-md-7 rightprofilePostnadIntro">
+            {userPostData?.map((data, i) => (
               <UserPostOnly data={data} key={i} />
-            ))} */}
-            <div className="sk">
-              <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem,
-                exercitationem!
-              </h1>
-            </div>
+            ))}
           </div>
         </div>
       </div>

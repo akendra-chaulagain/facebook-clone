@@ -1,20 +1,21 @@
 .profileIntro {
   margin-left: 10%;
-  width: 80%;
+  width: 100%;
   z-index: 99;
 }
 
 /* left side intro */
 .leftSideIntro {
-  height: 62vh;
+  width: 100%;
+  height: 68vh;
   background-color: white;
   margin-top: 20px;
   color: gray;
-  position: sticky;
-  top: 10vh;
   border: 2px solid rgb(229, 228, 228);
   margin-bottom: 10px;
   border-radius: 6px;
+  /* position: sticky;
+  top: 10vh; */
 }
 
 .introIconItem {
@@ -48,14 +49,14 @@
   .profileIntro {
     width: 100%;
     margin-left: 0px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
   }
   .leftSideIntro {
     position: relative;
-    margin-top: -75px;
+    margin-top: -78px;
     height: auto;
   }
   .leftSideIntro {
-    margin-bottom: 90px;
+    margin-bottom: 0px;
   }
 }
