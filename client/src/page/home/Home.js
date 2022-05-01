@@ -8,7 +8,7 @@ import "./Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllPost } from "../../redux/apicalls";
-import Loading from "../../components/loading/Loading";
+import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();

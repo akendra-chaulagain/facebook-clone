@@ -12,7 +12,7 @@ import ImportExportIcon from "@mui/icons-material/ImportExport";
 import { Link } from "react-router-dom";
 import Topbar from "../topbar/Topbar";
 import { useSelector } from "react-redux";
-import Loading from "../loading/Loading";
+import Loading from "../Loading/Loading";
 
 const Bookmark = () => {
   // user

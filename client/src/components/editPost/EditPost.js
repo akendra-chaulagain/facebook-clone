@@ -15,7 +15,7 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { updatePosts } from "../../redux/apicalls";
-import Loading from "../loading/Loading";
+import Loading from "../Loading/Loading";
 
 const EditPost = () => {
   const dispatch = useDispatch();
