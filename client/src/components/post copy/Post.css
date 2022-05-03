@@ -1,0 +1,131 @@
+.post {
+  height: auto;
+  width: 80%;
+  background-color: #ffffff;
+  box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
+  margin-left: 10%;
+  margin-top: 2vh;
+  border-radius: 10px;
+}
+
+.userPost {
+  display: flex;
+  justify-content: space-between;
+}
+.posatIcon {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.UserProfileIg {
+  width: 100%;
+}
+
+.UserProfileIg img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 50px;
+  margin: 10px 0px 0px 10px;
+}
+
+.UserProfileIg span {
+  font-size: 13px;
+  margin-left: 5px;
+  color: rgb(58, 58, 58);
+  font-weight: 600;
+}
+
+.UserProfileIg h6 {
+  margin-left: 33%;
+  font-size: 11px;
+  color: gray;
+  margin-top: -15px;
+}
+
+.caption {
+  margin: 10px;
+  font-size: 15px;
+}
+
+/* post img */
+.postImgTimeLine {
+  display: flex;
+  justify-content: center;
+}
+
+.postImgTimeLine img {
+  height: 55vh;
+  width: 80%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+/* like and comment section */
+.likeContainer {
+  display: flex;
+  justify-content: space-evenly;
+  color: #65676b;
+}
+.likeContainer span {
+  margin-left: 4px;
+  font-size: 15px;
+}
+.likeandLove {
+  cursor: pointer;
+}
+.likeandLove:hover {
+  color: red;
+}
+.likeandLove span {
+  color: #65676b;
+}
+.comment {
+  cursor: pointer;
+}
+
+.share {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* like number */
+.likeNumber {
+  display: flex;
+  margin-left: 15%;
+  color: #65676b;
+  font-size: 15px;
+}
+.likeNumber span {
+  color: red;
+  font-size: 10px;
+}
+
+/* responsive of post*/
+@media only screen and (max-width: 800px) {
+  .post {
+    height: auto;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: none;
+    margin-left: 0%;
+    border: 1px solid rgb(203, 203, 203);
+    margin-top: 7px;
+  }
+  .UserProfileIg h6 {
+    margin-left: 33%;
+    font-size: 10px;
+  }
+  .postImgTimeLine img {
+    height: 45vh;
+    width: 80%;
+    object-fit: contain;
+  }
+
+  .caption {
+    margin: 0px 15px 5px 15px;
+    font-size: 14px;
+  }
+}
