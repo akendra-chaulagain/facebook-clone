@@ -1,61 +1,57 @@
 import React from "react";
 import "./Edit.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserData } from "../../redux/apicalls";
 import axios from "axios";
+import { useEffect } from "react";
+import { updateInfoUser } from "../../redux/apicalls";
 
 const Edit = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-
   const user = useSelector((state) => state.user.currentUser);
 
-  // console.log(user);
+  const [userInfoData, setuserInfoData] = useState([]);
+  useEffect(() => {
+    const getUserPostData = async () => {
+      try {
+        const res = await axios.get("/info/find/" + path);
+        setuserInfoData(res.data);
+      } catch (error) {
+        console.log("unable to get user id post " + error);
+      }
+    };
+    getUserPostData();
+  }, [path]);
 
   // get user according to user id given in url
-  // const [desc, setDesc] = useState("");
-  // const [selectImageProfile, setSelectImagesProfile] = useState(null);
-  // const [selectImageCover, setSelectImageCover] = useState(null);
-  // const [education, setEducation] = useState();
-  // const [address, setAddress] = useState();
-  // const [jobs, setJobs] = useState();
-  // const [realationship, setRealationship] = useState();
-  // const [whatsapp, setWhatsApp] = useState();
-  // const [bio, setBio] = useState();
+
   const [selectImageProfile, setSelectImagesProfile] = useState(null);
   const [selectImageCover, setSelectImageCover] = useState(null);
-  const [ak, setak] = useState({});
-  const [values, setValues] = useState({
-    job: "",
-    bio: "",
-    study: "",
-    address: "",
-    insta: "",
-    whatsapp: "",
-    relationship: "",
-  });
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
+  const [study, setStudy] = useState(userInfoData.study);
+  const [address, setAddress] = useState(userInfoData.address);
+  const [jobs, setJobs] = useState(userInfoData.job);
+  const [relationship, setRealationship] = useState(userInfoData.relationship);
+  const [whatsapp, setWhatsApp] = useState(userInfoData.whatsapp);
+  const [bio, setBio] = useState(userInfoData.bio);
+  const [insta, setInsta] = useState(userInfoData.insta);
 
-  const handleUserUpdate = async (e) => {
+  const handleUserUpdate = (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.put(`/posts/${user._id}`, { values });
-      setak(res.data);
-      console.log(res);
-    } catch (error) {
-      console.log("unalbe to update" + error);
-    }
+    updateInfoUser(path, dispatch, {
+      study,
+      address,
+      jobs,
+      relationship,
+      whatsapp,
+      bio,
+      insta,
+    });
+    navigate(`/user/${user._id}`);
   };
-
   return (
     <>
       <div className="editContainer">
@@ -114,8 +110,8 @@ const Edit = () => {
               type="text"
               name="bio"
               // value={values.bio}
-              defaultValue={user.desc}
-              onChange={handleInputChange}
+              defaultValue={userInfoData.desc}
+              onChange={(e) => setBio(e.target.value)}
             />
           </div>
 
@@ -131,8 +127,8 @@ const Edit = () => {
                   type="text"
                   name="study"
                   // value={values.study}
-                  defaultValue={user.study}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.study}
+                  onChange={(e) => setStudy(e.target.value)}
                 />
               </div>
               {/* address */}
@@ -143,8 +139,8 @@ const Edit = () => {
                   type="text"
                   name="address"
                   // value={values.address}
-                  defaultValue={user.address}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
               </div>
               {/* jobs */}
@@ -153,10 +149,10 @@ const Edit = () => {
                 <br />
                 <input
                   type="text"
-                  name="jobs"
+                  name="job"
                   // value={values.job}
-                  defaultValue={user.job}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.job}
+                  onChange={(e) => setJobs(e.target.value)}
                 />
               </div>
               {/* relationship */}
@@ -167,8 +163,8 @@ const Edit = () => {
                   type="text"
                   name="relationship"
                   // value={values.relationship}
-                  defaultValue={user.relationship}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.relationship}
+                  onChange={(e) => setRealationship(e.target.value)}
                 />
               </div>
               {/* hobbies */}
@@ -179,8 +175,8 @@ const Edit = () => {
                   type="number"
                   name="whatsapp"
                   // value={values.whatsapp}
-                  defaultValue={user.whatsapp}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.whatsapp}
+                  onChange={(e) => setWhatsApp(e.target.value)}
                 />
               </div>
               {/* insta */}
@@ -191,8 +187,8 @@ const Edit = () => {
                   type="text"
                   name="insta"
                   // value={values.insta}
-                  defaultValue={user.insta}
-                  onChange={handleInputChange}
+                  defaultValue={userInfoData.insta}
+                  onChange={(e) => setInsta(e.target.value)}
                 />
               </div>
             </form>

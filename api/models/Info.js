@@ -12,7 +12,7 @@ const infoSchema = new mongoose.Schema(
     },
     study: {
       type: String,
-      default: "+2 management",
+      default: "study",
     },
     address: {
       type: String,

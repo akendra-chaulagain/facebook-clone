@@ -1,7 +1,6 @@
 import React from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
-// ReactToastify is use for alert
 
 const Register = () => {
   return (

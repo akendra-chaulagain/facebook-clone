@@ -45,6 +45,9 @@ const Profile = () => {
     };
     getUserPostData();
   }, [path]);
+  if (!didMount) {
+    return null;
+  }
 
   return (
     <>
@@ -94,7 +97,7 @@ const Profile = () => {
       {/* for post and userInfo */}
       <div className="conatiner-fluid profilePostnadIntro">
         <div className="row">
-        {/* profile and user all photo */}
+          {/* profile and user all photo */}
           <div className="col-md-5 leftprofilePostnadIntro">
             <ProfileIntro />
             {/* <Photo/> */}

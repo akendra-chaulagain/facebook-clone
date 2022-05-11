@@ -43,7 +43,9 @@
   margin-top: 25px;
   border-radius: 5px;
 }
-
+.introIconItem  .fa-clock{
+  font-size: 20px;
+}
 /* responsive */
 @media only screen and (max-width: 800px) {
   .profileIntro {

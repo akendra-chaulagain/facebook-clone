@@ -1,5 +1,10 @@
 import axios from "axios";
 import {
+  updateInfoFailure,
+  updateInfoStart,
+  updateInfoSuccess,
+} from "./infoReducer";
+import {
   createPostFailure,
   createPostStart,
   createPostSuccess,
@@ -13,14 +18,7 @@ import {
   updatePostStart,
   updatePostSuccess,
 } from "./postReducer";
-import {
-  loginFailure,
-  loginStart,
-  loginSuccess,
-  updateUserFailure,
-  updateUserStart,
-  updateUserSuccess,
-} from "./userReducer";
+import { loginFailure, loginStart, loginSuccess } from "./userReducer";
 
 // login user
 export const loginUser = async (dispatch, user) => {
@@ -86,15 +84,14 @@ export const deletePosts = async (dispatch, id) => {
 };
 
 // update user
-export const updateUserData = async (id, data, dispatch) => {
-  dispatch(updateUserStart());
+export const updateInfoUser = async (path, dispatch, data) => {
+  dispatch(updateInfoStart());
   try {
-    await axios.put(`/posts/${id}`, data);
-    dispatch(updateUserSuccess(id, data));
+    await axios.put(`/info/${path}`, data);
+    dispatch(updateInfoSuccess(path, data));
     alert("update success...");
   } catch (error) {
-    console.log("unable to update user data" + error);
-    dispatch(updateUserFailure());
+    console.log("unable to update user info" + error);
+    dispatch(updateInfoFailure());
   }
 };
-
