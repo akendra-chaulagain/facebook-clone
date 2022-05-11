@@ -83,7 +83,7 @@ export const deletePosts = async (dispatch, id) => {
   }
 };
 
-// update user
+// update user info
 export const updateInfoUser = async (path, dispatch, data) => {
   dispatch(updateInfoStart());
   try {

@@ -45,8 +45,22 @@
   width: 30%;
   height: 30vh;
   border-radius: 100px;
-  object-fit: cover;
+  object-fit: contain;
   margin-left: 35%;
+}
+.saveButtonP p {
+  height: 20px;
+  width: 20%;
+  margin-left: 40%;
+  outline: none;
+  background-color: #cadcef;
+  color: #1877f2;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 /* cover photo */
@@ -156,12 +170,20 @@
     font-weight: 600;
   }
   .editProfilePictureContainer img {
-    width: 120px;
-    height: 120px;
+    width: 30%;
+    height: 20vh;
+    border-radius: 100px;
+    object-fit: contain;
+    margin-left: 35%;
   }
   .editProfileWrapper p {
     font-size: 13px;
   }
+  .saveButtonP p {
+    height: 20px;
+    font-size: 12px;
+  }
+
   /* cover photo  */
 
   .editcoverPictureContainer h3 {
@@ -206,5 +228,31 @@
     width: 97%;
     height: 33px;
     font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .editProfilePictureContainer img {
+    width: 30%;
+    height: 30vh;
+    margin-left: 35%;
+    object-fit: contain;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .editProfilePictureContainer img {
+    width: 40%;
+    height: 30vh;
+    margin-left: 30%;
+    object-fit: contain;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .editProfilePictureContainer img {
+    width: 50%;
+    height: 30vh;
+    margin-left: 25%;
+    object-fit: contain;
   }
 }

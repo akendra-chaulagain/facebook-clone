@@ -39,6 +39,8 @@ const Edit = () => {
   const [bio, setBio] = useState(userInfoData.bio);
   const [insta, setInsta] = useState(userInfoData.insta);
 
+  console.log(selectImageProfile, selectImageCover);
+
   const handleUserUpdate = (e) => {
     e.preventDefault();
     updateInfoUser(path, dispatch, {
@@ -52,6 +54,13 @@ const Edit = () => {
     });
     navigate(`/user/${user._id}`);
   };
+  // show select images on display
+  const [img, setImg] = useState();
+  const onImageChange = (e) => {
+    const [file] = e.target.files;
+    setImg(URL.createObjectURL(file));
+  };
+
   return (
     <>
       <div className="editContainer">
@@ -70,26 +79,31 @@ const Edit = () => {
               <h3>profile Picture</h3>
               {/* edit profile img(select images from the device) */}
               <label htmlFor="file">
-                <p>edit</p>
+                <p>select</p>
                 <input
                   type="file"
                   id="file"
                   style={{ display: "none" }}
                   name="profilePic"
                   onChange={(e) => setSelectImagesProfile(e.target.files[0])}
+                  // onChange={onImageChange}
                 />
               </label>
             </div>
-            <img src={user.profilePic} alt="profilePic" />
+            <img src={img} alt="profilePic" />
+            <div className="saveButtonP">
+              <p className="text-center">save</p>
+            </div>
           </div>
-
+          <hr />
+          <hr />
           {/* edit cover img */}
           <div className="editcoverPictureContainer">
             <div className="editcoverPicWrapper">
               <h3>Cover Photo</h3>
               {/* edit cover img(select images from the device) */}
               <label htmlFor="file">
-                <p>edit</p>
+                <p>select</p>
                 <input
                   type="file"
                   id="file"
@@ -100,8 +114,13 @@ const Edit = () => {
               </label>
             </div>
             {/* cover pic */}
-            <img src={user.coverPic} alt="cover_img" />
+            <img src={user.profilePic} alt="cover_img" />
+            <div className="saveButtonP">
+              <p className="text-center">save</p>
+            </div>
           </div>
+          <hr />
+          <hr />
 
           {/* edit bio */}
           <div className="editBioDesc">
@@ -196,7 +215,7 @@ const Edit = () => {
 
           {/* save info button */}
           <div className="saveInfoButton">
-            <button onClick={handleUserUpdate}>Save</button>
+            <button onClick={handleUserUpdate}>Save info</button>
           </div>
         </div>
       </div>

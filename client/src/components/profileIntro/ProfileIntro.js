@@ -18,6 +18,7 @@ const ProfileIntro = () => {
 
   // get user info data from the userId which is present in database
   const [userPostData, setUserPostData] = useState({});
+  const [didMount, setDidMount] = useState(false);
   useEffect(() => {
     const getUserPostData = async () => {
       try {
@@ -25,12 +26,17 @@ const ProfileIntro = () => {
           userId: path,
         });
         setUserPostData(res.data[0]);
+        setDidMount(true);
       } catch (error) {
         console.log("unable to get user id post " + error);
       }
     };
     getUserPostData();
+    return () => setDidMount(false);
   }, [path]);
+  if (!didMount) {
+    return null;
+  }
 
   return (
     <>
