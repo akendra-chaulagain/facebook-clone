@@ -104,7 +104,7 @@
 .inputBoxes label {
   font-size: 13px;
   font-weight: 600;
-  color: rgb(97, 94, 94);
+  color: rgb(62, 60, 60);
 }
 .inputBoxes input {
   width: 100%;
@@ -114,6 +114,8 @@
   border: none;
   border: 1px solid grey;
   padding: 10px;
+  color: rgb(78, 77, 77);
+  font-size: 15px;
 }
 
 /* save info button */
@@ -196,6 +198,7 @@
   }
   .inputBoxes input {
     height: 33px;
+    font-size: 10px;
   }
 
   /* save info button */

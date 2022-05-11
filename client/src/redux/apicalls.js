@@ -13,7 +13,14 @@ import {
   updatePostStart,
   updatePostSuccess,
 } from "./postReducer";
-import { loginFailure, loginStart, loginSuccess } from "./userReducer";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess,
+  updateUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+} from "./userReducer";
 
 // login user
 export const loginUser = async (dispatch, user) => {
@@ -46,6 +53,7 @@ export const createPost = async (post, dispatch) => {
   try {
     const res = await axios.post("/posts/create", post);
     dispatch(createPostSuccess(res.data));
+    alert("post created");
   } catch (error) {
     dispatch(createPostFailure());
     console.log("unable to get create  posts");
@@ -76,3 +84,30 @@ export const deletePosts = async (dispatch, id) => {
     dispatch(deletePostFailure());
   }
 };
+
+// update user
+export const updateUserData = async (id, data, dispatch) => {
+  dispatch(updateUserStart());
+  try {
+    await axios.put(`/posts/${id}`, data);
+    dispatch(updateUserSuccess(id, data));
+    alert("update success...");
+  } catch (error) {
+    console.log("unable to update user data" + error);
+    dispatch(updateUserFailure());
+  }
+};
+
+
+// export const updateUserData = async (id, values, dispatch) => {
+//   dispatch(updateUserStart());
+//   try {
+//     const res = await axios.put(`/users/${id}`, values);
+//     dispatch(updateUserSuccess(id, values));
+//     console.log(res.data);
+//     alert("update success");
+//   } catch (error) {
+//     dispatch(updateUserFailure());
+//     console.log("unable to update user data" + error);
+//   }
+// };

@@ -61,7 +61,7 @@ const ProfileIntro = () => {
             </div>
             {/* edit button (when click render to profile edit page*/}
             <div className="userInfoEditBtn">
-              <Link className="link" to="/edit">
+              <Link className="link" to={`/edit/${user._id}`}>
                 <button>Edit Details</button>
               </Link>
             </div>

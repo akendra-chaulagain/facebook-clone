@@ -27,9 +27,9 @@
 .profileCoverImg {
   position: relative;
   text-align: center;
-  width: 96%;
+  width: 70%;
   height: 50vh;
-  margin-left: 2%;
+  margin-left: 15%;
   box-shadow: -1px 0px 8px -3px rgba(0, 0, 0, 0.72);
 }
 .profileCoverImg img {
@@ -56,8 +56,8 @@
 /* profile image */
 .profileIntroImg {
   position: relative;
-  margin-left: 10%;
-  bottom: 60px;
+  margin-left: 20%;
+  bottom: 79px;
 }
 
 .profileImage img {
@@ -67,17 +67,16 @@
   border: 4px solid rgb(179, 177, 177);
   object-fit: contain;
   position: absolute;
-  left: 16px;
   cursor: pointer;
 }
 
 .userProfileNameSpan {
   height: auto;
-  margin-left: 22%;
+  margin-left: 31%;
 }
 .userProfileNameSpan h1 {
   font-weight: 600;
-  font-size: 32px;
+  font-size: 26px;
 }
 .userProfileNameSpan p {
   margin-top: -7px;
@@ -88,11 +87,15 @@
 
 /* profile intro and post */
 .profilePostnadIntro {
-  width: 90%;
-  margin-left: 5%;
+  width: 78%;
+  margin-left: 11%;
 }
 .leftprofilePostnadIntro {
   margin-top: 8vh;
+}
+.feeDProfile {
+  width: 88%;
+  margin-left: 6%;
 }
 
 @media only screen and (max-width: 800px) {
@@ -120,7 +123,7 @@
 
   .imgprofileCamera p {
     bottom: 0px;
-    right: 80px;
+    right: -90px;
     font-size: 13px;
     border-radius: 7%;
     padding-top: 3px;
@@ -128,16 +131,24 @@
   /* cover img */
   .profileCoverImg {
     height: 30vh;
+    width: 96%;
+    margin-left: 2%;
   }
+
   /* profile image */
   .profileIntroImg {
-    position: relative;
+    margin-left: 0%;
+    bottom: 45px;
+  }
+  .profileImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: -8%;
   }
   .profileImage img {
-    height: 90px;
-    width: 90px;
-    margin-left: 35%;
-    align-items: center;
+    height: 80px;
+    width: 80px;
     position: absolute;
     bottom: -80px;
   }
@@ -146,8 +157,8 @@
   }
   .userProfileNameSpan h1 {
     font-weight: 600;
-    font-size: 15px;
-    margin-top: 25px;
+    font-size: 14px;
+    margin-top: 40px;
     text-align: center;
   }
   .userProfileNameSpan p {
@@ -164,13 +175,17 @@
   .leftprofilePostnadIntro {
     margin-top: 16vh;
   }
+  .feeDProfile {
+    width: 98%;
+    margin-left: 1%;
+  }
 }
 
 /* responsive */
 @media only screen and (max-width: 500px) {
   .imgprofileCamera p {
     bottom: 0px;
-    right: 45px;
+    right: 20px;
     font-size: 13px;
     border-radius: 7%;
     padding-top: 3px;

@@ -41,6 +41,8 @@ const EditPost = () => {
     getUserData();
     return () => setDidMount(false);
   }, [id]);
+
+  
   //   usestate  for update
   const [desc, setDesc] = useState(editData.desc);
   const [selectImage, setSelectImages] = useState(editData.img);

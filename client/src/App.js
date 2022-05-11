@@ -34,7 +34,7 @@ const App = () => {
           {/* search  */}
           <Route path="/search" element={<Search />} />
           {/* edit profile */}
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/edit/:id" element={<Edit />} />
           {/* setting page */}
           <Route path="/setting" element={<Setting />} />
           {/* personal ingo(account) */}

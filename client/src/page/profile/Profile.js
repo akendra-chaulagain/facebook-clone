@@ -88,12 +88,16 @@ const Profile = () => {
         </div>
       </div>
       {/* geed import from feed component */}
-      <Feed />
+      <div className="feeDProfile">
+        <Feed />
+      </div>
       {/* for post and userInfo */}
       <div className="conatiner-fluid profilePostnadIntro">
         <div className="row">
+        {/* profile and user all photo */}
           <div className="col-md-5 leftprofilePostnadIntro">
             <ProfileIntro />
+            {/* <Photo/> */}
           </div>
           <div className="col-md-7 rightprofilePostnadIntro">
             {userPostData?.map((data, i) => (

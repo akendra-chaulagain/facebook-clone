@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    descBio: {
+    bio: {
       type: String,
       default: "",
     },
@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema(
     },
     hobbies: {
       type: Array,
-      default: "cricket",
+      default: "hobbies",
     },
     address: {
       type: String,
-      default: "akendra_chaulagain",
+      default: "address",
     },
     insta: {
       type: String,
@@ -61,11 +61,11 @@ const userSchema = new mongoose.Schema(
     },
     whatsapp: {
       type: String,
-      default: "676576578",
+      default: "whatsapp",
     },
     relationship: {
       type: String,
-      default: "single",
+      default: "relationship",
     },
     job: {
       type: String,
