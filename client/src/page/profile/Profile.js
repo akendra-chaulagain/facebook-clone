@@ -11,7 +11,6 @@ import UserPostOnly from "../../components/UserPostOnly/UserPostOnly";
 const Profile = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  // user
 
   // get user according to user id given in url
   const [userData, setuserData] = useState({});

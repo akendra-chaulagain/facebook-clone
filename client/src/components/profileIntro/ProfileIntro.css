@@ -12,7 +12,7 @@
   height: 68vh;
   background-color: white;
   margin-top: 0px;
-  color: #4B4B4B;
+  color: #4b4b4b;
   border: 2px solid rgb(229, 228, 228);
   margin-bottom: 10px;
   border-radius: 6px;
@@ -43,7 +43,7 @@
   margin-top: 25px;
   border-radius: 5px;
 }
-.introIconItem  .fa-clock{
+.introIconItem .fa-clock {
   font-size: 20px;
 }
 /* responsive */
@@ -60,6 +60,12 @@
   }
   .leftSideIntro {
     margin-bottom: 0px;
+  }
+  .userInfoEditBtn button {
+    padding: 3px 15px;
+    font-size: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
   }
 }
 @media only screen and (max-width: 320px) {

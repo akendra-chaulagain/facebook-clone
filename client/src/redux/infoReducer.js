@@ -6,6 +6,7 @@ export const infoSlice = createSlice({
     infos: [],
     isFetching: false,
     error: false,
+    isLoading: false,
   },
   // login user
   reducers: {
