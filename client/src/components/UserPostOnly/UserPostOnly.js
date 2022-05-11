@@ -5,10 +5,19 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deletePosts } from "../../redux/apicalls";
 
 const UserPostOnly = ({ data }) => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
+
+  // delete post
+  const handleDelete = (id) => {
+    deletePosts(dispatch, id);
+    alert("post deleted");
+    window.location.reload(`/user/${user._id}`);
+  };
   return (
     <>
       <div className="UserPostOnly">
@@ -30,11 +39,12 @@ const UserPostOnly = ({ data }) => {
               <MoreHorizIcon />
             </button>
             <div className="dropdown-content">
+              {/* edit post */}
               <Link className="link" to={`/editPost/${data._id}`}>
-                {/* when click render to edit post  */}
                 <p>edit post</p>
               </Link>
-              <p>delete post</p>
+              {/* delete post */}
+              <p onClick={() => handleDelete(data._id)}>delete post</p>
             </div>
           </div>
         </div>

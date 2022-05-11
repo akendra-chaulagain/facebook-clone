@@ -62,6 +62,26 @@ export const postSlice = createSlice({
       state.error = true;
       state.isLoading = false;
     },
+    // delete post
+    deletePostStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+      state.isLoading = true;
+    },
+    deletePostSuccess: (state, action) => {
+      state.isFetching = false;
+      state.posts.splice(
+        state.posts.findIndex((item) => item._id === action.payload),
+        1
+      );
+      state.error = false;
+      state.isLoading = false;
+    },
+    deletePostFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -76,6 +96,9 @@ export const {
   updatePostFailure,
   updatePostStart,
   updatePostSuccess,
+  deletePostFailure,
+  deletePostStart,
+  deletePostSuccess,
 } = postSlice.actions;
 
 export default postSlice.reducer;

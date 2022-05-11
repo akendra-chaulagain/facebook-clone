@@ -3,6 +3,9 @@ import {
   createPostFailure,
   createPostStart,
   createPostSuccess,
+  deletePostFailure,
+  deletePostStart,
+  deletePostSuccess,
   getPostFailure,
   getPostStart,
   getPostSuccess,
@@ -59,5 +62,17 @@ export const updatePosts = async (id, data, dispatch) => {
   } catch (error) {
     console.log("unable to update post" + error);
     dispatch(updatePostFailure());
+  }
+};
+
+// delete posts
+export const deletePosts = async (dispatch, id) => {
+  dispatch(deletePostStart());
+  try {
+    await axios.delete(`/posts/${id}`);
+    dispatch(deletePostSuccess());
+  } catch (error) {
+    console.log("unable to delete post" + error);
+    dispatch(deletePostFailure());
   }
 };

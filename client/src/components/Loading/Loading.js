@@ -4,11 +4,11 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <>
-      <div class="containerLoading">
-        <div class="dash uno"></div>
-        <div class="dash dos"></div>
-        <div class="dash tres"></div>
-        <div class="dash cuatro"></div>
+      <div className="containerLoading">
+        <div className="dash uno"></div>
+        <div className="dash dos"></div>
+        <div className="dash tres"></div>
+        <div className="dash cuatro"></div>
       </div>
     </>
   );

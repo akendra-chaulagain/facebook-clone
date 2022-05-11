@@ -8,7 +8,7 @@ const Setting = () => {
       <div className="settingContainer">
         {/* setting topbar */}
         <div className="settingTopBar">
-          <Link className="link settingTopBarArrow" to="/bookmark">
+          <Link className="link settingTopBarArrow" to="/">
             <i className="fa-solid fa-arrow-left-long"></i>
           </Link>
           <p>Setting & privacy</p>
