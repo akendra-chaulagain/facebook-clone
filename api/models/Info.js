@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const infoSchema = new mongoose.Schema(
   {
+    userId: {
+      type: String,
+      required: true,
+    },
     bio: {
       type: String,
       default: "Bio",
