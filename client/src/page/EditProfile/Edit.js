@@ -3,9 +3,11 @@ import "./Edit.css";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  updateUserData } from "../../redux/apicalls";
+import { updateUserData } from "../../redux/apicalls";
+import axios from "axios";
 
 const Edit = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -25,6 +27,7 @@ const Edit = () => {
   // const [bio, setBio] = useState();
   const [selectImageProfile, setSelectImagesProfile] = useState(null);
   const [selectImageCover, setSelectImageCover] = useState(null);
+  const [ak, setak] = useState({});
   const [values, setValues] = useState({
     job: "",
     bio: "",
@@ -41,11 +44,16 @@ const Edit = () => {
       [name]: value,
     });
   };
-  const dispatch = useDispatch();
 
-  const handleUserUpdate = (e) => {
+  const handleUserUpdate = async (e) => {
     e.preventDefault();
-    updateUserData(path, values, dispatch);
+    try {
+      const res = await axios.put(`/posts/${user._id}`, { values });
+      setak(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log("unalbe to update" + error);
+    }
   };
 
   return (
@@ -55,7 +63,7 @@ const Edit = () => {
           {/* edit profile headers */}
           <div className="editheadertext">
             <h1>Edit Profile</h1>
-            <Link className="link" to={`/user/${path}`}>
+            <Link className="link" to={`/user/${user._id}`}>
               <i className="fa-solid fa-xmark"></i>
             </Link>
           </div>

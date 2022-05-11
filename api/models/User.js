@@ -14,10 +14,6 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    bio: {
-      type: String,
-      default: "",
-    },
     email: {
       type: String,
       required: true,
@@ -28,11 +24,11 @@ const userSchema = new mongoose.Schema(
       min: 6,
     },
     profilePic: {
-      type: String,
+      type: Array,
       default: "",
     },
     coverPic: {
-      type: String,
+      type: Array,
       default: "",
     },
     followers: {
@@ -42,34 +38,6 @@ const userSchema = new mongoose.Schema(
     followins: {
       type: Array,
       default: [],
-    },
-    study: {
-      type: String,
-      default: "+2 management",
-    },
-    hobbies: {
-      type: Array,
-      default: "hobbies",
-    },
-    address: {
-      type: String,
-      default: "address",
-    },
-    insta: {
-      type: String,
-      default: "",
-    },
-    whatsapp: {
-      type: String,
-      default: "whatsapp",
-    },
-    relationship: {
-      type: String,
-      default: "relationship",
-    },
-    job: {
-      type: String,
-      default: "studing",
     },
     isAdmin: {
       type: Boolean,

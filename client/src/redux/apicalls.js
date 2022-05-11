@@ -98,16 +98,3 @@ export const updateUserData = async (id, data, dispatch) => {
   }
 };
 
-
-// export const updateUserData = async (id, values, dispatch) => {
-//   dispatch(updateUserStart());
-//   try {
-//     const res = await axios.put(`/users/${id}`, values);
-//     dispatch(updateUserSuccess(id, values));
-//     console.log(res.data);
-//     alert("update success");
-//   } catch (error) {
-//     dispatch(updateUserFailure());
-//     console.log("unable to update user data" + error);
-//   }
-// };

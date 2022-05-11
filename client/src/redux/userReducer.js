@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    currentUser: null,
+    currentUser: [],
     isFetching: false,
     error: false,
     isLoading: false,
@@ -34,7 +34,12 @@ export const userSlice = createSlice({
     },
     updateUserSuccess: (state, actions) => {
       state.isFetching = false;
-     state.currentUser.push(actions.payload);
+      // state.currentUser[
+      //   state.currentUser((item) => (item._id = actions.payload.id))
+      // ] = actions.payload.user;
+      state.currentUser = state.currentUser((item) =>
+        item.id === actions.payload.id ? actions.payload : item
+      );
     },
     updateUserFailure: (state) => {
       state.isFetching = false;
