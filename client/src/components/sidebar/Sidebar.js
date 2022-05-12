@@ -31,8 +31,12 @@ const Sidebar = () => {
       <div className="sidebar">
         <Link className="link" to={`/user/${user._id}`}>
           <div className="profileImgSidebar">
-            <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
-            <p>Akendra Chaulagain</p>
+            <img
+              className="img-fluid"
+              src={!info?.profilePic ? "./images/avtar.jpg" : info?.profilePic}
+              alt="pp_img"
+            />
+            <p>{user.firstname + "  " + user.lastname}</p>
           </div>
         </Link>
 

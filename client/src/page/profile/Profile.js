@@ -78,7 +78,12 @@ const Profile = () => {
           {/* user profileImg*/}
           <div className="profileIntroImg">
             <div className="profileImage">
-              <img src={info?.profilePic} alt="profileImg" />
+              <img
+                src={
+                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                }
+                alt="profileImg"
+              />
             </div>
           </div>
           {/* user profile name */}

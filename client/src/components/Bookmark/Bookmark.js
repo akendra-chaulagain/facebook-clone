@@ -44,7 +44,9 @@ const Bookmark = () => {
                 {/* user img */}
                 <img
                   className="img-fluid"
-                  src={info?.profilePic}
+                  src={
+                    !info?.profilePic ? "./images/avtar.jpg" : info?.profilePic
+                  }
                   alt="pp_img"
                 />
                 {/* user name */}

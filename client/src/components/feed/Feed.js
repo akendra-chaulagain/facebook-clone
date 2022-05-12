@@ -26,7 +26,13 @@ const Feed = () => {
           {/* profilepic in feed */}
           <div className="profileImgFeed ">
             <Link to={`user/${user._id}`}>
-              <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
+              <img
+                className="img-fluid"
+                src={
+                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                }
+                alt="pp_img"
+              />
             </Link>
             <Link className="link" to="/addPhoto">
               <input

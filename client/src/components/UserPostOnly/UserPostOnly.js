@@ -35,7 +35,13 @@ const UserPostOnly = ({ data, userPostData }) => {
           <Link className="link" to={`/user/${user._id}`}>
             <div className="UserProfileOnyIg">
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
-              <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
+              <img
+                className="img-fluid"
+                src={
+                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                }
+                alt="pp_img"
+              />
               {/* <span>Akendra Chaulagain</span> */}
               <span>{user.firstname + " " + user.lastname}</span>
               <br />

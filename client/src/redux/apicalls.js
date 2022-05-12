@@ -21,6 +21,11 @@ import {
   updatePostStart,
   updatePostSuccess,
 } from "./postReducer";
+import {
+  registerFailure,
+  registerStart,
+  registerSuccess,
+} from "./regeisterReducer";
 import { loginFailure, loginStart, loginSuccess } from "./userReducer";
 
 // login user
@@ -33,6 +38,20 @@ export const loginUser = async (dispatch, user) => {
   } catch (error) {
     dispatch(loginFailure());
     console.log("unable to login" + error);
+  }
+};
+
+// register user
+export const registerUser = async (dispatch, inputes) => {
+  dispatch(registerStart());
+  try {
+    const res = await axios.post("/auth/register", inputes);
+    dispatch(registerSuccess(res.data));
+    console.log(res.data);
+    alert("register success..");
+  } catch (error) {
+    console.log("unable to register user" + error);
+    dispatch(registerFailure());
   }
 };
 

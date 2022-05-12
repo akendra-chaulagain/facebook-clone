@@ -85,10 +85,12 @@ const Topbar = () => {
               <div className="profileImg">
                 <img
                   className="img-fluid"
-                  src={info?.profilePic}
+                  src={
+                    !info?.profilePic ? "./images/avtar.jpg" : info?.profilePic
+                  }
                   alt="pp_img"
                 />
-                <span>Akendra</span>
+                <span>{user.firstname}</span>
               </div>
             </Link>
 

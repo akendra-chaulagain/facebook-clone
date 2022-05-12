@@ -90,7 +90,11 @@ const AddPhoto = () => {
           <hr />
           {/* profileInfo */}
           <div className="UserAddProfileIg">
-            <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
+            <img
+              className="img-fluid"
+              src={!info?.profilePic ? "../images/avtar.jpg" : info?.profilePic}
+              alt="pp_img"
+            />
             <span>{user.firstname + " " + user.lastname}</span>
           </div>
           {/* whats on your mind */}

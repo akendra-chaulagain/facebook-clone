@@ -37,7 +37,9 @@ const Home = () => {
                 <Sidebar />
               </div>
               <div className="col-6 postContainerWrapper">
-                <Feed />
+                <div className="wrapperContainerFeedHOme">
+                  <Feed />
+                </div>
                 {/* post import fom post  components */}
                 <div className="postContainer">
                   {post?.map((data, i) => (

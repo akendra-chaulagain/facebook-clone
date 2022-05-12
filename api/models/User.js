@@ -19,9 +19,16 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    gender: {
+      type: String,
+    },
+    birthday: {
+      type: String,
+    },
     password: {
       type: String,
       min: 6,
+      required: true,
     },
     followers: {
       type: Array,

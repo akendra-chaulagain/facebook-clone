@@ -37,7 +37,6 @@ const Post = ({ data }) => {
         <div className="userPost">
           <Link className="link" to={`/user/${userIdData._id}`}>
             <div className="UserProfileIg">
-              {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
               <img
                 className="img-fluid"
                 src={userIdData.profilePic}
