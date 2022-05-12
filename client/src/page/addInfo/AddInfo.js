@@ -1,11 +1,9 @@
 import React from "react";
-import "./Edit.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import "./Addinfo.css";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { useEffect } from "react";
-import { updateInfoUser } from "../../redux/apicalls";
+import { createInfo } from "../../redux/apicalls";
 import {
   getStorage,
   ref,
@@ -14,51 +12,33 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 
-const Edit = () => {
+const Addinfo = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const user = useSelector((state) => state.user.currentUser);
 
-  // get user according to user id given in url
-  const [userInfoData, setuserInfoData] = useState([]);
-  useEffect(() => {
-    const getUserPostData = async () => {
-      try {
-        const res = await axios.get("/info/find/" + path);
-        setuserInfoData(res.data);
-      } catch (error) {
-        console.log("unable to get user id post " + error);
-      }
-    };
-    getUserPostData();
-  }, [path]);
-
   // update user info
-  const [study, setStudy] = useState(userInfoData.study);
-  const [address, setAddress] = useState(userInfoData.address);
-  const [jobs, setJobs] = useState(userInfoData.job);
-  const [relationship, setRealationship] = useState(userInfoData.relationship);
-  const [whatsapp, setWhatsApp] = useState(userInfoData.whatsapp);
-  const [bio, setBio] = useState(userInfoData.bio);
-  const [insta, setInsta] = useState(userInfoData.insta);
-  const handleUserUpdate = (e) => {
+  const [inputes, setInputes] = useState({
+    userId: path,
+    study: "",
+    address: "",
+    jobs: "",
+    relationship: "",
+    whatsapp: "",
+    bio: "",
+    insta: "",
+  });
+  const onAddInfo = (e) => {
     e.preventDefault();
-    updateInfoUser(path, dispatch, {
-      study,
-      address,
-      jobs,
-      relationship,
-      whatsapp,
-      bio,
-      insta,
-    });
-    navigate(`/user/${user._id}`);
-    alert("profile info updated !");
+    setInputes({ ...inputes, [e.target.name]: e.target.value });
+    createInfo(dispatch, inputes);
+    window.location.reload(`/user/${user._id}`);
   };
 
-  // update user's profile picture
+  const handleUserUpdate = () => {};
+
+  //  user's profile picture
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
   const [progress, setProgress] = useState();
   const handleSubmitData = (e) => {
@@ -90,16 +70,17 @@ const Edit = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const data = {
             profilePic: downloadURL,
+            userId: path,
           };
-          updateInfoUser(path, dispatch, data);
-          navigate(`/user/${user._id}`);
-          alert("profile photo update..");
+          createInfo(dispatch, data);
+          window.location.reload(`/user/${user._id}`);
+          alert("profile photo added..");
         });
       }
     );
   };
 
-  // update user's cover images
+  //  user's cover images
   const [selectImageCover, setSelectImageCover] = useState(null);
   const [progressUploading, setProgressUploading] = useState();
   const handleSubmitDataCover = (e) => {
@@ -131,9 +112,10 @@ const Edit = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const data = {
             coverPic: downloadURL,
+            userId: path,
           };
-          updateInfoUser(path, dispatch, data);
-          navigate(`/user/${user._id}`);
+          createInfo(dispatch, data);
+          window.location.reload(`/user/${user._id}`);
           alert("cover photo updated..");
         });
       }
@@ -169,12 +151,7 @@ const Edit = () => {
                 />
               </label>
             </div>
-            {/* show select  img if user select the image  from the device*/}
-            <img
-              // src={selectProfileImg ? img : user.profilePic}
-              src={userInfoData.profilePic}
-              alt="profilePic"
-            />
+            <img src="../images/avtar.jpg" alt="profilePic" />
             <div className="saveButtonP">
               <p className="text-center" onClick={handleSubmitData}>
                 save
@@ -198,12 +175,11 @@ const Edit = () => {
                   style={{ display: "none" }}
                   name="coverPic"
                   onChange={(e) => setSelectImageCover(e.target.files[0])}
-                  // onChange={onImageChanges}
                 />
               </label>
             </div>
             {/* cover pic */}
-            <img src={userInfoData.coverPic} alt="cover_img" />
+            <img src="../images/avtar.jpg" alt="cover_img" />
             <div className="saveButtonP">
               <p className="text-center" onClick={handleSubmitDataCover}>
                 save
@@ -220,9 +196,8 @@ const Edit = () => {
             <textarea
               type="text"
               name="bio"
-              // value={values.bio}
-              defaultValue={userInfoData.bio}
-              onChange={(e) => setBio(e.target.value)}
+              //   onChange={(e) => setBio(e.target.value)}
+              onChange={onAddInfo}
             />
           </div>
 
@@ -237,22 +212,15 @@ const Edit = () => {
                 <input
                   type="text"
                   name="study"
-                  // value={values.study}
-                  defaultValue={userInfoData.study}
-                  onChange={(e) => setStudy(e.target.value)}
+                  //   onChange={(e) => setStudy(e.target.value)}
+                  onChange={onAddInfo}
                 />
               </div>
               {/* address */}
               <div className="inputBoxItem">
                 <label htmlFor="">Address</label>
                 <br />
-                <input
-                  type="text"
-                  name="address"
-                  // value={values.address}
-                  defaultValue={userInfoData.address}
-                  onChange={(e) => setAddress(e.target.value)}
-                />
+                <input type="text" name="address" onChange={onAddInfo} />
               </div>
               {/* jobs */}
               <div className="inputBoxItem">
@@ -261,9 +229,8 @@ const Edit = () => {
                 <input
                   type="text"
                   name="job"
-                  // value={values.job}
-                  defaultValue={userInfoData.job}
-                  onChange={(e) => setJobs(e.target.value)}
+                  //   onChange={(e) => setJobs(e.target.value)}
+                  onChange={onAddInfo}
                 />
               </div>
               {/* relationship */}
@@ -273,9 +240,8 @@ const Edit = () => {
                 <input
                   type="text"
                   name="relationship"
-                  // value={values.relationship}
-                  defaultValue={userInfoData.relationship}
-                  onChange={(e) => setRealationship(e.target.value)}
+                  //   onChange={(e) => setRealationship(e.target.value)}
+                  onChange={onAddInfo}
                 />
               </div>
               {/* hobbies */}
@@ -285,9 +251,8 @@ const Edit = () => {
                 <input
                   type="number"
                   name="whatsapp"
-                  // value={values.whatsapp}
-                  defaultValue={userInfoData.whatsapp}
-                  onChange={(e) => setWhatsApp(e.target.value)}
+                  //   onChange={(e) => setWhatsApp(e.target.value)}
+                  onChange={onAddInfo}
                 />
               </div>
               {/* insta */}
@@ -297,9 +262,8 @@ const Edit = () => {
                 <input
                   type="text"
                   name="insta"
-                  // value={values.insta}
-                  defaultValue={userInfoData.insta}
-                  onChange={(e) => setInsta(e.target.value)}
+                  //   onChange={(e) => setInsta(e.target.value)}
+                  onChange={onAddInfo}
                 />
               </div>
             </form>
@@ -315,4 +279,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default Addinfo;

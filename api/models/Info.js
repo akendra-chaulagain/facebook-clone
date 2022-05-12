@@ -40,7 +40,7 @@ const infoSchema = new mongoose.Schema(
     },
     job: {
       type: String,
-      default: "studing",
+      default: "student",
     },
   },
   { timestamps: true }

@@ -12,6 +12,7 @@ import Setting from "./page/setting/Setting";
 import PersonalInfo from "./page/PersonalInfo/PersonalInfo";
 import ChangePassword from "./page/changePassword/ChangePassword";
 import EditPost from "./components/editPost/EditPost";
+import Addinfo from "./page/addInfo/AddInfo";
 
 const App = () => {
   return (
@@ -43,6 +44,8 @@ const App = () => {
           <Route path="/setting/password" element={<ChangePassword />} />
           {/* edit post */}
           <Route path="/editPost/:id" element={<EditPost />} />
+          {/* addinfo page */}
+          <Route path="/addinfo/:id" element={<Addinfo />} />
         </Routes>
       </Router>
     </>

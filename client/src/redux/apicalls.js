@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  createInfoFailure,
+  createInfoStart,
+  createInfoSuccess,
   getUserInfoFailure,
   getUserInfoStart,
   getUserInfoSuccess,
@@ -127,5 +130,18 @@ export const getUserInfo = async (dispatch) => {
   } catch (error) {
     console.log("unable to get user info" + error);
     dispatch(getUserInfoFailure());
+  }
+};
+
+// create info
+export const createInfo = async (dispatch, inputes) => {
+  dispatch(createInfoStart());
+  try {
+    const res = await axios.post(`/info/create`,inputes);
+    dispatch(createInfoSuccess(res.data));
+    // console.log(res.data);
+  } catch (error) {
+    console.log("unable to create info" + error);
+    dispatch(createInfoFailure());
   }
 };

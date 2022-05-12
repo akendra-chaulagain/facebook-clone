@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePosts, getUserInfo } from "../../redux/apicalls";
 import { useEffect } from "react";
 
-const UserPostOnly = ({ data, userPostData }) => {
+const UserPostOnly = ({ data }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
 

@@ -10,6 +10,20 @@ export const infoSlice = createSlice({
   },
   // login user
   reducers: {
+    // create info
+    createInfoStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    createInfoSuccess: (state, action) => {
+      state.isFetching = false;
+      state.infos = action.payload;
+    },
+    createInfoFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
+
     // update user
     updateInfoStart: (state) => {
       state.isFetching = true;
@@ -53,6 +67,9 @@ export const {
   getUserInfoFailure,
   getUserInfoStart,
   getUserInfoSuccess,
+  createInfoFailure,
+  createInfoStart,
+  createInfoSuccess,
 } = infoSlice.actions;
 
 export default infoSlice.reducer;

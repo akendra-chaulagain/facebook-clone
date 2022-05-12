@@ -89,8 +89,22 @@ const Profile = () => {
           {/* user profile name */}
           <div className="userProfileNameSpan">
             <h1>{userData.firstname + " " + userData.lastname}</h1>
-            {/* user bio */}
+            {/* user's bio */}
             <p className="text-center">{info?.bio}</p>
+            {/* edit profile button */}
+            {/* if the user does't have user's info then edit button will show */}
+            {!info ? (
+              <div className="editProfileButton">
+                <div className="akIcon">
+                  <i className="fa-solid fa-pen"></i>
+                  <Link className="link" to={`/addinfo/${path}`}>
+                    <span>edit profile</span>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>
@@ -108,7 +122,7 @@ const Profile = () => {
           </div>
           <div className="col-md-7 rightprofilePostnadIntro">
             {userPostData?.map((data, i) => (
-              <UserPostOnly data={data} userPostData={userPostData} key={i} />
+              <UserPostOnly data={data} key={i} />
             ))}
           </div>
         </div>
