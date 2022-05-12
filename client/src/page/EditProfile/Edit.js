@@ -58,8 +58,16 @@ const Edit = () => {
     alert("profile info updated !");
   };
 
-  // update user's profile picture
+  // preview profile iamges before uploading
+  const [image, setImage] = useState(null);
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+      setSelectImagesProfile(event.target.files[0]);
+    }
+  };
+  // update user's profile picture
   const [progress, setProgress] = useState();
   const handleSubmitData = (e) => {
     e.preventDefault();
@@ -99,8 +107,16 @@ const Edit = () => {
     );
   };
 
-  // update user's cover images
+  // preview cover iamges before uploading
+  const [coverImage, setCoverimage] = useState(null);
   const [selectImageCover, setSelectImageCover] = useState(null);
+  const onImageChangeCover = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setCoverimage(URL.createObjectURL(event.target.files[0]));
+      setSelectImageCover(event.target.files[0]);
+    }
+  };
+  // update user's cover images
   const [progressUploading, setProgressUploading] = useState();
   const handleSubmitDataCover = (e) => {
     e.preventDefault();
@@ -164,15 +180,13 @@ const Edit = () => {
                   id="file"
                   style={{ display: "none" }}
                   name="profilePic"
-                  onChange={(e) => setSelectImagesProfile(e.target.files[0])}
-                  // onChange={onImageChange}
+                  onChange={onImageChange}
                 />
               </label>
             </div>
             {/* show select  img if user select the image  from the device*/}
             <img
-              // src={selectProfileImg ? img : user.profilePic}
-              src={userInfoData.profilePic}
+              src={!image ? userInfoData.profilePic : image}
               alt="profilePic"
             />
             <div className="saveButtonP">
@@ -197,13 +211,15 @@ const Edit = () => {
                   id="files"
                   style={{ display: "none" }}
                   name="coverPic"
-                  onChange={(e) => setSelectImageCover(e.target.files[0])}
-                  // onChange={onImageChanges}
+                  onChange={onImageChangeCover}
                 />
               </label>
             </div>
             {/* cover pic */}
-            <img src={userInfoData.coverPic} alt="cover_img" />
+            <img
+              src={!coverImage ? userInfoData.coverPic : coverImage}
+              alt="cover_img"
+            />
             <div className="saveButtonP">
               <p className="text-center" onClick={handleSubmitDataCover}>
                 save

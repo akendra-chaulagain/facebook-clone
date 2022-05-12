@@ -90,6 +90,10 @@
   font-weight: 600;
   font-size: 14px;
 }
+.addPhotoIconText img {
+  width: 33%;
+  border-radius: 10px;
+}
 
 /* post buttom */
 .postButton button {

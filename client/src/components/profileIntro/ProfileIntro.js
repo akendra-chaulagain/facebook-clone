@@ -92,7 +92,7 @@ const ProfileIntro = () => {
                 {/* edit button (when click render to profile edit page*/}
                 <div className="userInfoEditBtn">
                   <Link className="link" to={`/edit/${userPostData._id}`}>
-                    <button>Edit Details</button>
+                    <button>Edit profile</button>
                   </Link>
                 </div>
               </div>

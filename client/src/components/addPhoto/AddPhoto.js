@@ -30,18 +30,25 @@ const AddPhoto = () => {
     state.info.infos.find((info) => info.userId === user._id)
   );
 
+  // preview profile iamges before uploading
+  const [image, setImage] = useState(null);
+  const [selectImagesProfile, setSelectImagesProfile] = useState(null);
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+      setSelectImagesProfile(event.target.files[0]);
+    }
+  };
+
   // usestate for post
   const [progress, setProgress] = useState();
   const [desc, setDesc] = useState("");
-  const [selectImage, setSelectImages] = useState(null);
-
-  // handleSubmitData(firebase)
   const handleSubmitData = (e) => {
     e.preventDefault();
-    const fileName = new Date().getTime() + selectImage.name;
+    const fileName = new Date().getTime() + selectImagesProfile.name;
     const Storage = getStorage(app);
     const storageRef = ref(Storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, selectImage);
+    const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
     // Listen for state changes, errors, and completion of the upload.
     uploadTask.on(
       "state_changed",
@@ -116,13 +123,15 @@ const AddPhoto = () => {
                   id="file"
                   name="img"
                   style={{ display: "none" }}
-                  onChange={(e) => setSelectImages(e.target.files[0])}
+                  // onChange={(e) => setSelectImages(e.target.files[0])}
+                  onChange={onImageChange}
                 />
               </label>
             </div>
             <div className="addPhotoIconText">
               <p>Add Photos/Videos</p>
               {/* <input type="file" id="file" style={{ display: "none" }} /> */}
+              <img src={image} alt="" />
             </div>
           </div>
           {/* post button */}
