@@ -18,7 +18,14 @@ import {
   updatePostStart,
   updatePostSuccess,
 } from "./postReducer";
-import { loginFailure, loginStart, loginSuccess } from "./userReducer";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess,
+  updateUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+} from "./userReducer";
 
 // login user
 export const loginUser = async (dispatch, user) => {
@@ -89,9 +96,10 @@ export const updateInfoUser = async (path, dispatch, data) => {
   try {
     await axios.put(`/info/${path}`, data);
     dispatch(updateInfoSuccess(path, data));
-    alert("update success...");
   } catch (error) {
     console.log("unable to update user info" + error);
     dispatch(updateInfoFailure());
   }
 };
+
+

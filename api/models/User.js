@@ -23,14 +23,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       min: 6,
     },
-    profilePic: {
-      type: Array,
-      default: "",
-    },
-    coverPic: {
-      type: Array,
-      default: "",
-    },
     followers: {
       type: Array,
       default: [],

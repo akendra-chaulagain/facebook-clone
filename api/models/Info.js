@@ -6,6 +6,14 @@ const infoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profilePic: {
+      type: Array,
+      default: "",
+    },
+    coverPic: {
+      type: Array,
+      default: "",
+    },
     bio: {
       type: String,
       default: "Bio",
