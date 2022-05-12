@@ -39,7 +39,7 @@ const Post = ({ data }) => {
             <div className="UserProfileIg">
               <img
                 className="img-fluid"
-                src={userIdData.profilePic}
+                src={userIdData?.profilePic}
                 alt="pp_img"
               />
               {/* <span>Akendra Chaulagain</span> */}
