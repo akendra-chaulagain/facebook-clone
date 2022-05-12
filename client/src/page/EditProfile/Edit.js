@@ -87,13 +87,9 @@ const Edit = () => {
   //   });
   // };
 
-  const [selectImageCover, setSelectImageCover] = useState(null);
+  // update user's profile picture
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
-
-  // usestate for post
   const [progress, setProgress] = useState();
-
-  // handleSubmitData(firebase)
   const handleSubmitData = (e) => {
     e.preventDefault();
     const fileName = new Date().getTime() + selectImagesProfile.name;
@@ -127,6 +123,47 @@ const Edit = () => {
           updateInfoUser(path, dispatch, data);
           navigate(`/user/${user._id}`);
           alert("profile photo update..");
+        });
+      }
+    );
+  };
+
+  // update user's cover images
+  const [selectImageCover, setSelectImageCover] = useState(null);
+  const [progressUploading, setProgressUploading] = useState();
+  const handleSubmitDataCover = (e) => {
+    e.preventDefault();
+    const fileName = new Date().getTime() + selectImageCover.name;
+    const Storage = getStorage(app);
+    const storageRef = ref(Storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, selectImageCover);
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progressUploading = "updating...";
+        setProgressUploading(progress);
+        switch (snapshot.state) {
+          case "paused":
+            setProgressUploading(progressUploading);
+            break;
+          case "running":
+            setProgressUploading(progressUploading);
+            break;
+          default:
+        }
+      },
+      (error) => {},
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const data = {
+            coverPic: downloadURL,
+          };
+          updateInfoUser(path, dispatch, data);
+          navigate(`/user/${user._id}`);
+          alert("cover photo updated..");
         });
       }
     );
@@ -197,7 +234,10 @@ const Edit = () => {
             {/* cover pic */}
             <img src={userInfoData.coverPic} alt="cover_img" />
             <div className="saveButtonP">
-              <p className="text-center">save</p>
+              <p className="text-center" onClick={handleSubmitDataCover}>
+                save
+              </p>
+              <h6 className="text-center">{progressUploading}</h6>
             </div>
           </div>
           <hr />
@@ -210,7 +250,7 @@ const Edit = () => {
               type="text"
               name="bio"
               // value={values.bio}
-              defaultValue={userInfoData.desc}
+              defaultValue={userInfoData.bio}
               onChange={(e) => setBio(e.target.value)}
             />
           </div>

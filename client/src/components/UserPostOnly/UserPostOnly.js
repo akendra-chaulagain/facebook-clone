@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePosts } from "../../redux/apicalls";
 
-const UserPostOnly = ({ data }) => {
+const UserPostOnly = ({ data, userPostData }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
 

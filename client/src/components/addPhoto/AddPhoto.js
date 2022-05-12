@@ -18,6 +18,7 @@ const AddPhoto = () => {
   // user
   const user = useSelector((state) => state.user.currentUser);
   const userId = user._id;
+  const { isFetching } = useSelector((state) => state.post);
 
   const dispatch = useDispatch();
   // usestate for post
@@ -37,7 +38,7 @@ const AddPhoto = () => {
       "state_changed",
       (snapshot) => {
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = "";
+        const progress = "loading...";
         setProgress(progress);
         switch (snapshot.state) {
           case "paused":
@@ -113,7 +114,9 @@ const AddPhoto = () => {
           </div>
           {/* post button */}
           <div className="postButton">
-            <button onClick={handleSubmitData}>Post</button>
+            <button onClick={handleSubmitData} disabled={isFetching}>
+              Post
+            </button>
             <br />
             <p>{progress}</p>
           </div>

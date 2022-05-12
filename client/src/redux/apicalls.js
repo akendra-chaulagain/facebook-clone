@@ -22,9 +22,6 @@ import {
   loginFailure,
   loginStart,
   loginSuccess,
-  updateUserFailure,
-  updateUserStart,
-  updateUserSuccess,
 } from "./userReducer";
 
 // login user

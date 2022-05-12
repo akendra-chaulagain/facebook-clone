@@ -29,7 +29,23 @@ const Profile = () => {
     return () => setDidMount(false);
   }, [path]);
 
-  // get user post only in profile page
+  // get user info from the userId
+  const [userInfoData, setuserInfoData] = useState({});
+  useEffect(() => {
+    const getUserPostData = async () => {
+      try {
+        const res = await axios.post("/info/find/individualpost", {
+          userId: path,
+        });
+        setuserInfoData(res.data[0]);
+      } catch (error) {
+        console.log("unable to get user id post " + error);
+      }
+    };
+    getUserPostData();
+  }, [path]);
+
+  // get user's post only in profile page
   const [userPostData, setUserPostData] = useState([]);
   useEffect(() => {
     const getUserPostData = async () => {
@@ -61,31 +77,19 @@ const Profile = () => {
         <div className="profilwWrapper">
           <div className="profileCoverImg">
             {/* user cover pic */}
-            <img src={userData.coverPic} alt="coverImg" />
-            {/* select cover photo */}
-            <div className="imgprofileCamera">
-              <p>
-                <label htmlFor="file">
-                  <i className="fa-solid fa-camera"></i>
-                  <input type="file" id="file" style={{ display: "none" }} />
-                </label>
-              </p>
-            </div>
+            <img src={userInfoData.coverPic} alt="coverImg" />
           </div>
           {/* user profileImg*/}
           <div className="profileIntroImg">
             <div className="profileImage">
-              <label htmlFor="file">
-                <img src={userData.profilePic} alt="profileImg" />
-                <input type="file" id="file" style={{ display: "none" }} />
-              </label>
+              <img src={userInfoData.profilePic} alt="profileImg" />
             </div>
           </div>
           {/* user profile name */}
           <div className="userProfileNameSpan">
             <h1>{userData.firstname + " " + userData.lastname}</h1>
             {/* user bio */}
-            <p>{userData.descBio}</p>
+            <p className="text-center">{userInfoData.bio}</p>
           </div>
         </div>
       </div>
@@ -103,7 +107,7 @@ const Profile = () => {
           </div>
           <div className="col-md-7 rightprofilePostnadIntro">
             {userPostData?.map((data, i) => (
-              <UserPostOnly data={data} key={i} />
+              <UserPostOnly data={data} userPostData={userPostData} key={i} />
             ))}
           </div>
         </div>

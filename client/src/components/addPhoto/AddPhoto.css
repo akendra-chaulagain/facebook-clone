@@ -103,6 +103,10 @@
   border-radius: 5px;
   font-weight: 700;
 }
+.postButton button:disabled {
+  color: red;
+  cursor: not-allowed;
+}
 
 @media only screen and (max-width: 800px) {
   .addphotoWrapper {
