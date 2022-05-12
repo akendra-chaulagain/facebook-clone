@@ -6,10 +6,13 @@
   top: 2vh;
 }
 
+.profileIntro h3 {
+  font-size: 18px;
+}
 /* left side intro */
 .leftSideIntro {
   width: 100%;
-  height: 68vh;
+  height: auto;
   background-color: white;
   margin-top: 0px;
   color: #4b4b4b;
@@ -48,6 +51,12 @@
 }
 /* responsive */
 @media only screen and (max-width: 800px) {
+  .introIcons p {
+    display: none;
+  }
+  .introIcons span{
+    font-size: 13px;
+  }
   .profileIntro {
     width: 100%;
     margin-left: 0px;

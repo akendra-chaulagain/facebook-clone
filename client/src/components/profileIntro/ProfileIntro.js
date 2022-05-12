@@ -48,6 +48,8 @@ const ProfileIntro = () => {
               <div className="col-md-4 leftSideIntro">
                 <div className="introIcons">
                   <h3 className="text-center mt-2">Intro</h3>
+                  <p>{userPostData.bio}</p>
+                  <hr />
                   {/* user information with icons */}
                   <div className="introIconItem">
                     <AutoStoriesIcon /> <span>{userPostData.study}</span>

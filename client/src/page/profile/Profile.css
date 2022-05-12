@@ -65,12 +65,14 @@
 .userProfileNameSpan h1 {
   font-weight: 600;
   font-size: 26px;
+  margin-top: 10px;
 }
 .userProfileNameSpan p {
   width: 50%;
   margin-top: -7px;
   height: auto;
   margin-left: 0%;
+  display: none;
 }
 
 /* profile intro and post */
@@ -178,6 +180,7 @@
     width: 50%;
     margin-left: 25%;
     font-size: 9px;
+    display: block;
   }
 
   /* profile intro and post */
