@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  getUserInfoFailure,
+  getUserInfoStart,
+  getUserInfoSuccess,
   updateInfoFailure,
   updateInfoStart,
   updateInfoSuccess,
@@ -18,11 +21,7 @@ import {
   updatePostStart,
   updatePostSuccess,
 } from "./postReducer";
-import {
-  loginFailure,
-  loginStart,
-  loginSuccess,
-} from "./userReducer";
+import { loginFailure, loginStart, loginSuccess } from "./userReducer";
 
 // login user
 export const loginUser = async (dispatch, user) => {
@@ -99,4 +98,15 @@ export const updateInfoUser = async (path, dispatch, data) => {
   }
 };
 
-
+// get user info
+export const getUserInfo = async (dispatch) => {
+  dispatch(getUserInfoStart());
+  try {
+    const res = await axios.get(`/info/`);
+    dispatch(getUserInfoSuccess(res.data));
+    // console.log(res.data);
+  } catch (error) {
+    console.log("unable to get user info" + error);
+    dispatch(getUserInfoFailure());
+  }
+};

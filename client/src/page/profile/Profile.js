@@ -7,8 +7,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import UserPostOnly from "../../components/UserPostOnly/UserPostOnly";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -30,20 +33,13 @@ const Profile = () => {
   }, [path]);
 
   // get user info from the userId
-  const [userInfoData, setuserInfoData] = useState({});
+  // get user info data(by using react redux)
   useEffect(() => {
-    const getUserPostData = async () => {
-      try {
-        const res = await axios.post("/info/find/individualpost", {
-          userId: path,
-        });
-        setuserInfoData(res.data[0]);
-      } catch (error) {
-        console.log("unable to get user id post " + error);
-      }
-    };
-    getUserPostData();
-  }, [path]);
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === path)
+  );
 
   // get user's post only in profile page
   const [userPostData, setUserPostData] = useState([]);
@@ -77,19 +73,19 @@ const Profile = () => {
         <div className="profilwWrapper">
           <div className="profileCoverImg">
             {/* user cover pic */}
-            <img src={userInfoData.coverPic} alt="coverImg" />
+            <img src={info?.coverPic} alt="coverImg" />
           </div>
           {/* user profileImg*/}
           <div className="profileIntroImg">
             <div className="profileImage">
-              <img src={userInfoData.profilePic} alt="profileImg" />
+              <img src={info?.profilePic} alt="profileImg" />
             </div>
           </div>
           {/* user profile name */}
           <div className="userProfileNameSpan">
             <h1>{userData.firstname + " " + userData.lastname}</h1>
             {/* user bio */}
-            <p className="text-center">{userInfoData.bio}</p>
+            <p className="text-center">{info?.bio}</p>
           </div>
         </div>
       </div>

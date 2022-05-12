@@ -3,11 +3,22 @@ import "./Feed.css";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Feed = () => {
   // user data
   const user = useSelector((state) => state.user.currentUser);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
+
   return (
     <>
       <div className=" feed">
@@ -15,7 +26,7 @@ const Feed = () => {
           {/* profilepic in feed */}
           <div className="profileImgFeed ">
             <Link to={`user/${user._id}`}>
-              <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+              <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
             </Link>
             <Link className="link" to="/addPhoto">
               <input

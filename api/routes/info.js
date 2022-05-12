@@ -72,10 +72,15 @@ router.post("/find/individualpost", async (req, res) => {
       .json("unable to get individual info. something went wrong" + error);
   }
 });
-
-
-
-
-
+router.get("/", async (req, res) => {
+  try {
+    const getAll = await Info.find();
+    return res.status(201).json(getAll);
+  } catch (error) {
+    return res
+      .status(401)
+      .json("unable to get all info. something went wrong" + error);
+  }
+});
 
 module.exports = router;

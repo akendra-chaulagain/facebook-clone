@@ -25,11 +25,34 @@ export const infoSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    // get userInfo
+    getUserInfoStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+      state.isLoading = true;
+    },
+    getUserInfoSuccess: (state, actions) => {
+      state.isFetching = false;
+      state.infos = actions.payload;
+      state.error = false;
+      state.isLoading = false;
+    },
+    getUserInfoFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+      state.isLoading = false;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { updateInfoFailure, updateInfoStart, updateInfoSuccess } =
-  infoSlice.actions;
+export const {
+  updateInfoFailure,
+  updateInfoStart,
+  updateInfoSuccess,
+  getUserInfoFailure,
+  getUserInfoStart,
+  getUserInfoSuccess,
+} = infoSlice.actions;
 
 export default infoSlice.reducer;
