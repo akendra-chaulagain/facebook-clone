@@ -6,11 +6,21 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePosts } from "../../redux/apicalls";
+import { deletePosts, getUserInfo } from "../../redux/apicalls";
+import { useEffect } from "react";
 
 const UserPostOnly = ({ data, userPostData }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
+
+  // get user info from the userId
+  // get user info data(by using react redux)
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
 
   // delete post
   const handleDelete = (id) => {
@@ -25,7 +35,7 @@ const UserPostOnly = ({ data, userPostData }) => {
           <Link className="link" to={`/user/${user._id}`}>
             <div className="UserProfileOnyIg">
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
-              <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+              <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
               {/* <span>Akendra Chaulagain</span> */}
               <span>{user.firstname + " " + user.lastname}</span>
               <br />

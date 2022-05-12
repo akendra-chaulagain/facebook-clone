@@ -11,14 +11,24 @@ import Page from "@mui/icons-material/Flag";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import { Link } from "react-router-dom";
 import Topbar from "../topbar/Topbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Bookmark = () => {
   // user
   const user = useSelector((state) => state.user.currentUser);
   // isLoading function
   const isLoading = useSelector((state) => state.user.isLoading);
+  // user's info
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
 
   return (
     <>
@@ -32,7 +42,11 @@ const Bookmark = () => {
             <Link className="link" to={`/user/${user._id}`}>
               <div className="profileImgbookmark">
                 {/* user img */}
-                <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+                <img
+                  className="img-fluid"
+                  src={info?.profilePic}
+                  alt="pp_img"
+                />
                 {/* user name */}
                 <h1>{user.firstname + " " + user.lastname}</h1>
               </div>

@@ -100,7 +100,9 @@
   padding: 10px 10px 10px 50px;
   outline: none;
   border: none;
-  font-size: 20px;
+  font-size: 14px;
+  border: 1px solid rgb(182, 179, 179);
+  border-radius: 10px;
 }
 
 /* edit intro */

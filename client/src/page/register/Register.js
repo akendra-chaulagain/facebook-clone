@@ -6,6 +6,7 @@ const Register = () => {
   return (
     <>
       <div className=" registerPage">
+      <h2>Join Facebook</h2>
         <div className="registerFrom">
           <div className="registerHeadingText">
             <h2>Sign Up</h2>

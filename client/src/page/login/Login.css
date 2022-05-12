@@ -26,7 +26,7 @@
 
 /* login form */
 .rightSideLoginForm {
-    height: 48vh;
+  height: 48vh;
   width: 25%;
   margin-top: 22vh;
   background-color: white;
@@ -75,4 +75,83 @@
   height: 50px;
   border-radius: 5px;
   cursor: pointer;
+}
+.faceBookName{
+  display: none;
+}
+@media only screen and (max-width: 1250px) {
+  .rightSideLoginForm input {
+    height: 40px;
+    margin-top: 20px;
+    padding: 2px 10px;
+    font-size: 12px;
+  }
+  .loginBtn button {
+    height: 34px;
+    font-size: 13px;
+  }
+  .loginBtn p {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+  .createNewAccountBtn button {
+    width: 60%;
+    margin-left: 20%;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .faceBookName{
+    display: block;
+  }
+  .faceBookName p{
+    font-size: 20px;
+    color: #1877f2;
+    font-weight: 600;
+  }
+  .loginLeftSideText h3 {
+    display: none;
+  }
+  .leftSideLogin {
+    height: 20vh;
+  }
+  .loginFormWrapper {
+    height: 50vh;
+    width: 100%;
+  }
+  .rightSideLoginForm {
+    height: 50vh;
+    width: 90%;
+    margin-top: 0vh;
+    margin-left: 5%;
+  }
+  .loginLeftSideText h1 {
+    display: none;
+  }
+  .rightSideLoginForm input {
+    height: 40px;
+    margin-top: 20px;
+    padding: 2px 10px;
+    font-size: 12px;
+  }
+  .loginBtn button {
+    height: 34px;
+    font-size: 13px;
+  }
+  .loginBtn p {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .createNewAccountBtn button {
+    width: 60%;
+    margin-left: 20%;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+  }
 }

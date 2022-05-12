@@ -9,10 +9,21 @@ import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Topbar = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
+  // get user info from the userId
+  // get user info data(by using react redux)
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
   return (
     <>
       <div className="container-fluid tobarContainer">
@@ -72,7 +83,11 @@ const Topbar = () => {
             {/* link is used to render to home page */}
             <Link className="link" to={`/user/${user._id}`}>
               <div className="profileImg">
-                <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+                <img
+                  className="img-fluid"
+                  src={info?.profilePic}
+                  alt="pp_img"
+                />
                 <span>Akendra</span>
               </div>
             </Link>

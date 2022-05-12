@@ -11,8 +11,9 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../../firebase";
-import { createPost } from "../../redux/apicalls";
+import { createPost, getUserInfo } from "../../redux/apicalls";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const AddPhoto = () => {
   // user
@@ -20,7 +21,15 @@ const AddPhoto = () => {
   const userId = user._id;
   const { isFetching } = useSelector((state) => state.post);
 
+  // user info
   const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
+
   // usestate for post
   const [progress, setProgress] = useState();
   const [desc, setDesc] = useState("");
@@ -81,7 +90,7 @@ const AddPhoto = () => {
           <hr />
           {/* profileInfo */}
           <div className="UserAddProfileIg">
-            <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+            <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
             <span>{user.firstname + " " + user.lastname}</span>
           </div>
           {/* whats on your mind */}

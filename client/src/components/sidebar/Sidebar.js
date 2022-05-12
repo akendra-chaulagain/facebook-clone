@@ -11,16 +11,27 @@ import StarIcon from "@mui/icons-material/Star";
 import Page from "@mui/icons-material/Flag";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Sidebar = () => {
   const user = useSelector((state) => state.user.currentUser);
+
+  // user's info
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
   return (
     <>
       <div className="sidebar">
         <Link className="link" to={`/user/${user._id}`}>
           <div className="profileImgSidebar">
-            <img className="img-fluid" src={user.profilePic} alt="pp_img" />
+            <img className="img-fluid" src={info?.profilePic} alt="pp_img" />
             <p>Akendra Chaulagain</p>
           </div>
         </Link>
