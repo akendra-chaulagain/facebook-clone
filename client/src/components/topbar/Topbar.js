@@ -15,7 +15,7 @@ import { getUserInfo } from "../../redux/apicalls";
 
 const Topbar = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
   // get user info from the userId
   // get user info data(by using react redux)
   useEffect(() => {

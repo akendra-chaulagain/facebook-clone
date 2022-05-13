@@ -17,7 +17,7 @@ import { useEffect } from "react";
 
 const AddPhoto = () => {
   // user
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
   const userId = user._id;
   const { isFetching } = useSelector((state) => state.post);
 

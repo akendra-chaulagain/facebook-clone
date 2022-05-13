@@ -15,7 +15,7 @@ import { getUserInfo } from "../../redux/apicalls";
 
 const Bookmark = () => {
   // user
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
   // isLoading function
   const isLoading = useSelector((state) => state.user.isLoading);
   // user's info

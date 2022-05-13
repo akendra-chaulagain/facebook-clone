@@ -16,7 +16,7 @@ const Addinfo = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
 
   // update user info
   const [inputes, setInputes] = useState({

@@ -9,7 +9,7 @@ import { getUserInfo } from "../../redux/apicalls";
 
 const Feed = () => {
   // user data
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
 
   const dispatch = useDispatch();
   useEffect(() => {

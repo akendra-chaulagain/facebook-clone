@@ -19,7 +19,7 @@ import Loading from "../Loading/Loading";
 
 const EditPost = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
   const isLoading = useSelector((state) => state.post.isLoading);
   const location = useLocation();
   const id = location.pathname.split("/")[2];

@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import { getUserInfo } from "../../redux/apicalls";
 
 const Sidebar = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
 
   // user's info
   const dispatch = useDispatch();

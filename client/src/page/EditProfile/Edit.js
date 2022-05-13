@@ -19,7 +19,7 @@ const Edit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
 
   // get user according to user id given in url
   const [userInfoData, setuserInfoData] = useState([]);

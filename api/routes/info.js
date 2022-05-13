@@ -1,22 +1,29 @@
 const express = require("express");
-const { createInfo, updateInfo, deleteInfo, findByIdInfo, individualInfo, getAllInfo } = require("../controllers/info.controllers");
+const {
+  createInfo,
+  updateInfo,
+  deleteInfo,
+  findByIdInfo,
+  individualInfo,
+  getAllInfo,
+} = require("../controllers/info.controllers");
+const { verifyUser, verifyAdmin } = require("../middleware/verify");
 const router = express.Router();
 
-
 // create info
-router.post("/create", createInfo);
+router.post("/create", verifyUser, createInfo);
 
 // update post
-router.put("/:id", updateInfo);
+router.put("/:id", verifyUser, updateInfo);
 
 // delete post
-router.delete("/:id", deleteInfo);
+router.delete("/:id", verifyUser, deleteInfo);
 
 // find by id
-router.get("/find/:id", findByIdInfo);
+router.get("/find/:id", verifyUser, findByIdInfo);
 
 // get individual info according to user id given in info
-router.post("/find/individualpost", individualInfo);
+router.post("/find/individualpost", verifyUser, individualInfo);
 
 // get all info
 router.get("/", getAllInfo);

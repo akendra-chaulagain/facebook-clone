@@ -35,17 +35,16 @@ const Post = ({ data }) => {
       <div className="post">
         {/* user profile desc */}
         <div className="userPost">
-          <Link className="link" to={`/user/${userIdData._id}`}>
+          <Link className="link" to={`/user/${userIdData?._id}`}>
             <div className="UserProfileIg">
               <img
                 className="img-fluid"
                 src={userIdData?.profilePic}
                 alt="pp_img"
               />
-              {/* <span>Akendra Chaulagain</span> */}
-              <span>{userIdData.firstname + " " + userIdData.lastname}</span>
+              <span>{userIdData?.firstname + " " + userIdData?.lastname}</span>
               <br />
-              <h6>{new Date(data.createdAt).toDateString()}</h6>
+              <h6>{new Date(data?.createdAt).toDateString()}</h6>
             </div>
           </Link>
 

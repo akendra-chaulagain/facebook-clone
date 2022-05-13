@@ -35,7 +35,7 @@ const registerUser = async (req, res, next) => {
       return res.status(201).json(result);
     }
   } catch (err) {
-    next(createError(401,"unable to register"));
+    next(createError(401, "unable to register"));
   }
 };
 
@@ -57,10 +57,11 @@ const loginUser = async (req, res, next) => {
         const token = jwt.sign(
           { id: user._id, isAdmin: user.isAdmin },
           process.env.JWT_SECRET_KEY,
-          { expiresIn: "20m" }
+          { expiresIn: "1hr" }
         );
         // saving in cookie
         res.cookie("jsonwebToken", token, {
+          expires: new Date(Date.now() + 1000 * 60 * 60),
           path: "/",
           httpOnly: true,
           sameSite: "lax",
