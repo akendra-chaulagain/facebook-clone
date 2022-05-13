@@ -15,7 +15,7 @@ router.delete("/:id", deleteInfo);
 // find by id
 router.get("/find/:id", findByIdInfo);
 
-// get individual info
+// get individual info according to user id given in info
 router.post("/find/individualpost", individualInfo);
 
 // get all info
