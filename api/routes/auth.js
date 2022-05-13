@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
 
 // User model
 const User = require("../models/User");
@@ -63,7 +64,20 @@ router.post("/login", async (req, res) => {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
         const { password, ...others } = user._doc;
-        return res.status(201).json(others);
+        // implementing jsonweb token
+        const token = jwt.sign(
+          { id: user._id, isAdmin: user.isAdmin },
+          process.env.JWT_SECRET_KEY,
+          { expiresIn: "20m" }
+        );
+        // saving in cookie
+        res.cookie("jsonwebToken", token, {
+          path: "/",
+          httpOnly: true,
+          sameSite: "lax",
+        });
+
+        return res.status(201).json({ others, token });
       } else {
         return res.status(401).json("Invalid data");
       }
