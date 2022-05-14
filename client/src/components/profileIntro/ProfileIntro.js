@@ -18,7 +18,7 @@ const ProfileIntro = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
-  // get user info data from the userId which is present in database
+  // get user info data from the userId which is present in user's info
   const [userPostData, setUserPostData] = useState({});
   const [didMount, setDidMount] = useState(false);
   useEffect(() => {

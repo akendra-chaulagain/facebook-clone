@@ -10,10 +10,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../redux/apicalls";
+import { format } from "timeago.js";
 
 const Post = ({ data }) => {
   const id = data.userId;
-
   const user = useSelector((state) => state.user.currentUser.others);
 
   // user's info
@@ -24,10 +24,31 @@ const Post = ({ data }) => {
   const info = useSelector((state) =>
     state.info.infos.find((info) => info.userId === user._id)
   );
+  console.log(info._id);
+
+  // get user's according to infoId in post
+  const [userPostData, setUserPostData] = useState({});
+  const [didMount, setDidMount] = useState(false);
+  useEffect(() => {
+    const getUserPostData = async () => {
+      try {
+        const res = await axios.post("/posts/find/individualpostInfo", {
+          infoId: data._id,
+        });
+        setUserPostData(res.data);
+        setDidMount(true);
+      } catch (error) {
+        console.log("unable to get user id post " + error);
+      }
+    };
+    getUserPostData();
+    return () => setDidMount(false);
+  }, [info._id]);
+  console.log(userPostData);
+  // console.log(data.infoId);
 
   // get post according to id
   const [userIdData, setuserIdData] = useState({});
-  const [didMount, setDidMount] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -64,7 +85,7 @@ const Post = ({ data }) => {
               />
               <span>{userIdData?.firstname + " " + userIdData?.lastname}</span>
               <br />
-              <h6>{new Date(data?.createdAt).toDateString()}</h6>
+              <h6>{format(data?.createdAt)}</h6>
             </div>
           </Link>
 

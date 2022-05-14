@@ -83,5 +83,5 @@ module.exports = {
   deleteInfo,
   getAllInfo,
   individualInfo,
-  findByIdInfo
+  findByIdInfo,
 };

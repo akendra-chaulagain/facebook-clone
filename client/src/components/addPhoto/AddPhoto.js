@@ -18,7 +18,6 @@ import { useEffect } from "react";
 const AddPhoto = () => {
   // user
   const user = useSelector((state) => state.user.currentUser.others);
-  
   const userId = user._id;
   const { isFetching } = useSelector((state) => state.post);
 
@@ -74,6 +73,7 @@ const AddPhoto = () => {
           const post = {
             desc,
             userId,
+            infoId: info._id,
             img: downloadURL,
           };
           createPost(post, dispatch);
