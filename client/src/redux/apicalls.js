@@ -101,7 +101,12 @@ export const updatePosts = async (id, data, dispatch) => {
 export const deletePosts = async (dispatch, id) => {
   dispatch(deletePostStart());
   try {
-    await axios.delete(`/posts/${id}`);
+    await axios.delete(`/posts/${id}`, {
+      headers: {
+        token:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2UxODM4OTFiYjAxMDYzNmM4Mjk3ZiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTI1MDg5NDYsImV4cCI6MTY1MjUxMjU0Nn0.ezCge8drgV22v9rZU0TPXyNnqvTEb-SAvrUT08bIlHQ",
+      },
+    });
     dispatch(deletePostSuccess());
   } catch (error) {
     console.log("unable to delete post" + error);

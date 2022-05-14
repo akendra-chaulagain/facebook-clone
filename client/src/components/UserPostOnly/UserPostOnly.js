@@ -12,6 +12,8 @@ import { useEffect } from "react";
 const UserPostOnly = ({ data }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser.others);
+  const userToken = useSelector((state) => state.user.currentUser);
+  console.log(userToken.token);
 
   // get user info from the userId
   // get user info data(by using react redux)
@@ -26,7 +28,7 @@ const UserPostOnly = ({ data }) => {
   const handleDelete = (id) => {
     deletePosts(dispatch, id);
     alert("post deleted");
-    window.location.reload(`/user/${user._id}`);
+    // window.location.reload(`/user/${user._id}`);
   };
   return (
     <>

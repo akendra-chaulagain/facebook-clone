@@ -10,7 +10,7 @@ const {
   likeAndDisLikePost,
   timeLine,
 } = require("../controllers/posts.controllers");
-const { verifyUser } = require("../middleware/verify");
+const verifyUser = require("../middleware/verify");
 
 // create post
 router.post("/create", verifyUser, createPost);
@@ -25,15 +25,15 @@ router.delete("/:id", verifyUser, deletePost);
 router.get("/find/:id", findBYIdPost);
 
 // get post according to user id in post
-router.post("/find/individualpost", verifyUser, getUserPostOnly);
+router.post("/find/individualpost", getUserPostOnly);
 
 // get all post
 router.get("/all", getAllPost);
 
 // like and dislike post
-router.put("/:id/like", verifyUser, likeAndDisLikePost);
+router.put("/:id/like", likeAndDisLikePost);
 
 // timeline
-router.get("/timeline", verifyUser, timeLine);
+router.get("/timeline", timeLine);
 
 module.exports = router;

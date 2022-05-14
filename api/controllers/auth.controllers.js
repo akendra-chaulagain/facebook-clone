@@ -87,6 +87,7 @@ const loginUser = async (req, res, next) => {
         httpOnly: true,
         sameSite: "lax",
       });
+
       if (isMatch) {
         const { password, ...others } = user._doc;
         return res.status(201).json({ others, token });
