@@ -23,7 +23,7 @@ router.delete("/:id", verifyUser, deleteInfo);
 router.get("/find/:id", verifyUser, findByIdInfo);
 
 // get individual info according to user id given in info
-router.post("/find/individualpost", verifyUser, individualInfo);
+router.post("/find/individualpost", individualInfo);
 
 // get all info
 router.get("/", getAllInfo);

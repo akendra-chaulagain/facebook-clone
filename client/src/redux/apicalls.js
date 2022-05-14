@@ -1,4 +1,5 @@
 import axios from "axios";
+import { publicRequestToken } from "../PublicRequest";
 import {
   createInfoFailure,
   createInfoStart,
@@ -28,6 +29,7 @@ import {
   loginFailure,
   loginStart,
   loginSuccess,
+  logOutSuccess,
   registerFailure,
   registerStart,
   registerSuccess,
@@ -39,6 +41,9 @@ export const loginUser = async (dispatch, user) => {
   try {
     const res = await axios.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
+    setTimeout(() => {
+      dispatch(logOutSuccess());
+    }, 1000 * 60  );
     alert("login success");
   } catch (error) {
     dispatch(loginFailure());
@@ -53,6 +58,9 @@ export const registerUser = async (dispatch, inputes) => {
     const res = await axios.post("/auth/register", inputes);
     dispatch(registerSuccess(res.data));
     alert("register success..");
+    setTimeout(() => {
+      dispatch(logOutSuccess());
+    }, 1000 * 60 );
   } catch (error) {
     console.log("unable to register user" + error);
     dispatch(registerFailure());
@@ -101,12 +109,7 @@ export const updatePosts = async (id, data, dispatch) => {
 export const deletePosts = async (dispatch, id) => {
   dispatch(deletePostStart());
   try {
-    await axios.delete(`/posts/${id}`, {
-      headers: {
-        token:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2UxODM4OTFiYjAxMDYzNmM4Mjk3ZiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTI1MDg5NDYsImV4cCI6MTY1MjUxMjU0Nn0.ezCge8drgV22v9rZU0TPXyNnqvTEb-SAvrUT08bIlHQ",
-      },
-    });
+    await publicRequestToken.delete(`/posts/${id}`);
     dispatch(deletePostSuccess());
   } catch (error) {
     console.log("unable to delete post" + error);

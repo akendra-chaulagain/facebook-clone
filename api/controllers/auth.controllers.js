@@ -45,11 +45,11 @@ const registerUser = async (req, res, next) => {
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
         process.env.JWT_SECRET_KEY,
-        { expiresIn: "1hr" }
+        { expiresIn: "1m" }
       );
       // saving in cookie
       res.cookie("jsonwebToken", token, {
-        expires: new Date(Date.now() + 1000 * 60 * 60),
+        expires: new Date(Date.now() + 1000 * 60 ),
         path: "/",
         httpOnly: true,
         sameSite: "lax",
