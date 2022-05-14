@@ -9,21 +9,11 @@ import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getUserInfo } from "../../redux/apicalls";
+import { useSelector } from "react-redux";
 
 const Topbar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.currentUser.others);
-  // get user info from the userId
-  // get user info data(by using react redux)
-  useEffect(() => {
-    getUserInfo(dispatch);
-  }, [dispatch]);
-  const info = useSelector((state) =>
-    state.info.infos.find((info) => info.userId === user._id)
-  );
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <>
       <div className="container-fluid tobarContainer">
@@ -81,12 +71,14 @@ const Topbar = () => {
           {/*  left side topbar*/}
           <div className="col-md-4 rightSideTopbar">
             {/* link is used to render to home page */}
-            <Link className="link" to={`/user/${user._id}`}>
+            <Link className="link" to={`/user/${user?._id}`}>
               <div className="profileImg">
                 <img
                   className="img-fluid"
                   src={
-                    !user?.profilePic[0] ? "./images/avtar.jpg" : user?.profilePic
+                    !user.profilePic
+                      ? "../images/avtar.jpg"
+                      : user.profilePic
                   }
                   alt="pp_img"
                 />

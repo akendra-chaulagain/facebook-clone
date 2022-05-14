@@ -11,9 +11,10 @@ const {
   timeLine,
 } = require("../controllers/posts.controllers");
 const verifyUser = require("../middleware/verify");
+const verifyToken = require("../middleware/verify");
 
 // create post
-router.post("/create", verifyUser, createPost);
+router.post("/create", verifyToken, createPost);
 
 // update post
 router.put("/:id", verifyUser, updatePost);

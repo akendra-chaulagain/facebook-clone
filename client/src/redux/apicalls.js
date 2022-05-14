@@ -43,7 +43,7 @@ export const loginUser = async (dispatch, user) => {
     dispatch(loginSuccess(res.data));
     setTimeout(() => {
       dispatch(logOutSuccess());
-    }, 1000 * 60  );
+    }, 1000 * 60 * 60);
     alert("login success");
   } catch (error) {
     dispatch(loginFailure());
@@ -60,7 +60,7 @@ export const registerUser = async (dispatch, inputes) => {
     alert("register success..");
     setTimeout(() => {
       dispatch(logOutSuccess());
-    }, 1000 * 60 );
+    }, 1000 * 60 * 60);
   } catch (error) {
     console.log("unable to register user" + error);
     dispatch(registerFailure());
@@ -109,7 +109,7 @@ export const updatePosts = async (id, data, dispatch) => {
 export const deletePosts = async (dispatch, id) => {
   dispatch(deletePostStart());
   try {
-    await publicRequestToken.delete(`/posts/${id}`);
+    await axios.delete(`/posts/${id}`);
     dispatch(deletePostSuccess());
   } catch (error) {
     console.log("unable to delete post" + error);

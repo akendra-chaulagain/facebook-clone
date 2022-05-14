@@ -19,7 +19,7 @@ const Feed = () => {
               <img
                 className="img-fluid"
                 src={
-                  !user?.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
+                  !user.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
                 }
                 alt="pp_img"
               />

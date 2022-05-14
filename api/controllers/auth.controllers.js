@@ -45,11 +45,11 @@ const registerUser = async (req, res, next) => {
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
         process.env.JWT_SECRET_KEY,
-        { expiresIn: "1m" }
+        { expiresIn: "1hr" }
       );
       // saving in cookie
       res.cookie("jsonwebToken", token, {
-        expires: new Date(Date.now() + 1000 * 60 ),
+        expires: new Date(Date.now() + 1000 * 60 * 60),
         path: "/",
         httpOnly: true,
         sameSite: "lax",
@@ -87,7 +87,6 @@ const loginUser = async (req, res, next) => {
         httpOnly: true,
         sameSite: "lax",
       });
-
       if (isMatch) {
         const { password, ...others } = user._doc;
         return res.status(201).json({ others, token });
@@ -102,4 +101,20 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+// logout user
+// logout user
+const logOutUser = async (req, res) => {
+  const cookie = req.headers.cookie;
+  if (cookie) {
+    const token = cookie.split("=")[1];
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
+      if (err) res.status(403).json("Token is not valid !");
+      req.user = user;
+    });
+    res.clearCookie("jsonwebToken");
+    req.cookies[`jsonwebToken`] = "";
+    return res.status(200).json("LogOut successfully..");
+  }
+};
+
+module.exports = { registerUser, loginUser, logOutUser };

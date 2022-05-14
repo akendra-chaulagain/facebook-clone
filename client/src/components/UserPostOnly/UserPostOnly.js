@@ -6,23 +6,11 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePosts, getUserInfo } from "../../redux/apicalls";
-import { useEffect } from "react";
+import { deletePosts } from "../../redux/apicalls";
 
 const UserPostOnly = ({ data }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser.others);
-  const userToken = useSelector((state) => state.user.currentUser);
-  console.log(userToken.token);
-
-  // get user info from the userId
-  // get user info data(by using react redux)
-  useEffect(() => {
-    getUserInfo(dispatch);
-  }, [dispatch]);
-  const info = useSelector((state) =>
-    state.info.infos.find((info) => info.userId === user._id)
-  );
 
   // delete post
   const handleDelete = (id) => {
@@ -40,7 +28,7 @@ const UserPostOnly = ({ data }) => {
               <img
                 className="img-fluid"
                 src={
-                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                  !user.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
                 }
                 alt="pp_img"
               />

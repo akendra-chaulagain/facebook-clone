@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const App = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
   return (
     <>
       <Router>
