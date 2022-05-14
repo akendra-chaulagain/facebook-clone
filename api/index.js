@@ -8,12 +8,13 @@ const userRoutes = require("./routes/users");
 const postRoutes = require("./routes/posts");
 const infoRoutes = require("./routes/info");
 
-// config dot env
-dotenv.config({ path: "./config.env" });
-
 // cookie-parser for json web token
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
+
+// config dot env
+dotenv.config({ path: "./config.env" });
+
 
 // port no
 const PORT = process.env.PORT;

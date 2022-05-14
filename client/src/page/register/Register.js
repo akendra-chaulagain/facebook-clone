@@ -20,11 +20,11 @@ const Register = () => {
   const handleChange = (event) => {
     setinputes({ ...inputes, [event.target.name]: event.target.value });
   };
-  // register user
+  // // register user
   const dispatch = useDispatch();
   const handleRegister = (e) => {
     e.preventDefault();
-    registerUser(dispatch,inputes);
+    registerUser(dispatch, inputes);
   };
 
   return (

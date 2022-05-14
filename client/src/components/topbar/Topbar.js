@@ -86,7 +86,7 @@ const Topbar = () => {
                 <img
                   className="img-fluid"
                   src={
-                    !info?.profilePic ? "./images/avtar.jpg" : info?.profilePic
+                    !user?.profilePic[0] ? "./images/avtar.jpg" : user?.profilePic
                   }
                   alt="pp_img"
                 />

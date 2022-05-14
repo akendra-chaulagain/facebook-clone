@@ -29,7 +29,7 @@ function verifyToken(req, res, next) {
 
 // verify user
 const verifyUser = (req, res, next) => {
-  verifyToken(req, res,next, () => {
+  verifyToken(req, res, next, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {

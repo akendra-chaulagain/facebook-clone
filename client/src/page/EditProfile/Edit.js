@@ -99,6 +99,7 @@ const Edit = () => {
           const data = {
             profilePic: downloadURL,
           };
+          // updateInfoUser(path, dispatch, data);
           updateInfoUser(path, dispatch, data);
           navigate(`/user/${user._id}`);
           alert("profile photo update..");

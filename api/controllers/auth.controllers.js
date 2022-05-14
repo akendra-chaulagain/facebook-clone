@@ -6,8 +6,16 @@ const createError = require("../utils/error");
 
 // register user
 const registerUser = async (req, res, next) => {
-  const { firstname, lastname, contact, password, email, gender, birthday } =
-    req.body;
+  const {
+    firstname,
+    lastname,
+    contact,
+    password,
+    email,
+    gender,
+    birthday,
+    profilePic,
+  } = req.body;
   if (!firstname || !lastname || !contact || !password || !email) {
     return res.status(401).json("Enter all the data");
   }
@@ -26,13 +34,28 @@ const registerUser = async (req, res, next) => {
         email,
         gender,
         birthday,
+        profilePic,
       });
       // generate salt to hash password
       const salt = await bcrypt.genSalt(12);
       // now we set user password to hashed password
       user.password = await bcrypt.hash(user.password, salt);
-      const result = await user.save();
-      return res.status(201).json(result);
+
+      // implementing jsonweb token
+      const token = jwt.sign(
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: "1hr" }
+      );
+      // saving in cookie
+      res.cookie("jsonwebToken", token, {
+        expires: new Date(Date.now() + 1000 * 60 * 60),
+        path: "/",
+        httpOnly: true,
+        sameSite: "lax",
+      });
+      const others = await user.save();
+      return res.status(201).json({ others, token });
     }
   } catch (err) {
     next(createError(401, "unable to register"));
@@ -51,22 +74,21 @@ const loginUser = async (req, res, next) => {
     if (user) {
       // check user password with hashed password stored in the database
       const isMatch = await bcrypt.compare(password, user.password);
+      // implementing jsonweb token
+      const token = jwt.sign(
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: "1hr" }
+      );
+      // saving in cookie
+      res.cookie("jsonwebToken", token, {
+        expires: new Date(Date.now() + 1000 * 60 * 60),
+        path: "/",
+        httpOnly: true,
+        sameSite: "lax",
+      });
       if (isMatch) {
         const { password, ...others } = user._doc;
-        // implementing jsonweb token
-        const token = jwt.sign(
-          { id: user._id, isAdmin: user.isAdmin },
-          process.env.JWT_SECRET_KEY,
-          { expiresIn: "1hr" }
-        );
-        // saving in cookie
-        res.cookie("jsonwebToken", token, {
-          expires: new Date(Date.now() + 1000 * 60 * 60),
-          path: "/",
-          httpOnly: true,
-          sameSite: "lax",
-        });
-
         return res.status(201).json({ others, token });
       } else {
         return res.status(401).json("Invalid data");

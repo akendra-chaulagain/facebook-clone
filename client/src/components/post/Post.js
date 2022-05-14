@@ -8,11 +8,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import {  useSelector } from "react-redux";
 
 const Post = ({ data }) => {
   const id = data.userId;
   const [userIdData, setuserIdData] = useState({});
   const [didMount, setDidMount] = useState(false);
+
+  const user = useSelector((state) => state.user.currentUser.others);
+
+  
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -39,7 +45,9 @@ const Post = ({ data }) => {
             <div className="UserProfileIg">
               <img
                 className="img-fluid"
-                src={userIdData?.profilePic}
+                src={
+                  !user?.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
+                }
                 alt="pp_img"
               />
               <span>{userIdData?.firstname + " " + userIdData?.lastname}</span>

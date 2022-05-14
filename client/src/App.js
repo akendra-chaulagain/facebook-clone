@@ -13,39 +13,84 @@ import PersonalInfo from "./page/PersonalInfo/PersonalInfo";
 import ChangePassword from "./page/changePassword/ChangePassword";
 import EditPost from "./components/editPost/EditPost";
 import Addinfo from "./page/addInfo/AddInfo";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
+  const user = useSelector((state) => state.user.currentUser.others);
   return (
     <>
       <Router>
         <Routes>
           {/* home page */}
-          <Route exact path="/" element={<Home />} />
-          {/* ?register page */}
-          <Route path="/register" element={<Register />} />
+          <Route
+            exact
+            path="/"
+            element={user ? <Home /> : <Navigate to="/login" />}
+          />
+
           {/* login page */}
-          <Route path="login" element={<Login />} />
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <Login />}
+          />
 
           {/* profile page */}
-          <Route path="/user/:id" element={<Profile />} />
+          <Route
+            path="/user/:id"
+            element={user ? <Profile /> : <Navigate to="/login" />}
+          />
           {/* /add photo containeer */}
-          <Route path="/addPhoto" element={<AddPhoto />} />
+          <Route
+            path="/addPhoto"
+            element={user ? <AddPhoto /> : <Navigate to="/login" />}
+          />
           {/* bookmark */}
-          <Route path="/bookmark" element={<Bookmark />} />
+          <Route
+            path="/bookmark"
+            element={user ? <Bookmark /> : <Navigate to="/login" />}
+          />
           {/* search  */}
-          <Route path="/search" element={<Search />} />
+          <Route
+            path="/search"
+            element={user ? <Search /> : <Navigate to="/login" />}
+          />
           {/* edit profile */}
-          <Route path="/edit/:id" element={<Edit />} />
+          <Route
+            path="/edit/:id"
+            element={user ? <Edit /> : <Navigate to="/login" />}
+          />
           {/* setting page */}
-          <Route path="/setting" element={<Setting />} />
+          <Route
+            path="/setting"
+            element={user ? <Setting /> : <Navigate to="/login" />}
+          />
           {/* personal ingo(account) */}
-          <Route path="/setting/account" element={<PersonalInfo />} />
+          <Route
+            path="/setting/account"
+            element={user ? <PersonalInfo /> : <Navigate to="/login" />}
+          />
           {/* change password */}
-          <Route path="/setting/password" element={<ChangePassword />} />
+          <Route
+            path="/setting/password"
+            element={user ? <ChangePassword /> : <Navigate to="/login" />}
+          />
           {/* edit post */}
-          <Route path="/editPost/:id" element={<EditPost />} />
+          <Route
+            path="/editPost/:id"
+            element={user ? <EditPost /> : <Navigate to="/login" />}
+          />
           {/* addinfo page */}
-          <Route path="/addinfo/:id" element={<Addinfo />} />
+          <Route
+            path="/addinfo/:id"
+            element={user ? <Addinfo /> : <Navigate to="/login" />}
+          />
+          {/* ?register page */}
+          <Route
+            exact
+            path="/register"
+            element={user ? <Navigate to="/" /> : <Register />}
+          />
         </Routes>
       </Router>
     </>

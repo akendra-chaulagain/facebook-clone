@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema(
       min: 6,
       required: true,
     },
+    profilePic: {
+      type: Array,
+      default: "",
+    },
     followers: {
       type: Array,
       default: [],

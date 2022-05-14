@@ -49,6 +49,7 @@
 .introIconItem .fa-clock {
   font-size: 20px;
 }
+
 /* responsive */
 @media only screen and (max-width: 800px) {
   .introIcons p {
