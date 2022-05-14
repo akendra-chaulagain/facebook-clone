@@ -8,17 +8,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Post = ({ data }) => {
   const id = data.userId;
-  const [userIdData, setuserIdData] = useState({});
-  const [didMount, setDidMount] = useState(false);
 
   const user = useSelector((state) => state.user.currentUser.others);
 
-  
+  // user's info
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
 
+  // get post according to id
+  const [userIdData, setuserIdData] = useState({});
+  const [didMount, setDidMount] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -45,8 +54,11 @@ const Post = ({ data }) => {
             <div className="UserProfileIg">
               <img
                 className="img-fluid"
+                // if the userIdData and info's userId match then select profile pic from info
                 src={
-                  !user?.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
+                  !userIdData._id === info.userId
+                    ? "../images/avtar.jpg"
+                    : info.profilePic
                 }
                 alt="pp_img"
               />

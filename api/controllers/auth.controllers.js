@@ -6,16 +6,8 @@ const createError = require("../utils/error");
 
 // register user
 const registerUser = async (req, res, next) => {
-  const {
-    firstname,
-    lastname,
-    contact,
-    password,
-    email,
-    gender,
-    birthday,
-    profilePic,
-  } = req.body;
+  const { firstname, lastname, contact, password, email, gender, birthday } =
+    req.body;
   if (!firstname || !lastname || !contact || !password || !email) {
     return res.status(401).json("Enter all the data");
   }
@@ -34,7 +26,6 @@ const registerUser = async (req, res, next) => {
         email,
         gender,
         birthday,
-        profilePic,
       });
       // generate salt to hash password
       const salt = await bcrypt.genSalt(12);

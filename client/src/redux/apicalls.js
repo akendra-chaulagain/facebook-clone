@@ -1,5 +1,4 @@
 import axios from "axios";
-import { publicRequestToken } from "../PublicRequest";
 import {
   createInfoFailure,
   createInfoStart,
@@ -117,6 +116,19 @@ export const deletePosts = async (dispatch, id) => {
   }
 };
 
+// create info
+export const createInfo = async (dispatch, inputes) => {
+  dispatch(createInfoStart());
+  try {
+    const res = await axios.post(`/info/create`, inputes);
+    dispatch(createInfoSuccess(res.data));
+    // console.log(res.data);
+  } catch (error) {
+    console.log("unable to create info" + error);
+    dispatch(createInfoFailure());
+  }
+};
+
 // update user info
 export const updateInfoUser = async (path, dispatch, data) => {
   dispatch(updateInfoStart());
@@ -139,18 +151,5 @@ export const getUserInfo = async (dispatch) => {
   } catch (error) {
     console.log("unable to get user info" + error);
     dispatch(getUserInfoFailure());
-  }
-};
-
-// create info
-export const createInfo = async (dispatch, inputes) => {
-  dispatch(createInfoStart());
-  try {
-    const res = await axios.post(`/info/create`, inputes);
-    dispatch(createInfoSuccess(res.data));
-    // console.log(res.data);
-  } catch (error) {
-    console.log("unable to create info" + error);
-    dispatch(createInfoFailure());
   }
 };

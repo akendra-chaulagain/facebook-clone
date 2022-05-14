@@ -11,14 +11,22 @@ import StarIcon from "@mui/icons-material/Star";
 import Page from "@mui/icons-material/Flag";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import { Link } from "react-router-dom";
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo } from "../../redux/apicalls";
+import { useEffect } from "react";
 
 const Sidebar = () => {
-  const user = useSelector((state) => state.user.currentUser);
-
+  const user = useSelector((state) => state.user.currentUser.others);
 
   // user's info
-  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
+
   return (
     <>
       <div className="sidebar">
@@ -26,7 +34,7 @@ const Sidebar = () => {
           <div className="profileImgSidebar">
             <img
               className="img-fluid"
-              src={!user.profilePic ? "../images/avtar.jpg" : user.profilePic}
+              src={!info?.profilePic ? "../images/avtar.jpg" : info.profilePic}
               alt="pp_img"
             />
             <p>{user.firstname + "  " + user.lastname}</p>

@@ -9,10 +9,21 @@ import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
+
 
 const Topbar = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser.others);
+  // user's info
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
 
   return (
     <>
@@ -76,9 +87,7 @@ const Topbar = () => {
                 <img
                   className="img-fluid"
                   src={
-                    !user.profilePic
-                      ? "../images/avtar.jpg"
-                      : user.profilePic
+                    !info?.profilePic ? "../images/avtar.jpg" : info.profilePic
                   }
                   alt="pp_img"
                 />

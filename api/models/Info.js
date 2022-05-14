@@ -7,7 +7,11 @@ const infoSchema = new mongoose.Schema(
       required: true,
     },
     coverPic: {
-      type: Array,
+      type: String,
+      default: "",
+    },
+    profilePic: {
+      type: String,
       default: "",
     },
     bio: {

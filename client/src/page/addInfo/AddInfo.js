@@ -17,7 +17,6 @@ const Addinfo = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const user = useSelector((state) => state.user.currentUser.others);
-  
 
   // update user info
   const [inputes, setInputes] = useState({
@@ -34,7 +33,7 @@ const Addinfo = () => {
     e.preventDefault();
     setInputes({ ...inputes, [e.target.name]: e.target.value });
     createInfo(dispatch, inputes);
-    window.location.reload(`/user/${user._id}`);
+    // window.location.reload(`/user/${user._id}`);
   };
 
   const handleUserUpdate = () => {};
@@ -74,7 +73,7 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
-          window.location.reload(`/user/${user._id}`);
+          // window.location.reload(`/user/${user._id}`);
           alert("profile photo added..");
         });
       }
@@ -116,7 +115,7 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
-          window.location.reload(`/user/${user._id}`);
+          // window.location.reload(`/user/${user._id}`);
           alert("cover photo updated..");
         });
       }

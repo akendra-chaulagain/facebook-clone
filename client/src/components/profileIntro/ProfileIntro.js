@@ -11,8 +11,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const ProfileIntro = () => {
+  const user = useSelector((state) => state.user.currentUser.others);
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -90,11 +92,15 @@ const ProfileIntro = () => {
                   </div>
                 </div>
                 {/* edit button (when click render to profile edit page*/}
-                <div className="userInfoEditBtn">
-                  <Link className="link" to={`/edit/${userPostData._id}`}>
-                    <button>Edit profile</button>
-                  </Link>
-                </div>
+                {path === user._id ? (
+                  <div className="userInfoEditBtn">
+                    <Link className="link" to={`/edit/${userPostData._id}`}>
+                      <button>Edit profile</button>
+                    </Link>
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../redux/apicalls";
 
 const Profile = () => {
+  const user = useSelector((state) => state.user.currentUser.others);
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -92,16 +93,22 @@ const Profile = () => {
             {/* user's bio */}
             <p className="text-center">{info?.bio}</p>
             {/* edit profile button */}
-            {/* if the user does't have user's info then edit button will show */}
-            {!info ? (
-              <div className="editProfileButton">
-                <div className="akIcon">
-                  <i className="fa-solid fa-pen"></i>
-                  <Link className="link" to={`/addinfo/${path}`}>
-                    <span>edit profile</span>
-                  </Link>
-                </div>
-              </div>
+            {/* edit button is only shown to the user's  */}
+            {user._id === path ? (
+              <>
+                {!info ? (
+                  <div className="editProfileButton">
+                    <div className="akIcon">
+                      <i className="fa-solid fa-pen"></i>
+                      <Link className="link" to={`/addinfo/${path}`}>
+                        <span>edit profile</span>
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </>
             ) : (
               <></>
             )}
@@ -122,7 +129,7 @@ const Profile = () => {
           </div>
           <div className="col-md-7 rightprofilePostnadIntro">
             {userPostData?.map((data, i) => (
-              <UserPostOnly data={data} key={i} />
+              <UserPostOnly data={data} path={path} key={i} />
             ))}
           </div>
         </div>

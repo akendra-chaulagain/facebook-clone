@@ -3,11 +3,22 @@ import "./Feed.css";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserInfo } from "../../redux/apicalls";
 
 const Feed = () => {
   // user data
   const user = useSelector((state) => state.user.currentUser.others);
+
+  // user's info
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
 
   return (
     <>
@@ -19,7 +30,7 @@ const Feed = () => {
               <img
                 className="img-fluid"
                 src={
-                  !user.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
+                  !info?.profilePic ? "../images/avtar.jpg" : info.profilePic
                 }
                 alt="pp_img"
               />

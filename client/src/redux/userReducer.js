@@ -55,7 +55,6 @@ export const userSlice = createSlice({
       state.error = true;
     },
     // logout user
-    // logout user
     logOutStart: (state) => {
       state.isFetching = true;
       state.error = false;

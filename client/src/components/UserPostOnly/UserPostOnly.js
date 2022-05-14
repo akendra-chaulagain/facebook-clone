@@ -6,9 +6,10 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePosts } from "../../redux/apicalls";
+import { deletePosts, getUserInfo } from "../../redux/apicalls";
+import { useEffect } from "react";
 
-const UserPostOnly = ({ data }) => {
+const UserPostOnly = ({ data, path }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser.others);
 
@@ -18,6 +19,15 @@ const UserPostOnly = ({ data }) => {
     alert("post deleted");
     // window.location.reload(`/user/${user._id}`);
   };
+
+  // user's info
+  useEffect(() => {
+    getUserInfo(dispatch);
+  }, [dispatch]);
+  const info = useSelector((state) =>
+    state.info.infos.find((info) => info.userId === user._id)
+  );
+
   return (
     <>
       <div className="UserPostOnly">
@@ -27,9 +37,7 @@ const UserPostOnly = ({ data }) => {
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
               <img
                 className="img-fluid"
-                src={
-                  !user.profilePic[0] ? "../images/avtar.jpg" : user.profilePic
-                }
+                src={!info.profilePic ? "../images/avtar.jpg" : info.profilePic}
                 alt="pp_img"
               />
               {/* <span>Akendra Chaulagain</span> */}
@@ -40,19 +48,25 @@ const UserPostOnly = ({ data }) => {
           </Link>
 
           {/* edit button */}
-          <div className="posatIcon">
-            <button className="dropbtn">
-              <MoreHorizIcon />
-            </button>
-            <div className="dropdown-content">
-              {/* edit post */}
-              <Link className="link" to={`/editPost/${data._id}`}>
-                <p>edit post</p>
-              </Link>
-              {/* delete post */}
-              <p onClick={() => handleDelete(data._id)}>delete post</p>
+          {/* edit button is shown to the user only */}
+          {path === user._id ? (
+            <div className="posatIcon">
+              <button className="dropbtn">
+                <MoreHorizIcon />
+              </button>
+              {/* drop down */}
+              <div className="dropdown-content">
+                {/* edit post */}
+                <Link className="link" to={`/editPost/${data._id}`}>
+                  <p>edit post</p>
+                </Link>
+                {/* delete post */}
+                <p onClick={() => handleDelete(data._id)}>delete post</p>
+              </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
         </div>
 
         {/* caption */}
