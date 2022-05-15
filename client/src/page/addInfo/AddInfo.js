@@ -1,6 +1,6 @@
 import React from "react";
-import "./Addinfo.css";
-import { Link, useLocation } from "react-router-dom";
+// import "./Addinfo.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createInfo } from "../../redux/apicalls";
@@ -13,6 +13,7 @@ import {
 import app from "../../firebase";
 
 const Addinfo = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -33,10 +34,19 @@ const Addinfo = () => {
     e.preventDefault();
     setInputes({ ...inputes, [e.target.name]: e.target.value });
     createInfo(dispatch, inputes);
-    // window.location.reload(`/user/${user._id}`);
+    navigate(`/user/${user._id}`);
   };
 
   const handleUserUpdate = () => {};
+
+  // preview profile iamges before uploading
+  const [image, setImage] = useState(null);
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+      setSelectImagesProfile(event.target.files[0]);
+    }
+  };
 
   //  user's profile picture
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
@@ -73,11 +83,20 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
-          // window.location.reload(`/user/${user._id}`);
+          navigate(`/user/${user._id}`);
           alert("profile photo added..");
         });
       }
     );
+  };
+
+  // preview cover iamges before uploading
+  const [coverImage, setCoverimage] = useState(null);
+  const onImageChangeCover = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setCoverimage(URL.createObjectURL(event.target.files[0]));
+      setSelectImageCover(event.target.files[0]);
+    }
   };
 
   //  user's cover images
@@ -115,7 +134,6 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
-          // window.location.reload(`/user/${user._id}`);
           alert("cover photo updated..");
         });
       }
@@ -146,12 +164,15 @@ const Addinfo = () => {
                   id="file"
                   style={{ display: "none" }}
                   name="profilePic"
-                  onChange={(e) => setSelectImagesProfile(e.target.files[0])}
-                  // onChange={onImageChange}
+                  onChange={onImageChange}
                 />
               </label>
             </div>
-            <img src="../images/avtar.jpg" alt="profilePic" />
+
+            <img
+              src={!image ? "../images/avtar.jpg" : image}
+              alt="profilePic"
+            />
             <div className="saveButtonP">
               <p className="text-center" onClick={handleSubmitData}>
                 save
@@ -174,12 +195,15 @@ const Addinfo = () => {
                   id="files"
                   style={{ display: "none" }}
                   name="coverPic"
-                  onChange={(e) => setSelectImageCover(e.target.files[0])}
+                  onChange={onImageChangeCover}
                 />
               </label>
             </div>
             {/* cover pic */}
-            <img src="../images/avtar.jpg" alt="cover_img" />
+            <img
+              src={!coverImage ? "../images/avtar.jpg" : coverImage}
+              alt="cover_img"
+            />
             <div className="saveButtonP">
               <p className="text-center" onClick={handleSubmitDataCover}>
                 save

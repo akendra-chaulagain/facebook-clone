@@ -15,84 +15,87 @@ import EditPost from "./components/editPost/EditPost";
 import Addinfo from "./page/addInfo/AddInfo";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import "./App.css";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser.others);
   return (
     <>
-      <Router>
-        <Routes>
-          {/* home page */}
-          <Route
-            exact
-            path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
-          />
+      <div className="app dark">
+        <Router>
+          <Routes>
+            {/* home page */}
+            <Route
+              exact
+              path="/"
+              element={user ? <Home /> : <Navigate to="/login" />}
+            />
 
-          {/* login page */}
-          <Route
-            path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
-          />
+            {/* login page */}
+            <Route
+              path="/login"
+              element={user ? <Navigate to="/" /> : <Login />}
+            />
 
-          {/* profile page */}
-          <Route
-            path="/user/:id"
-            element={user ? <Profile /> : <Navigate to="/login" />}
-          />
-          {/* /add photo containeer */}
-          <Route
-            path="/addPhoto"
-            element={user ? <AddPhoto /> : <Navigate to="/login" />}
-          />
-          {/* bookmark */}
-          <Route
-            path="/bookmark"
-            element={user ? <Bookmark /> : <Navigate to="/login" />}
-          />
-          {/* search  */}
-          <Route
-            path="/search"
-            element={user ? <Search /> : <Navigate to="/login" />}
-          />
-          {/* edit profile */}
-          <Route
-            path="/edit/:id"
-            element={user ? <Edit /> : <Navigate to="/login" />}
-          />
-          {/* setting page */}
-          <Route
-            path="/setting"
-            element={user ? <Setting /> : <Navigate to="/login" />}
-          />
-          {/* personal ingo(account) */}
-          <Route
-            path="/setting/account"
-            element={user ? <PersonalInfo /> : <Navigate to="/login" />}
-          />
-          {/* change password */}
-          <Route
-            path="/setting/password"
-            element={user ? <ChangePassword /> : <Navigate to="/login" />}
-          />
-          {/* edit post */}
-          <Route
-            path="/editPost/:id"
-            element={user ? <EditPost /> : <Navigate to="/login" />}
-          />
-          {/* addinfo page */}
-          <Route
-            path="/addinfo/:id"
-            element={user ? <Addinfo /> : <Navigate to="/login" />}
-          />
-          {/* ?register page */}
-          <Route
-            exact
-            path="/register"
-            element={user ? <Navigate to="/" /> : <Register />}
-          />
-        </Routes>
-      </Router>
+            {/* profile page */}
+            <Route
+              path="/user/:id"
+              element={user ? <Profile /> : <Navigate to="/login" />}
+            />
+            {/* /add photo containeer */}
+            <Route
+              path="/addPhoto"
+              element={user ? <AddPhoto /> : <Navigate to="/login" />}
+            />
+            {/* bookmark */}
+            <Route
+              path="/bookmark"
+              element={user ? <Bookmark /> : <Navigate to="/login" />}
+            />
+            {/* search  */}
+            <Route
+              path="/search"
+              element={user ? <Search /> : <Navigate to="/login" />}
+            />
+            {/* edit profile */}
+            <Route
+              path="/edit/:id"
+              element={user ? <Edit /> : <Navigate to="/login" />}
+            />
+            {/* setting page */}
+            <Route
+              path="/setting"
+              element={user ? <Setting /> : <Navigate to="/login" />}
+            />
+            {/* personal ingo(account) */}
+            <Route
+              path="/setting/account"
+              element={user ? <PersonalInfo /> : <Navigate to="/login" />}
+            />
+            {/* change password */}
+            <Route
+              path="/setting/password"
+              element={user ? <ChangePassword /> : <Navigate to="/login" />}
+            />
+            {/* edit post */}
+            <Route
+              path="/editPost/:id"
+              element={user ? <EditPost /> : <Navigate to="/login" />}
+            />
+            {/* addinfo page */}
+            <Route
+              path="/addinfo/:id"
+              element={user ? <Addinfo /> : <Navigate to="/login" />}
+            />
+            {/* ?register page */}
+            <Route
+              exact
+              path="/register"
+              element={user ? <Navigate to="/" /> : <Register />}
+            />
+          </Routes>
+        </Router>
+      </div>
     </>
   );
 };

@@ -111,6 +111,13 @@
   color: red;
   cursor: not-allowed;
 }
+@media only screen and (max-width: 1350px) {
+   .addPhotoIconText img {
+    width: 100%;
+    border-radius: 10px;
+    width: 17vh;
+  }
+}
 
 @media only screen and (max-width: 800px) {
   .addphotoWrapper {
@@ -129,5 +136,10 @@
     font-size: 14px;
     margin-bottom: 20px;
     font-weight: 700;
+  }
+  .addPhotoIconText img {
+    width: 33%;
+    border-radius: 10px;
+    width: 17vh;
   }
 }

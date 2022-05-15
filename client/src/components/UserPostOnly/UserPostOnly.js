@@ -1,7 +1,6 @@
 import React from "react";
 import "./UserPostOnly.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
@@ -37,7 +36,9 @@ const UserPostOnly = ({ data, path }) => {
               {/* <img className="img-fluid" src="./images/p.jpeg" alt="pp_img" /> */}
               <img
                 className="img-fluid"
-                src={!info.profilePic ? "../images/avtar.jpg" : info.profilePic}
+                src={
+                  !info.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                }
                 alt="pp_img"
               />
               {/* <span>Akendra Chaulagain</span> */}
@@ -77,17 +78,17 @@ const UserPostOnly = ({ data, path }) => {
         <div className="postImgTimeLineUser">
           <img src={data.img} alt="post_img" />
         </div>
-        <hr />
-        <div className="likeNumber">
+        <div className="likeNumber mt-4">
           <span>
-            <FavoriteIcon />
+            <i class="fa-solid fa-thumbs-up"></i>
           </span>
           <p>49</p>
         </div>
+        <hr />
         {/* .like and comment section */}
         <div className="likeContainer">
           <div className="likeandLove">
-            <FavoriteIcon />
+            <i class="fa-solid fa-thumbs-up"></i>
             <span>Like</span>
           </div>
 

@@ -22,14 +22,14 @@ const Setting = () => {
           {/* setting Link */}
           <div className="settingLinks">
             {/* user info */}
-            <Link className="link" to="/setting/account">
+            <Link className="link settingLinks" to="/setting/account">
               <i className="fa-solid fa-user"></i>
               <span>Personal and account information</span>
             </Link>
           </div>
           {/* password and securiyu */}
           <div className="settingLinks">
-            <Link className="link" to="/setting/password">
+            <Link className="link settingLinks" to="/setting/password">
               <i className="fa-solid fa-shield-halved"></i>
               <span>Password and security</span>
             </Link>

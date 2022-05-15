@@ -9,6 +9,7 @@ const {
   getAllPost,
   likeAndDisLikePost,
   timeLine,
+  getUserPostInfoOnly,
 } = require("../controllers/posts.controllers");
 const verifyUser = require("../middleware/verify");
 const verifyToken = require("../middleware/verify");
@@ -27,6 +28,7 @@ router.get("/find/:id", findBYIdPost);
 
 // get post according to user id in post
 router.post("/find/individualpost", getUserPostOnly);
+
 
 // get all post
 router.get("/all", getAllPost);

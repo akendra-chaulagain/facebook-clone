@@ -73,7 +73,6 @@ const AddPhoto = () => {
           const post = {
             desc,
             userId,
-            infoId: info._id,
             img: downloadURL,
           };
           createPost(post, dispatch);

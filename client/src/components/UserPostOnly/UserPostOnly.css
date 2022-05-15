@@ -94,32 +94,31 @@
   margin-bottom: 5px;
 }
 
-/* like and comment section */
 .likeContainer {
   display: flex;
   justify-content: space-evenly;
   color: #65676b;
 }
-.likeContainer span {
-  margin-left: 4px;
-  font-size: 15px;
+.likeContainer .fa-thumbs-up {
+  font-size: 20px;
 }
-.likeandLove {
-  cursor: pointer;
-}
-.likeandLove:hover {
-  color: red;
-}
-.likeandLove span {
-  color: #65676b;
+.likeandLove .fa-thumbs-up:hover {
+  color: rgb(25, 25, 192);
 }
 .comment {
   cursor: pointer;
+}
+.comment span {
+  margin-left: 5px;
 }
 
 .share {
   cursor: pointer;
   margin-bottom: 20px;
+}
+.share span {
+  margin-left: 3px;
+  font-size: 15px;
 }
 
 /* like number */
@@ -129,9 +128,10 @@
   color: #65676b;
   font-size: 15px;
 }
-.likeNumber span {
-  color: red;
+.likeNumber .fa-thumbs-up {
   font-size: 10px;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 /* responsive of post*/

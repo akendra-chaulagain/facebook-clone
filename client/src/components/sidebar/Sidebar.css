@@ -1,11 +1,12 @@
 .sidebar {
   flex: 1.5;
-  background-color: #f0f2f5;
+  /* background-color: #f0f2f5; */
   margin-top: 9.2vh;
   height: 100vh;
   position: fixed;
   margin-left: -10px;
   width: 25%;
+  
 }
 
 .sidebar:hover {
@@ -61,10 +62,10 @@
   margin-top: 22px;
 }
 
-.text {
-  color: #444545;
-  margin-left: 15px;
-  font-size: 15px;
+.text span{
+  /* color: #444545; */
+  margin-left: 1px;
+  font-size: 13px;
   margin-top: 5px;
   font-weight: 600;
 }

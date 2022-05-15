@@ -15,3 +15,187 @@
   background-color: inherit;
   color: initial;
 }
+:root {
+  ---secondary-color: rgb(212, 209, 209);
+}
+
+/* dark mode */
+.app.dark {
+  background-color: #222;
+  color: var(---secondary-color);
+}
+
+/* topbar dar mode */
+.app.dark .tobarContainer {
+  background-color: #222;
+  box-shadow: -1px 6px 10px -9px rgba(255, 254, 254, 0.56);
+  border: none;
+}
+.app.dark .tobarContainer .searchIcon .fa-magnifying-glass {
+  color: var(---secondary-color);
+}
+.app.dark .tobarContainer .searchIcon .fa-facebook-messenger {
+  color: var(---secondary-color);
+}
+
+.app.dark .tobarContainer .profileImg span {
+  color: var(---secondary-color);
+}
+.app.dark .tobarContainer .rightIconItem {
+  color: white;
+  background-color: black;
+}
+.app.dark .tobarContainer .rightSideTopbar .toggle {
+  background-color: white;
+}
+
+.app.dark .tobarContainer .rightSideTopbar .indicator {
+  background: black;
+}
+
+/* sidebar dark mode style */
+.app.dark .sidebar .profileImgSidebar p {
+  color: white;
+}
+.app.dark .sidebar span {
+  color: var(---secondary-color);
+}
+.app.dark .sidebar .sidebatIcon :hover {
+  background-color: rgb(49, 49, 49);
+}
+
+/* post dark mode */
+.app.dark .post {
+  color: var(---secondary-color);
+  background-color: rgb(49, 49, 49);
+  border: none;
+}
+.app.app.dark .post .UserProfileIg span {
+  color: var(---secondary-color);
+}
+.app.dark .post .likeContainer {
+  color: var(---secondary-color);
+}
+.app.dark .post .likeNumber {
+  color: var(---secondary-color);
+}
+
+/* feed */
+.app.app.dark .feed {
+  background-color: rgb(49, 49, 49);
+  border: none;
+}
+.app.dark .feed input {
+  background-color: gray;
+}
+.app.dark .feed input::placeholder {
+  color: white;
+}
+
+/* user's intro */
+.app.dark .leftSideIntro {
+  background-color: #222;
+  border: none;
+  color: var(---secondary-color);
+  border: 1px solid rgb(68, 68, 68);
+}
+
+/* user's post only */
+.app.dark .UserPostOnly {
+  background-color: #222;
+}
+.app.dark .UserPostOnly .likeContainer {
+  color: var(---secondary-color);
+}
+
+.app.dark .UserPostOnly .likeNumber {
+  color: var(---secondary-color);
+}
+.app.dark .UserPostOnly .posatIcon button {
+  background-color: #222;
+  color: white;
+}
+.app.dark .UserPostOnly .dropdown-content {
+  background-color: var(---secondary-color);
+  color: black;
+}
+
+/* edit profile */
+.app.dark .editContainer {
+  background-color: #222;
+}
+.app.dark .editContainer .editWrapper {
+  background-color: #222;
+  color: var(---secondary-color);
+}
+.app.dark .editContainer .editheadertext h1,
+.fa-xmark {
+  color: var(---secondary-color);
+}
+.app.dark .editContainer .editheadertext .fa-xmark {
+  color: var(---secondary-color);
+}
+.app.app.dark .editContainer .editBioDesc textarea {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+.app.app.dark .editContainer .editBioDesc textarea::placeholder {
+  color: white;
+}
+
+.app.dark .editContainer input {
+  background-color: gray;
+}
+
+.app.dark .editInfoContainer label {
+  color: var(---secondary-color);
+}
+
+.app.dark .saveInfoButton button {
+  background-color: #a5b7cb;
+}
+
+/* book mark */
+.app.dark .bookmark {
+  background-color: #222;
+}
+.app.dark .bookmark h1 {
+  color: var(---secondary-color);
+}
+
+.app.dark .bookmark .sidebatIcon span {
+  color: var(---secondary-color);
+}
+
+.app.dark .bookmark .sidebatIcon :hover {
+  background-color: rgb(49, 49, 49);
+}
+
+/* setting page */
+.app.dark .settingContainer {
+  background-color: #222;
+}
+
+.app.dark .settingContainer .settingLinks span {
+  color: var(---secondary-color);
+}
+
+/* personal info page */
+.app.dark .personalInfo {
+  background-color: #222;
+}
+/* /password page */
+.app.dark .changePassword {
+  background-color: #222;
+}
+.app.dark .changePassword input {
+  background-color: gray;
+  color: white;
+}
+.app.dark .changePassword input::placeholder {
+  color: rgb(212, 209, 209);
+}
+.app.dark .changePasswordWrapperContainer {
+  box-shadow: -1px 0px 8px -3px rgba(151, 148, 148, 0.72);
+}

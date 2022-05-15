@@ -74,14 +74,14 @@ const Profile = () => {
         <div className="profilwWrapper">
           <div className="profileCoverImg">
             {/* user cover pic */}
-            <img src={info?.coverPic} alt="coverImg" />
+            <img src={!info?.coverPic?"../images/gray.jpg":info.coverPic} alt="coverImg" />
           </div>
           {/* user profileImg*/}
           <div className="profileIntroImg">
             <div className="profileImage">
               <img
                 src={
-                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                  !info?.profilePic ? "../images/avtar.jpg" : info.profilePic
                 }
                 alt="profileImg"
               />

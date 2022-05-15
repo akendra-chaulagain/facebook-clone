@@ -64,17 +64,6 @@ const getUserPostOnly = async (req, res, next) => {
   }
 };
 
-const getUserPostInfoOnly = async (req, res, next) => {
-  const { infoId } = req.body;
-  try {
-    const getIndividulaPost = await Post.find({ infoId }).sort({
-      _id: -1,
-    });
-    return res.status(201).json(getIndividulaPost);
-  } catch (err) {
-    next(err);
-  }
-};
 
 // get all post
 const getAllPost = async (req, res, next) => {
@@ -128,5 +117,4 @@ module.exports = {
   getAllPost,
   getUserPostOnly,
   findBYIdPost,
-  getUserPostInfoOnly,
 };

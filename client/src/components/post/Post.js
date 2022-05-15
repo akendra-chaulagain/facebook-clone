@@ -1,7 +1,6 @@
 import React from "react";
 import "./Post.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 import { Link } from "react-router-dom";
@@ -24,30 +23,9 @@ const Post = ({ data }) => {
   const info = useSelector((state) =>
     state.info.infos.find((info) => info.userId === user._id)
   );
-  console.log(info._id);
-
-  // get user's according to infoId in post
-  const [userPostData, setUserPostData] = useState({});
-  const [didMount, setDidMount] = useState(false);
-  useEffect(() => {
-    const getUserPostData = async () => {
-      try {
-        const res = await axios.post("/posts/find/individualpostInfo", {
-          infoId: data._id,
-        });
-        setUserPostData(res.data);
-        setDidMount(true);
-      } catch (error) {
-        console.log("unable to get user id post " + error);
-      }
-    };
-    getUserPostData();
-    return () => setDidMount(false);
-  }, [info._id]);
-  console.log(userPostData);
-  // console.log(data.infoId);
 
   // get post according to id
+  const [didMount, setDidMount] = useState(false);
   const [userIdData, setuserIdData] = useState({});
   useEffect(() => {
     const getData = async () => {
@@ -76,11 +54,7 @@ const Post = ({ data }) => {
               <img
                 className="img-fluid"
                 // if the userIdData and info's userId match then select profile pic from info
-                src={
-                  !userIdData._id === info.userId
-                    ? "../images/avtar.jpg"
-                    : info.profilePic
-                }
+                src={"../images/avtar.jpg"}
                 alt="pp_img"
               />
               <span>{userIdData?.firstname + " " + userIdData?.lastname}</span>
@@ -103,17 +77,17 @@ const Post = ({ data }) => {
         <div className="postImgTimeLine">
           <img src={data.img} alt="post_img" />
         </div>
-        <hr />
-        <div className="likeNumber">
+        <div className="likeNumber mt-4">
           <span>
-            <FavoriteIcon />
+            <i class="fa-solid fa-thumbs-up"></i>
           </span>
           <p>49</p>
         </div>
+        <hr />
         {/* .like and comment section */}
         <div className="likeContainer">
           <div className="likeandLove">
-            <FavoriteIcon />
+            <i class="fa-solid fa-thumbs-up"></i>
             <span>Like</span>
           </div>
 

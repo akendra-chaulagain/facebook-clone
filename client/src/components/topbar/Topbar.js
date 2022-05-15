@@ -4,15 +4,11 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
 import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
 import PeopleOutlineRoundedIcon from "@mui/icons-material/PeopleOutlineRounded";
-import Notification from "@material-ui/icons/Notifications";
 import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
-import LogoutIcon from "@mui/icons-material/Logout";
-import SettingsIcon from "@mui/icons-material/Settings";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserInfo } from "../../redux/apicalls";
-
 
 const Topbar = () => {
   const user = useSelector((state) => state.user.currentUser.others);
@@ -51,36 +47,45 @@ const Topbar = () => {
           {/* middle side topbar */}
           <div className="col-md-4 middleSideTopbar">
             {/* link is used to render to home page */}
-            <Link to="/">
+            <Link className="link" to="/">
               <div className="middleIconElement">
-                <HomeRoundedIcon style={{ fontSize: 32 }} />
-                <p className="hide">Home</p>
+                <i className="fa-solid fa-house"></i>
               </div>
             </Link>
 
             <div className="middleIconElement">
-              <OndemandVideoRoundedIcon style={{ fontSize: 29 }} />
-              <p className="hide">Watch</p>
+              <i className="fa-solid fa-video"></i>
             </div>
             <div className="middleIconElement">
-              <StorefrontRoundedIcon style={{ fontSize: 29 }} />
-              <p className="hide">Marketplace</p>
+              <i className="fa-solid fa-store"></i>
             </div>
             <div className="middleIconElement">
-              <PeopleOutlineRoundedIcon style={{ fontSize: 29 }} />
-              <p className="hide">Groups</p>
+              <i className="fa-solid fa-user-group"></i>
             </div>
             <div className="middleIconElement menuItems">
               {/* render to menu(bookmark) part */}
               <Link className="link" to="/bookmark">
-                <Menu style={{ fontSize: 24 }} />
-                <p className="hide">Menu</p>
+                <i className="fa-solid fa-bars"></i>
               </Link>
             </div>
           </div>
 
           {/*  left side topbar*/}
           <div className="col-md-4 rightSideTopbar">
+            {/* toggle(dark mode) */}
+            <label className="label">
+              <div className="toggle">
+                <input
+                  className="toggle-state"
+                  type="checkbox"
+                  name="check"
+                  value="check"
+                />
+                <div className="indicator"></div>
+              </div>
+              <div className="label-text"></div>
+            </label>
+
             {/* link is used to render to home page */}
             <Link className="link" to={`/user/${user?._id}`}>
               <div className="profileImg">
@@ -102,30 +107,13 @@ const Topbar = () => {
               </div>
               {/* nofification */}
               <div className="rightIconItem">
-                <Notification style={{ fontSize: 21 }} />
+                <i class="fa-solid fa-bell"></i>
               </div>
               {/* render to setting  */}
               <div className="rightIconItem">
-                <Link className="link" to="/setting">
-                  <SettingsIcon style={{ fontSize: 24 }} />
+                <Link className="link rightIconItem" to="/setting">
+                  <i class="fa-solid fa-gear"></i>
                 </Link>
-              </div>
-              {/* drow down menu */}
-              <div className="rightIconItem dropDownItem">
-                <div className="dropdown">
-                  <button
-                    className=" dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  ></button>
-                  <ul className="dropdown-menu ">
-                    <div className="dropDownIcon">
-                      <LogoutIcon /> <span>Log Out</span>
-                    </div>
-                  </ul>
-                </div>
               </div>
               {/* </div> */}
             </div>

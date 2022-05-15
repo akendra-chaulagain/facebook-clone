@@ -34,7 +34,6 @@ const Edit = () => {
     };
     getUserPostData();
   }, [path]);
-  console.log(userInfoData);
 
   // update user info
   const [study, setStudy] = useState(userInfoData.study);
@@ -55,7 +54,7 @@ const Edit = () => {
       bio,
       insta,
     });
-    // navigate(`/user/${user._id}`);
+    navigate(`/user/${user._id}`);
     alert("profile info updated !");
   };
 
@@ -102,7 +101,7 @@ const Edit = () => {
           };
           // updateInfoUser(path, dispatch, data);
           updateInfoUser(path, dispatch, data);
-          // navigate(`/user/${user._id}`);
+          navigate(`/user/${user._id}`);
           alert("profile photo update..");
         });
       }
@@ -151,7 +150,7 @@ const Edit = () => {
             coverPic: downloadURL,
           };
           updateInfoUser(path, dispatch, data);
-          // navigate(`/user/${user._id}`);
+          navigate(`/user/${user._id}`);
           alert("cover photo updated..");
         });
       }
