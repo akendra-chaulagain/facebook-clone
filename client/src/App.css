@@ -44,13 +44,13 @@
   color: white;
   background-color: black;
 }
-.app.dark .tobarContainer .rightSideTopbar .toggle {
+/* .app.dark .tobarContainer .rightSideTopbar .toggle {
   background-color: white;
 }
 
 .app.dark .tobarContainer .rightSideTopbar .indicator {
   background: black;
-}
+} */
 
 /* sidebar dark mode style */
 .app.dark .sidebar .profileImgSidebar p {
@@ -119,9 +119,8 @@
   color: black;
 }
 
-
 /* profile */
-.app.dark .userProfileNameSpan{
+.app.dark .userProfileNameSpan {
   color: var(---secondary-color);
 }
 

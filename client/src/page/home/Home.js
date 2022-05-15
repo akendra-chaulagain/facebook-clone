@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { getAllPost } from "../../redux/apicalls";
 import Loading from "../../components/Loading/Loading";
 
-const Home = () => {
+const Home = ({ setDarkMode, darkMode }) => {
   const dispatch = useDispatch();
   const post = useSelector((state) => state.post.posts);
   const isLoading = useSelector((state) => state.post.isLoading);
@@ -30,7 +30,7 @@ const Home = () => {
       ) : (
         <>
           {/* when user get all the data from database then the user will get the all data in the diisplay */}
-          <Topbar />
+          <Topbar setDarkMode={setDarkMode} darkMode={darkMode} />
           <div className="container-fluid">
             <div className="row">
               <div className="col-3 sidebarHomePage">

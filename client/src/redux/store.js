@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import postReducer from "./postReducer";
 import userReducer from "./userReducer";
 import infoReducer from "./infoReducer";
+import darkModeReducer from "./darkModeReducer";
 
 import {
   persistStore,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   post: postReducer,
   user: userReducer,
   info: infoReducer,
+  dark: darkModeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

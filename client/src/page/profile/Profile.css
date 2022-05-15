@@ -2,6 +2,7 @@
   width: 100%;
   height: auto;
   /* margin-left: 10%; */
+  overflow: hidden;
 }
 .progileTopbar {
   width: 100%;

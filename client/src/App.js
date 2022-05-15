@@ -16,19 +16,30 @@ import Addinfo from "./page/addInfo/AddInfo";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import "./App.css";
+import { useEffect } from "react";
+import { TOGGLE } from "./redux/darkModeReducer";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser.others);
+
+  // Dark mode
+  useEffect(() => {
+    TOGGLE();
+  }, []);
+  const { darkMode } = useSelector((state) => state.dark);
+
   return (
     <>
-      <div className="app dark">
+      <div className={darkMode ? "app dark" : "app"}>
         <Router>
           <Routes>
             {/* home page */}
             <Route
               exact
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              element={
+                user ? <Home darkMod={darkMode} /> : <Navigate to="/login" />
+              }
             />
 
             {/* login page */}

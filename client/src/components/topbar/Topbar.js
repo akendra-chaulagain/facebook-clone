@@ -1,14 +1,12 @@
 import React from "react";
 import "./Topbar.css";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
-import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
-import PeopleOutlineRoundedIcon from "@mui/icons-material/PeopleOutlineRounded";
-import Menu from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserInfo } from "../../redux/apicalls";
+import { TOGGLE, DARK, LIGHT } from "../../redux/darkModeReducer";
+import { dark } from "@material-ui/core/styles/createPalette";
+import { useState } from "react";
 
 const Topbar = () => {
   const user = useSelector((state) => state.user.currentUser.others);
@@ -20,6 +18,11 @@ const Topbar = () => {
   const info = useSelector((state) =>
     state.info.infos.find((info) => info.userId === user._id)
   );
+  // Dark mode
+  useEffect(() => {
+    TOGGLE();
+  }, []);
+  const { darkMode } = useSelector((state) => state.dark);
 
   return (
     <>
@@ -73,18 +76,14 @@ const Topbar = () => {
           {/*  left side topbar*/}
           <div className="col-md-4 rightSideTopbar">
             {/* toggle(dark mode) */}
-            <label className="label">
-              <div className="toggle">
-                <input
-                  className="toggle-state"
-                  type="checkbox"
-                  name="check"
-                  value="check"
-                />
-                <div className="indicator"></div>
-              </div>
-              <div className="label-text"></div>
-            </label>
+            <div className="toggleButton">
+              <input
+                className="l"
+                type="checkbox"
+                onChange={() => dispatch(DARK() ? TOGGLE() : DARK())}
+                checked={darkMode}
+              />
+            </div>
 
             {/* link is used to render to home page */}
             <Link className="link" to={`/user/${user?._id}`}>
