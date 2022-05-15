@@ -22,7 +22,6 @@
 /* dark mode */
 .app.dark {
   background-color: #222;
-  color: var(---secondary-color);
 }
 
 /* topbar dar mode */
@@ -120,6 +119,12 @@
   color: black;
 }
 
+
+/* profile */
+.app.dark .userProfileNameSpan{
+  color: var(---secondary-color);
+}
+
 /* edit profile */
 .app.dark .editContainer {
   background-color: #222;
@@ -146,6 +151,7 @@
 
 .app.dark .editContainer input {
   background-color: gray;
+  color: white;
 }
 
 .app.dark .editInfoContainer label {
@@ -198,4 +204,25 @@
 }
 .app.dark .changePasswordWrapperContainer {
   box-shadow: -1px 0px 8px -3px rgba(151, 148, 148, 0.72);
+}
+
+/* add photo  */
+.app.dark .addPhoto {
+  background-color: #222;
+}
+
+.app.dark .addPhoto .addphotoWrapper {
+  background-color: #222;
+  box-shadow: -1px 0px 8px -3px rgba(177, 176, 176, 0.72);
+}
+.app.dark .addPhoto .addPhotofeed textarea {
+  background-color: gray;
+  color: var(---secondary-color);
+}
+.app.dark .addPhoto .addPhotofeed textarea::placeholder {
+  color: var(---secondary-color);
+}
+.app.dark .addPhoto .addphotoBox {
+  background-color: gray;
+  color: black;
 }
