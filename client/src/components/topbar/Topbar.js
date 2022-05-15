@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserInfo } from "../../redux/apicalls";
-import { TOGGLE, DARK, LIGHT } from "../../redux/darkModeReducer";
-import { dark } from "@material-ui/core/styles/createPalette";
-import { useState } from "react";
+import { TOGGLE, DARK } from "../../redux/darkModeReducer";
 
 const Topbar = () => {
   const user = useSelector((state) => state.user.currentUser.others);
@@ -106,12 +104,12 @@ const Topbar = () => {
               </div>
               {/* nofification */}
               <div className="rightIconItem">
-                <i class="fa-solid fa-bell"></i>
+                <i className="fa-solid fa-bell"></i>
               </div>
               {/* render to setting  */}
               <div className="rightIconItem">
                 <Link className="link rightIconItem" to="/setting">
-                  <i class="fa-solid fa-gear"></i>
+                  <i className="fa-solid fa-gear"></i>
                 </Link>
               </div>
               {/* </div> */}

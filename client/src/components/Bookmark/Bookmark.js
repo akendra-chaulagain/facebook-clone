@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import { useEffect } from "react";
 import { getUserInfo } from "../../redux/apicalls";
+import { DARK, TOGGLE } from "../../redux/darkModeReducer";
 
 const Bookmark = () => {
   // user
@@ -26,6 +27,11 @@ const Bookmark = () => {
   const info = useSelector((state) =>
     state.info.infos.find((info) => info.userId === user._id)
   );
+  // Dark mode
+  useEffect(() => {
+    TOGGLE();
+  }, []);
+  const { darkMode } = useSelector((state) => state.dark);
 
   return (
     <>
@@ -52,7 +58,7 @@ const Bookmark = () => {
               <hr />
             </Link>
 
-            <div className="sidebatIcon">
+            <div className="sidebatIconBookmark">
               <div className="bookmarkIconItem friend">
                 <GroupAddIcon style={{ fontSize: 29 }} />
                 <div className="text">
@@ -98,11 +104,25 @@ const Bookmark = () => {
                   </div>
                 </Link>
               </div>
+
               {/* logout */}
               <div className="bookmarkIconItem logoutBtn">
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 <div className="text ">
                   <span>Log Out</span>
+                </div>
+              </div>
+
+              {/* toggle(dark mode)  */}
+              {/* css of toggle icon are present in topbar css */}
+              <div className="bookmarkIconItemToggle">
+                <div className="toggleButton">
+                  <input
+                    className="l"
+                    type="checkbox"
+                    onChange={() => dispatch(DARK() ? TOGGLE() : DARK())}
+                    checked={darkMode}
+                  />
                 </div>
               </div>
             </div>

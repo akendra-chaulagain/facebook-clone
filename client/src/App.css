@@ -44,14 +44,6 @@
   color: white;
   background-color: black;
 }
-/* .app.dark .tobarContainer .rightSideTopbar .toggle {
-  background-color: white;
-}
-
-.app.dark .tobarContainer .rightSideTopbar .indicator {
-  background: black;
-} */
-
 /* sidebar dark mode style */
 .app.dark .sidebar .profileImgSidebar p {
   color: white;
@@ -169,13 +161,11 @@
   color: var(---secondary-color);
 }
 
-.app.dark .bookmark .sidebatIcon span {
+.app.dark .bookmark .sidebatIconBookmark span {
   color: var(---secondary-color);
 }
 
-.app.dark .bookmark .sidebatIcon :hover {
-  background-color: rgb(49, 49, 49);
-}
+
 
 /* setting page */
 .app.dark .settingContainer {

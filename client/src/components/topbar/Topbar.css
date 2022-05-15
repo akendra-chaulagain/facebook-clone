@@ -157,7 +157,7 @@
   display: block;
 }
 .l:before {
-  background-color: #868383;
+  background-color: #c2c1c1;
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
@@ -283,4 +283,6 @@
   .searchbox input {
     display: none;
   }
+
+  /* hide toggle button */
 }

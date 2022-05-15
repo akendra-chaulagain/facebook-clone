@@ -8,7 +8,7 @@
 }
 
 /* profile img */
-.profileImgbookmark {
+.bookmark .profileImgbookmark {
   display: flex;
   margin-top: 10px;
 }
@@ -31,29 +31,20 @@
   margin-top: 7px;
   font-size: 20px;
 }
-.profileImgbookmark p {
-  margin-top: 33px;
-  margin-left: -43%;
-}
 
 /* icons */
 .bookmarkIconItem {
   cursor: pointer;
 }
 
-.sidebatIcon :hover {
-  background-color: rgb(236, 236, 236);
-  border-radius: 5px;
-}
-
-.group {
+.bookmark .group {
   color: rgb(27, 135, 245);
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.text {
+.bookmark .text {
   color: #444545;
   margin-left: 15px;
   font-size: 15px;
@@ -62,91 +53,97 @@
 }
 
 /* friend */
-.friend {
+.bookmark .friend {
   color: rgb(26, 126, 244);
   display: flex;
   margin-left: 25px;
   margin-top: 12px;
 }
 
-.store {
+.bookmark .store {
   color: #2593e1;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.watch {
+.bookmark .watch {
   color: #2593e1;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.page {
+.bookmark .page {
   color: #ea572a;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.memories {
+.bookmark .memories {
   color: #0165e1;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.saved {
+.bookmark .saved {
   color: #b534b9;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.events {
+.bookmark .events {
   color: rgb(244, 81, 109);
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.favourites {
+.bookmark .favourites {
   color: #f8cc48;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.recent {
+.bookmark .recent {
   color: #2593e1;
   display: flex;
   margin-left: 22px;
   margin-top: 22px;
 }
 
-.setting {
+.bookmark .setting {
   display: flex;
   margin-top: 15px;
   font-size: 15px;
 }
-.setting .fa-gear {
+.bookmark .setting .fa-gear {
   margin-top: 8px;
   margin-left: 28px;
   color: #b9cad2;
   font-size: 18px;
 }
-.logoutBtn {
+.bookmark .logoutBtn {
   color: #b9cad2;
   display: flex;
   margin-top: 12px;
   font-size: 15px;
 }
-.logoutBtn .fa-arrow-right-from-bracket {
+.bookmark .logoutBtn .fa-arrow-right-from-bracket {
   margin-top: 8px;
   margin-left: 28px;
   font-size: 18px;
 }
+/* toggle icon */
+.bookmarkIconItemToggle {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 @media only screen and (max-width: 800px) {
   .profileImgbookmark img {
     height: 35px;
