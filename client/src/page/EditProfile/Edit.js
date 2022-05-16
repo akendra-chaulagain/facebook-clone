@@ -232,7 +232,7 @@ const Edit = () => {
           <hr />
 
           {/* edit bio */}
-          <div className="editBioDesc">
+          <div className="editBioDesc ">
             <h3>Bio</h3>
             <textarea
               type="text"

@@ -67,8 +67,8 @@
     border: 1px solid rgb(186, 186, 186);
   }
   .profileImgFeed img {
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     margin-right: 2px;
     margin-left: 4px;
   }
@@ -76,20 +76,22 @@
   .profileImgFeed input {
     width: 75%;
     height: 35px;
-    font-size: 12px;
+    font-size: 10px;
     color: black;
     background-color: white;
     border: 1px solid gray;
     margin-left: 10px;
     border-radius: 20px;
     margin-top: 20px;
+    letter-spacing: 1px;
   }
+
   .feedIcons {
     padding-bottom: 10px;
   }
   .feedImageIcon span {
     margin-left: 5px;
-    font-size: 12px;
+    font-size: 11px;
   }
   .feedActivitiesIcon span {
     margin-left: 5px;

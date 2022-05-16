@@ -13,7 +13,7 @@ import { format } from "timeago.js";
 
 const Post = ({ data }) => {
   const id = data.userId;
-  const user = useSelector((state) => state.user.currentUser.others);
+  const [userIdData, setuserIdData] = useState({});
 
   // user's info
   const dispatch = useDispatch();
@@ -21,13 +21,14 @@ const Post = ({ data }) => {
     getUserInfo(dispatch);
   }, [dispatch]);
   const info = useSelector((state) =>
-    state.info.infos.find((info) => info.userId === user._id)
+    state.info.infos.find((info) => info.userId === userIdData._id)
   );
+
+  // const info = useSelector((state) => state.info.infos);
   // console.log(info);
 
   // get post according to id
   const [didMount, setDidMount] = useState(false);
-  const [userIdData, setuserIdData] = useState({});
   useEffect(() => {
     const getData = async () => {
       try {
@@ -55,7 +56,7 @@ const Post = ({ data }) => {
               <img
                 className="img-fluid"
                 // if the userIdData and info's userId match then select profile pic from info
-                src={"../images/avtar.jpg"}
+                src={info.profilePic}
                 alt="pp_img"
               />
               <span>{userIdData?.firstname + " " + userIdData?.lastname}</span>
@@ -80,7 +81,7 @@ const Post = ({ data }) => {
         </div>
         <div className="likeNumber mt-4">
           <span>
-            <i class="fa-solid fa-thumbs-up"></i>
+            <i className="fa-solid fa-thumbs-up"></i>
           </span>
           <p>49</p>
         </div>
@@ -88,7 +89,7 @@ const Post = ({ data }) => {
         {/* .like and comment section */}
         <div className="likeContainer">
           <div className="likeandLove">
-            <i class="fa-solid fa-thumbs-up"></i>
+            <i className="fa-solid fa-thumbs-up"></i>
             <span>Like</span>
           </div>
 

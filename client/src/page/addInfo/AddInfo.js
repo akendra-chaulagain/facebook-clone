@@ -34,7 +34,7 @@ const Addinfo = () => {
     e.preventDefault();
     setInputes({ ...inputes, [e.target.name]: e.target.value });
     createInfo(dispatch, inputes);
-    navigate(`/user/${user._id}`);
+    window.location.reload(`/addinfo/${user._id}`);
   };
 
   const handleUserUpdate = () => {};
@@ -83,7 +83,7 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
-          navigate(`/user/${user._id}`);
+          window.location.reload(`/addinfo/${user._id}`);
           alert("profile photo added..");
         });
       }
@@ -134,6 +134,7 @@ const Addinfo = () => {
             userId: path,
           };
           createInfo(dispatch, data);
+          window.location.reload(`/addinfo/${user._id}`);
           alert("cover photo updated..");
         });
       }

@@ -19,6 +19,7 @@ const Profile = () => {
   // get user according to user id given in url
   const [userData, setuserData] = useState({});
   const [didMount, setDidMount] = useState(false);
+  // const Id = path
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -74,14 +75,17 @@ const Profile = () => {
         <div className="profilwWrapper">
           <div className="profileCoverImg">
             {/* user cover pic */}
-            <img src={!info?.coverPic?"../images/gray.jpg":info.coverPic} alt="coverImg" />
+            <img
+              src={!info?.coverPic ? "../images/gray.jpg" : info.coverPic}
+              alt="coverImg"
+            />
           </div>
           {/* user profileImg*/}
           <div className="profileIntroImg">
             <div className="profileImage">
               <img
                 src={
-                  !info?.profilePic ? "../images/avtar.jpg" : info.profilePic
+                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
                 }
                 alt="profileImg"
               />
@@ -116,9 +120,7 @@ const Profile = () => {
         </div>
       </div>
       {/* geed import from feed component */}
-      <div className="feeDProfile">
-        <Feed />
-      </div>
+      <div className="feeDProfile">{user._id === path ? <Feed /> : <></>}</div>
       {/* for post and userInfo */}
       <div className="conatiner-fluid profilePostnadIntro">
         <div className="row">

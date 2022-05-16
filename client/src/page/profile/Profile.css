@@ -121,10 +121,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    /* background-color: white; */
   }
   .akIcon {
-    background-color: #d8dadf;
+    /* background-color: #d8dadf; */
     padding: 1px 8px 4px 8px;
     border-radius: 4px;
   }
@@ -223,7 +223,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #222;
   }
   .akIcon {
     background-color: #d8dadf;

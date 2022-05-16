@@ -68,7 +68,7 @@ const getUserPostOnly = async (req, res, next) => {
 // get all post
 const getAllPost = async (req, res, next) => {
   try {
-    const post = await Post.find().sort({ _id: 1 });
+    const post = await Post.find().sort({ _id: -1 });
     return res.status(201).json(post);
   } catch (err) {
     next(err);

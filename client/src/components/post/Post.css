@@ -113,9 +113,16 @@
     border: 1px solid rgb(203, 203, 203);
     margin-top: 7px;
   }
+  .UserProfileIg span {
+    font-size: 13px;
+  }
   .UserProfileIg h6 {
     margin-left: 33%;
     font-size: 10px;
+  }
+  .UserProfileIg img {
+    height: 35px;
+    width: 35px;
   }
   .postImgTimeLine img {
     height: 45vh;

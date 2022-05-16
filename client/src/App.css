@@ -45,6 +45,10 @@
   background-color: black;
 }
 /* sidebar dark mode style */
+.app.dark .sidebar {
+  background-color: #222;
+  color: white;
+}
 .app.dark .sidebar .profileImgSidebar p {
   color: white;
 }
@@ -234,6 +238,9 @@
 .app.dark .addPhoto .addPhotoIcon {
   color: var(---secondary-color);
 }
+.app.dark .addPhoto .postButton p{
+  color: var(---secondary-color);
+}
 /* search page */
 .app.dark .searchContainer {
   background-color: #222;
@@ -248,7 +255,7 @@
 
 /* followers  */
 
-.app.dark .followersContainer h3{
+.app.dark .followersContainer h3 {
   color: var(---secondary-color);
 }
 

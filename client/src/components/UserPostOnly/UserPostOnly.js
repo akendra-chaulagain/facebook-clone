@@ -38,7 +38,7 @@ const UserPostOnly = ({ data, path }) => {
               <img
                 className="img-fluid"
                 src={
-                  !info.profilePic ? "../images/avtar.jpg" : info?.profilePic
+                  !info?.profilePic ? "../images/avtar.jpg" : info?.profilePic
                 }
                 alt="pp_img"
               />
@@ -81,7 +81,7 @@ const UserPostOnly = ({ data, path }) => {
         </div>
         <div className="likeNumber mt-4">
           <span>
-            <i class="fa-solid fa-thumbs-up"></i>
+            <i className="fa-solid fa-thumbs-up"></i>
           </span>
           <p>49</p>
         </div>
@@ -89,7 +89,7 @@ const UserPostOnly = ({ data, path }) => {
         {/* .like and comment section */}
         <div className="likeContainer">
           <div className="likeandLove">
-            <i class="fa-solid fa-thumbs-up"></i>
+            <i className="fa-solid fa-thumbs-up"></i>
             <span>Like</span>
           </div>
 
