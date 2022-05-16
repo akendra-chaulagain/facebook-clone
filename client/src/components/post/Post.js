@@ -23,6 +23,7 @@ const Post = ({ data }) => {
   const info = useSelector((state) =>
     state.info.infos.find((info) => info.userId === user._id)
   );
+  // console.log(info);
 
   // get post according to id
   const [didMount, setDidMount] = useState(false);
