@@ -186,6 +186,7 @@
 /* setting page */
 .app.dark .settingContainer {
   background-color: #222;
+  color: var(---secondary-color);
 }
 
 .app.dark .settingContainer .settingLinks span {
@@ -195,6 +196,7 @@
 /* personal info page */
 .app.dark .personalInfo {
   background-color: #222;
+  color: var(---secondary-color);
 }
 /* /password page */
 .app.dark .changePassword {
@@ -208,6 +210,23 @@
   color: rgb(212, 209, 209);
 }
 .app.dark .changePasswordWrapperContainer {
+  box-shadow: -1px 0px 8px -3px rgba(151, 148, 148, 0.72);
+}
+
+/* changeEmail */
+
+/* change email and contactno ppage */
+.app.dark .changeEmail {
+  background-color: #222;
+}
+.app.dark .changeEmail input {
+  background-color: gray;
+  color: white;
+}
+.app.dark .changeEmail input::placeholder {
+  color: rgb(212, 209, 209);
+}
+.app.dark .changeEmailWrapperContainer {
   box-shadow: -1px 0px 8px -3px rgba(151, 148, 148, 0.72);
 }
 
@@ -238,7 +257,7 @@
 .app.dark .addPhoto .addPhotoIcon {
   color: var(---secondary-color);
 }
-.app.dark .addPhoto .postButton p{
+.app.dark .addPhoto .postButton p {
   color: var(---secondary-color);
 }
 /* search page */

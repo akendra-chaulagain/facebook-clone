@@ -18,6 +18,7 @@ import { Navigate } from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
 import { TOGGLE } from "./redux/darkModeReducer";
+import ChangeEmail from "./page/changeEmail/ChangeEmail";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser.others);
@@ -97,6 +98,11 @@ const App = () => {
             <Route
               path="/addinfo/:id"
               element={user ? <Addinfo /> : <Navigate to="/login" />}
+            />
+            {/* change email */}
+            <Route
+              path="/email"
+              element={user ? <ChangeEmail /> : <Navigate to="/login" />}
             />
             {/* ?register page */}
             <Route

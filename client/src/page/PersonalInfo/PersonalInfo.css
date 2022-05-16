@@ -46,7 +46,7 @@
     height: 5vh;
   }
   .personalInfo p {
-    font-size: 14px;
+    font-size: 13px;
     margin-left: 0%;
   }
   .personalInfoTopBarArrow .fa-arrow-left-long {
@@ -61,10 +61,10 @@
     margin-top: 2vh;
   }
   .personalInfoContent h3 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
   }
   .personalInfoContent p {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

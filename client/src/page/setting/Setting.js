@@ -34,6 +34,13 @@ const Setting = () => {
               <span>Password and security</span>
             </Link>
           </div>
+          {/* change email */}
+          <div className="settingLinks">
+            <Link className="link" to="/email">
+              <i className="fa-solid fa-envelope"></i>
+              <span>Change email & phone number</span>
+            </Link>
+          </div>
           {/* payment */}
           <div className="settingLinks">
             <i className="fa-solid fa-money-check"></i>

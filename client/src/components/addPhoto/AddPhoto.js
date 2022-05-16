@@ -2,7 +2,7 @@ import React from "react";
 import "./AddPhoto.css";
 import CloseIcon from "@mui/icons-material/Close";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
-import { Link ,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
   getStorage,
@@ -15,9 +15,8 @@ import { createPost, getUserInfo } from "../../redux/apicalls";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-
 const AddPhoto = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // user
   const user = useSelector((state) => state.user.currentUser.others);
   const userId = user._id;
@@ -78,7 +77,7 @@ const AddPhoto = () => {
             img: downloadURL,
           };
           createPost(post, dispatch);
-          navigate(`/`)
+          navigate(`/`);
         });
       }
     );
