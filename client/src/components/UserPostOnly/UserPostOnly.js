@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePosts, getUserInfo } from "../../redux/apicalls";
 import { useEffect } from "react";
+import { format } from "timeago.js";
 
 const UserPostOnly = ({ data, path }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const UserPostOnly = ({ data, path }) => {
               {/* <span>Akendra Chaulagain</span> */}
               <span>{user.firstname + " " + user.lastname}</span>
               <br />
-              <h6>{new Date(data.createdAt).toDateString()}</h6>
+              <h6>{format(data.createdAt)}</h6>
             </div>
           </Link>
 

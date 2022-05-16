@@ -95,11 +95,18 @@
 .app.dark .UserPostOnly {
   background-color: #222;
 }
-.app.dark .UserPostOnly .likeContainer {
+.app.dark .UserProfileOnyIg span {
+  color: var(---secondary-color);
+}
+.app.dark .UserProfileOnyIg h6 {
   color: var(---secondary-color);
 }
 
-.app.dark .UserPostOnly .likeNumber {
+.app.dark .UserPostOnly .likeContainer span {
+  color: var(---secondary-color);
+}
+
+.app.dark .UserPostOnly .likeNumber span {
   color: var(---secondary-color);
 }
 .app.dark .UserPostOnly .posatIcon button {
@@ -109,6 +116,13 @@
 .app.dark .UserPostOnly .dropdown-content {
   background-color: var(---secondary-color);
   color: black;
+}
+
+.app.dark .UserPostOnly .likeNumber p {
+  color: var(---secondary-color);
+}
+.app.dark .UserPostOnly .likeContainer {
+  color: var(---secondary-color);
 }
 
 /* profile */
@@ -212,4 +226,32 @@
 .app.dark .addPhoto .addphotoBox {
   background-color: gray;
   color: black;
+}
+.app.dark .addPhoto .addPhotoTitle p {
+  color: var(---secondary-color);
+}
+
+.app.dark .addPhoto .addPhotoIcon {
+  color: var(---secondary-color);
+}
+/* search page */
+.app.dark .searchContainer {
+  background-color: #222;
+}
+.app.dark .searchContainer input {
+  background-color: gray;
+  color: white;
+}
+.app.dark .searchInputBox input::placeholder {
+  color: white;
+}
+
+/* followers  */
+
+.app.dark .followersContainer h3{
+  color: var(---secondary-color);
+}
+
+.app.dark .followersUser span {
+  color: var(---secondary-color);
 }

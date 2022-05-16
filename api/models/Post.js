@@ -6,10 +6,6 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    infoId: {
-      type: String,
-      required: true,
-    },
     desc: {
       type: String,
     },
